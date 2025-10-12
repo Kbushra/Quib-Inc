@@ -4,7 +4,21 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
-app.use(express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend") ));
+
+app.set("subdomain offset", 1)
+
+app.use((req: express.Request, res: express.Response, next) =>
+{
+    if (req.subdomains.includes("examples"))
+    {
+        express.static( join(dirname(fileURLToPath(import.meta.url)), "Examples") )(req, res, next);
+    }
+    else
+    {
+        express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend") )(req, res, next);
+    }
+});
+
 app.use(express.text());
 app.use(express.json());
 
