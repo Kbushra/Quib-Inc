@@ -10,6 +10,17 @@
     box-shadow: inset 0px 0px 0px 5px rgb(219, 219, 219);
 }
 
+.masthead
+{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 190px;
+    height: 70px;
+
+    cursor: pointer;
+}
+
 .main
 {
     position: absolute;
@@ -19,6 +30,31 @@
     height: calc(100vh - 80px);
 
     background: linear-gradient(rgb(219, 219, 219), white 20px);
+}
+
+.dropdown
+{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 160px;
+    height: 70px;
+
+    background-color: white;
+    box-shadow: inset 0px 0px 0px 5px white;
+
+    display: flex;
+    justify-content: center;
+
+    cursor: default;
+
+    transition: background-color 0.2s cubic-bezier(0.1, 0.9, 1, 1), height 0.2s cubic-bezier(0.1, 0.9, 1, 1);
+}
+
+.dropdown:hover, .dropdown:focus
+{
+    background-color: rgb(224, 224, 224);
+    height: 300px;
 }
 
 p

@@ -1,3 +1,6 @@
+let masthead = document.getElementsByClassName("masthead")[0];
+masthead.addEventListener("keydown", (inp) => { if (inp.key == "Enter" || inp.key == " ") { masthead.onclick(); } });
+
 let stylesheet = document.styleSheets[0];
 let length = stylesheet.cssRules.length;
 let lightMode = true;
