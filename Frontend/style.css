@@ -21,6 +21,20 @@
     cursor: pointer;
 }
 
+.mode
+{
+    position: absolute;
+    left: 200px;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+
+    background: black;
+    box-shadow: inset 0px 0px 0px 3px rgb(58, 58, 58);
+
+    border-radius: 100%;
+}
+
 .main
 {
     position: absolute;
@@ -51,10 +65,35 @@
     transition: background-color 0.2s cubic-bezier(0.1, 0.9, 1, 1), height 0.2s cubic-bezier(0.1, 0.9, 1, 1);
 }
 
-.dropdown:hover, .dropdown:focus
+/*If the subdrop in a dropdown has focus, stay focused itself*/
+.dropdown:hover, .dropdown:has(:focus)
 {
     background-color: rgb(224, 224, 224);
     height: 300px;
+}
+
+.subdrop
+{
+    --targ-top: 0px;
+
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 140px;
+    height: 70px;
+
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.1, 0.9, 1, 1), top 0.2s cubic-bezier(0.1, 0.9, 1, 1);
+}
+
+/*If the subdrop in a dropdown has focus, keep all dropdowns visible still*/
+.dropdown:hover .subdrop, .dropdown:has(:focus) .subdrop
+{
+    opacity: 1;
+    top: var(--targ-top);
 }
 
 p
