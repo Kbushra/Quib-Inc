@@ -32,7 +32,6 @@ function swapCol(light = localStorage.getItem("lightMode") == "disabled")
         stylesheet.insertRule(".dropdown:hover, .dropdown:has(:focus) { background-color: rgb(74, 74, 74); }", stylesheet.cssRules.length);
 
         localStorage.setItem("lightMode", "disabled");
-        console.log("dark");
     }
     else
     {
@@ -43,10 +42,35 @@ function swapCol(light = localStorage.getItem("lightMode") == "disabled")
         stylesheet.insertRule(".dropdown { background-color: white; box-shadow: inset 0px 0px 0px 5px white; }", stylesheet.cssRules.length);
         stylesheet.insertRule(".dropdown:hover, .dropdown:has(:focus) { background-color: rgb(224, 224, 224); }", stylesheet.cssRules.length);
 
-        localStorage.setItem("lightMode", "enabled")
-        console.log("light");
+        localStorage.setItem("lightMode", "enabled");
     }
 }
 
 let mode = localStorage.getItem("lightMode");
 swapCol(mode != null ? mode == "enabled" : window.matchMedia("(prefers-color-scheme: light)").matches);
+
+let iframeDivs = document.getElementsByClassName("iframe");
+
+for (let i = 0; i < iframeDivs.length; i++)
+{
+    iframeDivs[i].addEventListener("click", () =>
+    {
+        let div = iframeDivs[i];
+        let ind = div.ind;
+        let frame = document.getElementsByTagName("iframe")[ind];
+
+        if (frame.src != window.getComputedStyle(div).getPropertyValue("--src"))
+        {
+            frame.style.left = div.style.left;
+            frame.style.top = div.style.top;
+            frame.src = window.getComputedStyle(div).getPropertyValue("--src");
+            
+            frame.focus();
+            frame.contentWindow.focus();
+        }
+
+        frame.requestFullscreen();
+    });
+
+    iframeDivs[i].ind = i;
+}
