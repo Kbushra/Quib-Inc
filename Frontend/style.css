@@ -1,9 +1,15 @@
+:root
+{
+    --vw: 100vw; /*To scale with scrollbar using js*/
+    --vh: 100vh;
+}
+
 .header
 {
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 100vw;
+    width: var(--vw);
     height: 80px;
 
     background: white;
@@ -40,8 +46,8 @@
     position: absolute;
     left: 0px;
     top: 80px;
-    width: 100vw;
-    height: calc(100vh - 80px);
+    width: var(--vw);
+    height: calc(var(--vh) - 80px);
 
     background: linear-gradient(rgb(219, 219, 219), white 20px);
 }
@@ -94,6 +100,11 @@
 {
     opacity: 1;
     top: var(--targ-top);
+}
+
+.subdrop:hover
+{
+    color: grey;
 }
 
 p

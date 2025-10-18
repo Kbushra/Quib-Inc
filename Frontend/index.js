@@ -70,7 +70,24 @@ for (let i = 0; i < iframeDivs.length; i++)
         }
 
         frame.requestFullscreen();
+        
+        for (let c = div.childNodes.length - 1; c >= 0; c--)
+        {
+            div.childNodes[c].remove();
+        }
     });
 
     iframeDivs[i].ind = i;
 }
+
+let header = document.getElementsByClassName("header")[0];
+let main = document.getElementsByClassName("main")[0];
+
+function updateView()
+{
+    document.documentElement.style.setProperty("--vw", document.documentElement.clientWidth + "px");
+    document.documentElement.style.setProperty("--vh", document.documentElement.clientHeight + "px");
+}
+
+updateView();
+window.addEventListener("resize", updateView);
