@@ -2,7 +2,7 @@ let clickables = document.getElementsByClassName("clickable");
 
 for (let i = 0; i < clickables.length; i++)
 {
-    clickables[i].addEventListener("keydown", (inp) => { if (inp.key == "Enter" || inp.key == " ") { clickables[i].onclick(); } });
+    clickables[i].addEventListener("keydown", (inp) => { if (inp.key == "Enter" || inp.key == " ") { clickables[i].dispatchEvent(new Event("click")); }});
 };
 
 let stylesheet = document.styleSheets[0];

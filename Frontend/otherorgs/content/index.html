@@ -8,42 +8,56 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <script src="/index.js" defer></script>
+    <div class="container">
+        <script src="/index.js" defer></script>
 
-    <div class="header">
-        <div class="masthead clickable" onclick="window.location.href = '/'" tabindex="0">
-            <p style="font-size: 40px; top: -40px; left: 10px;">Quib Inc.</p>
-            <p style="font-size: 10px; top: 35px; left: 35px;">Games, Music, Websites</p>
+        <div class="main" style="height: max(1200px, calc(var(--vh) - 80px))">
+            <p style="font-size: 30px; top: -10px; left: 700px; width: 500px; text-align: center;">
+                Though many games that Mediaocre Games are working on are unfinished, there is a finished jam game that can be on display.<br>
+                Be sure that more are coming soon, such as Monsterhome and Undertem!<br>
+                <br>
+                Both games and their music will be displayed here.
+            </p>
+
+            <p style="left: 330px; top: 480px;">Into the Darkness (Micro Jam 046)</p>
+            <iframe allow="autoplay" allowfullscreen style="left: -350px; top: 300px;"></iframe>
+            <div class="iframe clickable" style="--src: https://html-classic.itch.zone/html/14903577/index.html; left: -350px; top: 300px;" tabindex="0">
+                <img src="/Images/darkness.png" style="position: absolute; top: 5px; left: 5px; width: 300px;">
+            </div>
+
+            <p style="left: 1270px; top: 480px;">Into the Darkness - Isolation (Aaqib)</p>
+            <iframe allow="autoplay" allowfullscreen src="https://www.youtube.com/embed/wlpSJbSUSRQ" style="left: 650px; top: 300px;"></iframe>
         </div>
 
-        <div class="mode clickable" onclick="swapCol()" tabindex="0"><p style="top: -10px; left: 60px; font-size: 20px;">Mode</p></div>
-    </div>
-    
-    <div class="main">
-        <p style="font-size: 30px; top: -10px; left: calc(50vw - 250px); width: 500px; text-align: center;">
-            Content.
-        </p>
-    </div>
+        <div class="header">
+            <div class="masthead clickable" onclick="window.location.href = '/'" tabindex="0">
+                <p style="font-size: 40px; top: -40px; left: 10px;">Quib Inc.</p>
+                <p style="font-size: 10px; top: 35px; left: 35px;">Games, Music, Websites</p>
+            </div>
 
-    <div class="dropdown" style="left: calc(100vw - 480px);" tabindex="0">
-        <p style="top: -15px; font-size: 30px;">Oth. Orgs</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/info'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Info</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/content'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Content</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
-    </div>
+            <div class="mode clickable" onclick="swapCol()" tabindex="0"><p style="top: -10px; left: 60px; font-size: 20px;">Mode</p></div>
 
-    <div class="dropdown" style="left: calc(100vw - 320px);" tabindex="0">
-        <p style="top: -15px; font-size: 30px;">Projects</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/projects/games'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Games</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/projects/music'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Music</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/projects/websites'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Websites</p>
-    </div>
+            <div class="dropdown" style="left: max(calc(var(--vw) - 480px), 350px);" tabindex="0">
+                <p style="top: -15px; font-size: 30px;">Oth. Orgs</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/info'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Info</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/content'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Content</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
+            </div>
 
-    <div class="dropdown" style="left: calc(100vw - 160px);" tabindex="0">
-        <p style="top: -15px; font-size: 30px;">Info</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Main</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/info/team'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Team</p>
-        <p class="subdrop clickable" onclick="window.location.href = '/info/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
+            <div class="dropdown" style="left: max(calc(var(--vw) - 320px), 410px);" tabindex="0">
+                <p style="top: -15px; font-size: 30px;">Projects</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/projects/games'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Games</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/projects/music'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Music</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/projects/websites'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Websites</p>
+            </div>
+
+            <div class="dropdown" style="left: max(calc(var(--vw) - 160px), 670px);" tabindex="0">
+                <p style="top: -15px; font-size: 30px;">Info</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Main</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/info/team'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Team</p>
+                <p class="subdrop clickable" onclick="window.location.href = '/info/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
