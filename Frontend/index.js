@@ -12,8 +12,9 @@ function swapCol(light = localStorage.getItem("lightMode") == "disabled")
 {
     if (!window.matchMedia) { exit; }
 
-    if (stylesheet.cssRules.length > length + 5)
+    if (stylesheet.cssRules.length > length + 6)
     {
+        stylesheet.deleteRule(length + 6);
         stylesheet.deleteRule(length + 5);
         stylesheet.deleteRule(length + 4);
         stylesheet.deleteRule(length + 3);
@@ -30,6 +31,7 @@ function swapCol(light = localStorage.getItem("lightMode") == "disabled")
         stylesheet.insertRule("p { color: white; }", stylesheet.cssRules.length);
         stylesheet.insertRule(".dropdown { background-color: rgb(43, 43, 43); box-shadow: inset 0px 0px 0px 5px rgb(43, 43, 43); }", stylesheet.cssRules.length);
         stylesheet.insertRule(".dropdown:hover, .dropdown:has(:focus) { background-color: rgb(74, 74, 74); }", stylesheet.cssRules.length);
+        stylesheet.insertRule("input, textarea { background: rgba(34, 34, 34, 1); color: white; }", stylesheet.cssRules.length);
 
         localStorage.setItem("lightMode", "disabled");
     }
@@ -41,6 +43,7 @@ function swapCol(light = localStorage.getItem("lightMode") == "disabled")
         stylesheet.insertRule("p { color: black; }", stylesheet.cssRules.length);
         stylesheet.insertRule(".dropdown { background-color: white; box-shadow: inset 0px 0px 0px 5px white; }", stylesheet.cssRules.length);
         stylesheet.insertRule(".dropdown:hover, .dropdown:has(:focus) { background-color: rgb(224, 224, 224); }", stylesheet.cssRules.length);
+        stylesheet.insertRule("input, textarea { background: rgb(224, 224, 224); color: black; }", stylesheet.cssRules.length);
 
         localStorage.setItem("lightMode", "enabled");
     }
@@ -85,9 +88,20 @@ let main = document.getElementsByClassName("main")[0];
 
 function updateView()
 {
-    document.documentElement.style.setProperty("--vw", document.documentElement.clientWidth + "px");
-    document.documentElement.style.setProperty("--vh", document.documentElement.clientHeight + "px");
+    let isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isMobile)
+    {
+        document.documentElement.style.setProperty("--vw", window.innerWidth + "px"); //document.documentElement.clientWidth
+        document.documentElement.style.setProperty("--vh", window.innerHeight + "px"); //document.documentElement.clientHeight 
+    }
+    else
+    {
+        document.documentElement.style.setProperty("--vw", document.documentElement.clientWidth + "px");
+        document.documentElement.style.setProperty("--vh", document.documentElement.clientHeight + "px");
+    }
+
+    requestAnimationFrame(updateView);
 }
 
 updateView();
-window.addEventListener("resize", updateView);

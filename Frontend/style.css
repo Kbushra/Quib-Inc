@@ -137,15 +137,8 @@ iframe, .iframe
     background: none;
 }
 
-@media screen and (orientation:portrait)
+input, textarea
 {
-    .container
-    {
-        -ms-transform: rotate(-90deg);
-        -webkit-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-        width: 1920px;
-        height: 960px;
-        overflow: scroll;
-    }
+    background: white;
+    color: black;
 }
