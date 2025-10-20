@@ -19,6 +19,6 @@ form.addEventListener("submit", async (ev) =>
     result.innerText = response.status == 200 ? "Result: Successful!" :
     response.status == 413 ? "Result: Message too long!" :
     response.status == 429 ? "Result: Slow down!" :
-    response.status == 503 ? "Result: Ran out of tokens, sorry..." :
+    response.status == 503 ? "Result: No more tokens, use regular Gmail." :
     "Result: Internal Server Error.";
 });
