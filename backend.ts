@@ -1,6 +1,7 @@
 import express from "express";
 import { rateLimit } from "express-rate-limit";
-import http from "http";
+import https from "https";
+import fs from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -149,5 +150,5 @@ emailRouter.post("/email-undertem", async (req: express.Request, res: express.Re
 app.use(emailRouter);
 ////////////////////////////////
 
-const server = http.createServer(app);
+const server = https.createServer({ key: fs.readFileSync("key.pem"), cert: fs.readFileSync("cert.pem") }, app);
 server.listen(3000, "0.0.0.0", () => { console.log("Listening..."); })
