@@ -9,40 +9,7 @@ import supabase from "./supabase.js";
 
 const app = express();
 
-app.set("subdomain offset", 1)
-
-app.use((req: express.Request, res: express.Response, next) =>
-{
-    if (req.subdomains.length == 1)
-    {
-        switch (req.subdomains[0])
-        {
-            case "testimonial":
-                express.static( join(dirname(fileURLToPath(import.meta.url)), "Subdomains/testimonial") )(req, res, next);
-                break;
-            
-            case "progress":
-                express.static( join(dirname(fileURLToPath(import.meta.url)), "Subdomains/progress") )(req, res, next);
-                break;
-            
-            case "searcher":
-                express.static( join(dirname(fileURLToPath(import.meta.url)), "Subdomains/searcher") )(req, res, next);
-                break;
-            
-            case "screensaver":
-                express.static( join(dirname(fileURLToPath(import.meta.url)), "Subdomains/screensaver") )(req, res, next);
-                break;
-
-            default:
-                express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend") )(req, res, next);
-                break;
-        }
-    }
-    else
-    {
-        express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend") )(req, res, next);
-    }
-});
+app.use(express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend") ));
 
 app.use(express.text());
 app.use(express.json());
@@ -150,5 +117,5 @@ emailRouter.post("/email-undertem", async (req: express.Request, res: express.Re
 app.use(emailRouter);
 ////////////////////////////////
 
-const server = https.createServer({ key: fs.readFileSync("key.pem"), cert: fs.readFileSync("cert.pem") }, app);
-server.listen(3000, "0.0.0.0", () => { console.log("Listening..."); })
+const server = https.createServer({ key: fs.readFileSync("quibinc.dpdns.org.key"), cert: fs.readFileSync("quibinc.dpdns.org.pem") }, app);
+server.listen(443, "0.0.0.0", () => { console.log("Listening..."); })

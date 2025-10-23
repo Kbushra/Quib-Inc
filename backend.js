@@ -112,6 +112,6 @@ emailRouter.post("/email-undertem", async (req, res) => {
 });
 app.use(emailRouter);
 ////////////////////////////////
-const server = https.createServer({ key: fs.readFileSync("key.pem"), cert: fs.readFileSync("cert.pem") }, app);
-server.listen(3000, "0.0.0.0", () => { console.log("Listening..."); });
+const server = https.createServer({ key: fs.readFileSync("quibinc.dpdns.org.key"), cert: fs.readFileSync("quibinc.dpdns.org.pem") }, app);
+server.listen(443, "0.0.0.0", () => { console.log("Listening..."); });
 //# sourceMappingURL=backend.js.map
