@@ -5,7 +5,7 @@ import fs from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
-import supabase from "./supabase.ts";
+import supabase from "./supabase.js";
 
 const app = express();
 
