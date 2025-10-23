@@ -1,9 +1,9 @@
 import express from "express";
 import { rateLimit } from "express-rate-limit";
-import https from "https";
-import fs from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { configDotenv } from "dotenv";
+configDotenv();
 
 import supabase from "./supabase.js";
 
@@ -117,5 +117,5 @@ emailRouter.post("/email-undertem", async (req: express.Request, res: express.Re
 app.use(emailRouter);
 ////////////////////////////////
 
-const server = https.createServer({ key: fs.readFileSync("quibinc.dpdns.org.key"), cert: fs.readFileSync("quibinc.dpdns.org.pem") }, app);
-server.listen(443, "0.0.0.0", () => { console.log("Listening..."); })
+//PORT provided by Render
+app.listen(Number(process.env.PORT ?? 10000), "0.0.0.0", () => { console.log("Listening..."); })

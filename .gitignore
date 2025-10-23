@@ -1,3 +1,5 @@
 .env
 quibinc.dpdns.org.key
 quibinc.dpdns.org.pem
+.vercel
+node_modules/
