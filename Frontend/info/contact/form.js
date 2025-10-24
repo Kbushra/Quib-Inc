@@ -9,7 +9,7 @@ form.addEventListener("submit", async (ev) =>
 
     result.innerText = "...";
 
-    let response = await fetch("/email-aaqib",
+    let response = await fetch("/api/email-aaqib",
     {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -32,7 +32,7 @@ async function searchRequest()
 
     lastReq = performance.now();
     
-    let fetched = await fetch("/search",
+    let fetched = await fetch("/api/search",
     {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Content-Type-Options": "nosniff" },
@@ -47,7 +47,7 @@ async function searchRequest()
     clearElements(figures);
     for (let i = 0; i < response.data.length; i++)
     {
-        let file = await fetch("/download",
+        let file = await fetch("/api/download",
         {
             method: "POST",
             headers: { "Content-Type": "text/plain", "X-Content-Type-Options": "nosniff" },

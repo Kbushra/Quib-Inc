@@ -1,11 +1,12 @@
 import express from "express";
+import serverless from "serverless-http";
 import { rateLimit } from "express-rate-limit";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { configDotenv } from "dotenv";
 configDotenv();
 
-import supabase from "./supabase.js";
+import supabase from "../supabase.js";
 
 const app = express();
 
@@ -13,6 +14,17 @@ app.use(express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend"
 
 app.use(express.text());
 app.use(express.json());
+
+app.get("/test", async (req: express.Request, res: express.Response) =>
+{
+    console.log("Worked");
+    res.end();
+});
+app.get("/api/test", async (req: express.Request, res: express.Response) =>
+{
+    console.log("Api Worked");
+    res.end();
+});
 
 //SUPABASE SEARCHER SUBDOMAIN//
 const supaRouter = express.Router();
@@ -117,5 +129,4 @@ emailRouter.post("/email-undertem", async (req: express.Request, res: express.Re
 app.use(emailRouter);
 ////////////////////////////////
 
-//PORT provided by Render
-app.listen(Number(process.env.PORT ?? 10000), "0.0.0.0", () => { console.log("Listening..."); })
+export default serverless(app);
