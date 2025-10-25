@@ -1,0 +1,12 @@
+p
+{
+    position: relative;
+    color: white;
+    z-index: 10;
+}
+
+img
+{
+    z-index: 0;
+    opacity: 1;
+}

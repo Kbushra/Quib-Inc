@@ -3,7 +3,6 @@
     "rewrites":
     [
         { "source": "/api/(.*)", "destination": "/api/backend.ts" },
-        { "source": "/(.*)", "has": [{ "type": "host", "value": "learning.quibinc.dpdns.org"}], "destination": "/Learning/$1" },
         { "source": "/(.*)", "destination": "/Frontend/$1" }
     ]
 }
