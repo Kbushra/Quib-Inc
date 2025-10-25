@@ -14,6 +14,8 @@
 
     background: white;
     box-shadow: inset 0px 0px 0px 5px rgb(219, 219, 219);
+
+    display: inline-block;
 }
 
 .masthead
@@ -52,6 +54,7 @@
     background: linear-gradient(rgb(219, 219, 219), white 20px);
 
     overflow: auto;
+    display: inline-block;
 }
 
 .dropdown
