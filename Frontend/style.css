@@ -9,7 +9,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
-    width: var(--vw);
+    min-width: var(--vw);
     height: 80px;
 
     background: white;
@@ -48,7 +48,7 @@
     position: absolute;
     left: 0px;
     top: 80px;
-    width: var(--vw);
+    min-width: var(--vw);
     height: calc(var(--vh) - 80px);
 
     background: linear-gradient(rgb(219, 219, 219), white 20px);
