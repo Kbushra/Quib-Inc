@@ -1,4 +1,5 @@
 let body = document.getElementById("container");
+let clicker = document.getElementById("clicker");
 let saver = [document.getElementById("saver")];
 let saverCount = 1; //Used for saver element count, the array itself grows infinitely
 let spd = 10;
@@ -77,9 +78,9 @@ function moveSaver()
 
 setInterval(moveSaver, 1000/60);
 
-window.addEventListener("keydown", (press) =>
+clicker.addEventListener("click", () =>
 {
-	if (press.key != " " || saverCount > 3 || timer <= 0) { return; }
+	if (saverCount > 3 || timer <= 0) { return; }
 	
 	let len = saver.length;
 	saver[len] = saver[0].cloneNode(true);

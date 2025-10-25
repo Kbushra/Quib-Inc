@@ -50,6 +50,8 @@
     height: calc(var(--vh) - 80px);
 
     background: linear-gradient(rgb(219, 219, 219), white 20px);
+
+    overflow: auto;
 }
 
 .dropdown

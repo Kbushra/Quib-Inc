@@ -10,3 +10,12 @@ img
     z-index: 0;
     opacity: 1;
 }
+
+#clicker
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+}
