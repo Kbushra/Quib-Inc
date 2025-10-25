@@ -1,8 +1,6 @@
 import express from "express";
 import serverless from "serverless-http";
 import { rateLimit } from "express-rate-limit";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
 import { configDotenv } from "dotenv";
 configDotenv();
 
@@ -10,32 +8,37 @@ import supabase from "../supabase.js";
 
 const app = express();
 
-app.use(express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend") ));
+//import { join, dirname } from "path";
+//import { fileURLToPath } from "url";
+//app.use(express.static( join(dirname(fileURLToPath(import.meta.url)), "Frontend") ));
 
 app.use(express.text());
 app.use(express.json());
 
-app.get("/test", async (req: express.Request, res: express.Response) =>
+app.use(rateLimit(
 {
-    console.log("Worked");
-    res.end();
-});
-app.get("/api/test", async (req: express.Request, res: express.Response) =>
-{
-    console.log("Api Worked");
-    res.end();
-});
+    validate: false,
+    skipFailedRequests: true,
+    keyGenerator: (req: express.Request, res: express.Response) =>
+    {
+        let ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim()
+        ?? req.socket?.remoteAddress
+        ?? "unknown";
+
+        return ip;
+    }
+}));
 
 //SUPABASE SEARCHER SUBDOMAIN//
 const supaRouter = express.Router();
 
-supaRouter.post("/search", async (req: express.Request, res: express.Response) =>
+supaRouter.post("/api/search", async (req: express.Request, res: express.Response) =>
 {
     const fetched = await supabase.storage.from("Images").list("", { limit: 8, offset: req.body.page * 8, search: req.body.val });
     res.json(fetched);
 });
 
-supaRouter.post("/download", async (req: express.Request, res: express.Response) =>
+supaRouter.post("/api/download", async (req: express.Request, res: express.Response) =>
 {
     const fetched = await supabase.storage.from("Images").download(req.body);
     if (fetched.data == null) { res.send(""); return; }
@@ -52,7 +55,7 @@ app.use(supaRouter);
 const emailRouter = express.Router();
 emailRouter.use(rateLimit({ windowMs: 30 * 1000, limit: 2 }));
 
-emailRouter.post("/email-aaqib", async (req: express.Request, res: express.Response) =>
+emailRouter.post("/api/email-aaqib", async (req: express.Request, res: express.Response) =>
 {
     try
     {
@@ -89,7 +92,7 @@ emailRouter.post("/email-aaqib", async (req: express.Request, res: express.Respo
     res.end();
 });
 
-emailRouter.post("/email-undertem", async (req: express.Request, res: express.Response) =>
+emailRouter.post("/api/email-undertem", async (req: express.Request, res: express.Response) =>
 {
     try
     {
@@ -129,4 +132,4 @@ emailRouter.post("/email-undertem", async (req: express.Request, res: express.Re
 app.use(emailRouter);
 ////////////////////////////////
 
-export default serverless(app);
+export default (req: express.Request, res: express.Response) => app(req, res);

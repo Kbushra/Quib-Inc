@@ -5,6 +5,7 @@ var but = document.getElementsByTagName("button")[0];
 var page = 1;
 
 var lastReq = -1;
+const rateLimit = 3000;
 
 var figures = new Array;
 
@@ -22,9 +23,9 @@ function clearElements(arr)
 
 async function searchRequest()
 {
-    if (lastReq != -1 && (performance.now() - lastReq) < (1000))
+    if (lastReq != -1 && (performance.now() - lastReq) < rateLimit)
     {
-        result.innerText = `Timeout! ${Math.floor(((1000) + lastReq - performance.now())) / 1000}s cooldown.`;
+        result.innerText = `Timeout! ${Math.floor((rateLimit + lastReq - performance.now())) / 1000}s cooldown.`;
         return;
     }
 
