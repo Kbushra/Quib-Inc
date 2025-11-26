@@ -42,7 +42,8 @@ async function searchRequest()
 
     let response = await fetched.json();
     
-    result.innerText = response.error == null ? `Results for ${searchBar.value}` : `ERROR: ${response.errors}`;
+    console.log('API response:', response);
+    result.innerText = response.error == null ? `Results for ${searchBar.value}` : `ERROR! (in console)`;
     if (response.error != null) { return; }
 
     clearElements(figures);

@@ -29,6 +29,17 @@ app.use(rateLimit(
     }
 }));
 
+app.use((req, res, next) =>
+{
+    // Allow Neocities origin
+    res.setHeader('Access-Control-Allow-Origin', 'https://keepchatting.neocities.org');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Content-Type-Options');
+
+    if (req.method === 'OPTIONS') { return res.status(200).end(); }
+    next();
+});
+
 //SUPABASE SEARCHER SUBDOMAIN//
 const supaRouter = express.Router();
 
