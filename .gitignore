@@ -1,3 +1,10 @@
 .env
 .vercel
 node_modules/
+.git
+.vs
+*.tmp
+
+#Neocities should ignore these
+#vercel.json
+#api/
