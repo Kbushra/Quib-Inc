@@ -1,0 +1,234 @@
+/*Personal screen resolution: 1905x911*/
+
+:root
+{
+    --media-width: 1905px;
+    --font-big: min(32px, calc(var(--media-width) * 48/1905));
+    font-size: calc(var(--media-width) * 16/1905);
+
+    --black: black;
+    --white-darkerer: rgb(90, 90, 90);
+    --white-darker: rgb(219, 219, 219);
+    --white: white;
+
+    background-color: var(--white);
+}
+
+@media (prefers-color-scheme: dark)
+{
+    :root
+    {
+        --black: white;
+        --white-darkerer: rgb(150, 150, 150);
+        --white-darker: rgb(43, 43, 43);
+        --white: rgb(20, 20, 20);
+    }
+}
+
+html, body { overflow-x: hidden; }
+
+.row-flex
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 0 0 auto;
+}
+
+.column-flex, #main
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+#header-container
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: calc(var(--media-width) * 80/1905);
+
+    background: var(--white);
+    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/1905) var(--white-darker);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#header
+{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: var(--media-width);
+    height: calc(var(--media-width) * 80/1905);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#header-left
+{
+    margin-right: auto;
+
+    width: var(--media-width);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#header-right
+{
+    margin-left: auto;
+
+    position: relative;
+    left: calc(var(--media-width) * -10/1905);
+
+    width: var(--media-width);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.masthead
+{
+    position: relative;
+    width: calc(var(--media-width) * 200/1905);
+    aspect-ratio: 3/1;
+}
+
+.mode
+{
+    position: relative;
+    top: calc(var(--media-width) * 10/1905);
+    width: calc(var(--media-width) * 60/1905);
+    height: calc(var(--media-width) * 60/1905);
+
+    background: var(--black);
+    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 3/1905) var(--white-darkerer);
+
+    border-radius: 100%;
+}
+
+.clickable { cursor: pointer; }
+
+.dropdown
+{
+    position: relative;
+    top: calc(var(--media-width) * 5/1905);
+    width: calc(var(--media-width) * 160/1905);
+    height: calc(var(--media-width) * 70/1905);
+
+    background-color: var(--white);
+    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/1905) var(--white);
+
+    display: flex;
+    justify-content: center;
+
+    cursor: default;
+
+    transition: background-color 0.2s cubic-bezier(0.1, 0.9, 1, 1), height 0.2s cubic-bezier(0.1, 0.9, 1, 1);
+}
+
+/*If the subdrop in a dropdown has focus, stay focused itself*/
+.dropdown:hover, .dropdown:has(:focus)
+{
+    background-color: var(--white-darker);
+    height: calc(var(--media-width) * 300/1905);
+}
+
+.subdrop
+{
+    --targ-top: 0px;
+
+    position: absolute;
+    top: 0px;
+    left: calc(var(--media-width) * 10/1905);
+    width: calc(var(--media-width) * 140/1905);
+    height: calc(var(--media-width) * 70/1905);
+
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.1, 0.9, 1, 1), top 0.2s cubic-bezier(0.1, 0.9, 1, 1);
+
+    pointer-events: none; /*Starts out unclickable, turns clickable after transition*/
+}
+
+/*If the subdrop in a dropdown has focus, keep all dropdowns visible still*/
+.dropdown:hover .subdrop, .dropdown:has(:focus) .subdrop
+{
+    opacity: 1;
+    top: var(--targ-top);
+}
+
+.subdrop:hover
+{
+    color: var(--white-darkerer);
+}
+
+#main-container
+{
+    position: absolute;
+    left: 0px;
+    top: calc(var(--media-width) * 80/1905);
+    width: 100vw;
+
+    background: linear-gradient(var(--white-darker), var(--white) 20px);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#main
+{
+    width: var(--media-width);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+p
+{
+    position: relative;
+    color: var(--black);
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+}
+
+iframe, .iframe
+{
+    position: absolute;
+    width: calc(var(--media-width) * 1600/1905);
+    height: calc(var(--media-width) * 1000/1905);
+
+    transform: scale(0.5);
+
+    background: black;
+}
+
+/*For divs imitating iframes*/
+.iframe
+{
+    --src: "";
+    background: none;
+}
+
+input, textarea
+{
+    background: var(--white);
+    color: var(--black);
+}

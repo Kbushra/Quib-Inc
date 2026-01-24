@@ -1,5 +1,4 @@
 import express from "express";
-import serverless from "serverless-http";
 import { rateLimit } from "express-rate-limit";
 import { configDotenv } from "dotenv";
 configDotenv();
@@ -31,7 +30,7 @@ app.use(rateLimit(
 
 app.use((req, res, next) =>
 {
-    // Allow Neocities origin
+    //Allow Neocities origin
     res.setHeader('Access-Control-Allow-Origin', 'https://keepchatting.neocities.org');
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Content-Type-Options');
