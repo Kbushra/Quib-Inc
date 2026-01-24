@@ -88,7 +88,12 @@ let dropdowns = document.getElementsByClassName("dropdown");
 for (let i = 0; i < dropdowns.length; i++)
 {
     //Just focus one of the subdrops doesn't matter which one
-    dropdowns[i].addEventListener("pointerup", (ev) => { ev.currentTarget.children[1].focus(); });
+    dropdowns[i].addEventListener("pointerup", (ev) =>
+    {
+        let targ = ev.currentTarget;
+        targ.children[1].focus();
+        setTimeout(() => targ.children[1].focus(), 100);
+    });
 
     dropdowns[i].addEventListener("pointerleave", (ev) =>
     {
