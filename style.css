@@ -1,10 +1,12 @@
-/*Personal screen resolution: 1905x911*/
+/*Personal screen resolution: var(--scale-width)x911*/
 
 :root
 {
-    --media-width: 1905px;
-    --font-big: min(32px, calc(var(--media-width) * 48/1905));
-    font-size: calc(var(--media-width) * 16/1905);
+    --scale-width: 1905;
+    --media-width: calc(1px * var(--scale-width));
+    --real-media-width: calc(1px * var(--scale-width));
+    --font-big: min(32px, calc(var(--media-width) * 48/var(--scale-width)));
+    font-size: calc(var(--media-width) * 16/var(--scale-width));
 
     --black: black;
     --white-darkerer: rgb(90, 90, 90);
@@ -51,10 +53,10 @@ html, body { overflow-x: hidden; }
     left: 0px;
     top: 0px;
     width: 100vw;
-    height: calc(var(--media-width) * 80/1905);
+    height: calc(var(--media-width) * 80/var(--scale-width));
 
     background: var(--white);
-    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/1905) var(--white-darker);
+    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/var(--scale-width)) var(--white-darker);
 
     display: flex;
     flex-direction: row;
@@ -67,7 +69,7 @@ html, body { overflow-x: hidden; }
     left: 0px;
     top: 0px;
     width: var(--media-width);
-    height: calc(var(--media-width) * 80/1905);
+    height: calc(var(--media-width) * 80/var(--scale-width));
 
     display: flex;
     flex-direction: row;
@@ -90,7 +92,7 @@ html, body { overflow-x: hidden; }
     margin-left: auto;
 
     position: relative;
-    left: calc(var(--media-width) * -10/1905);
+    left: calc(var(--media-width) * -10/var(--scale-width));
 
     width: var(--media-width);
 
@@ -102,19 +104,19 @@ html, body { overflow-x: hidden; }
 .masthead
 {
     position: relative;
-    width: calc(var(--media-width) * 200/1905);
+    width: calc(var(--media-width) * 200/var(--scale-width));
     aspect-ratio: 3/1;
 }
 
 .mode
 {
     position: relative;
-    top: calc(var(--media-width) * 10/1905);
-    width: calc(var(--media-width) * 60/1905);
-    height: calc(var(--media-width) * 60/1905);
+    top: calc(var(--media-width) * 10/var(--scale-width));
+    width: calc(var(--media-width) * 60/var(--scale-width));
+    height: calc(var(--media-width) * 60/var(--scale-width));
 
     background: var(--black);
-    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 3/1905) var(--white-darkerer);
+    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 3/var(--scale-width)) var(--white-darkerer);
 
     border-radius: 100%;
 }
@@ -124,12 +126,12 @@ html, body { overflow-x: hidden; }
 .dropdown
 {
     position: relative;
-    top: calc(var(--media-width) * 5/1905);
-    width: calc(var(--media-width) * 160/1905);
-    height: calc(var(--media-width) * 70/1905);
+    top: calc(var(--media-width) * 5/var(--scale-width));
+    width: calc(var(--media-width) * 160/var(--scale-width));
+    height: calc(var(--media-width) * 70/var(--scale-width));
 
     background-color: var(--white);
-    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/1905) var(--white);
+    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/var(--scale-width)) var(--white);
 
     display: flex;
     justify-content: center;
@@ -143,7 +145,7 @@ html, body { overflow-x: hidden; }
 .dropdown:hover, .dropdown:has(:focus)
 {
     background-color: var(--white-darker);
-    height: calc(var(--media-width) * 300/1905);
+    height: calc(var(--media-width) * 300/var(--scale-width));
 }
 
 .subdrop
@@ -152,9 +154,9 @@ html, body { overflow-x: hidden; }
 
     position: absolute;
     top: 0px;
-    left: calc(var(--media-width) * 10/1905);
-    width: calc(var(--media-width) * 140/1905);
-    height: calc(var(--media-width) * 70/1905);
+    left: calc(var(--media-width) * 10/var(--scale-width));
+    width: calc(var(--media-width) * 140/var(--scale-width));
+    height: calc(var(--media-width) * 70/var(--scale-width));
 
     display: flex;
     justify-content: center;
@@ -181,7 +183,7 @@ html, body { overflow-x: hidden; }
 {
     position: absolute;
     left: 0px;
-    top: calc(var(--media-width) * 80/1905);
+    top: calc(var(--media-width) * 80/var(--scale-width));
     width: 100vw;
 
     background: linear-gradient(var(--white-darker), var(--white) 20px);
@@ -204,6 +206,7 @@ p
 {
     position: relative;
     color: var(--black);
+    text-align: center;
 
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
@@ -211,9 +214,9 @@ p
 
 iframe, .iframe
 {
-    position: absolute;
-    width: calc(var(--media-width) * 1600/1905);
-    height: calc(var(--media-width) * 1000/1905);
+    position: relative;
+    width: calc(var(--media-width) * 1600/var(--scale-width));
+    height: calc(var(--media-width) * 1000/var(--scale-width));
 
     transform: scale(0.5);
 

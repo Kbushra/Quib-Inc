@@ -8,56 +8,25 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="container">
-        <script src="/index.js" defer></script>
-
-        <div class="main" style="height: max(1500px, calc(var(--vh) - 80px));">
-            <p style="font-size: 30px; top: -10px; left: 700px; width: 500px; text-align: center;">
-                Here, you can find websites produced by Quib Inc. (click to open). For now, most of these are test projects for learning website developement, but it may grow into something much larger.
+    <div id="main-container">
+        <div id="main">
+            <p style="font-size: var(--font-big); width: calc(var(--media-width) * 800/var(--scale-width));">
+                Here, you can find websites produced by Quib Inc. (click to open).
+                For now, most of these are test projects for learning website developement, but it may grow into something much larger.
             </p>
 
-            <p style="left: 350px; top: 280px;">Testimonial Slider</p>
-            <img class="clickable" src="/Images/testimonial.png" onclick="window.location.href = '/showcase/testimonial'" style="position: absolute; width: 800px; left: 50px; top: 350px; border-radius: 2%;" tabindex="0">
-
-            <p style="left: 1400px; top: 280px;">Progress Bar</p>
-            <img class="clickable" src="/Images/progressbar.png" onclick="window.location.href = '/showcase/progress'" style="position: absolute; width: 800px; left: 1050px; top: 350px; border-radius: 2%;" tabindex="0">
-            
-            <p style="left: 330px; top: 880px;">Personal Image Searcher</p>
-            <img class="clickable" src="/Images/searcher.png" onclick="window.location.href = '/showcase/searcher'" style="position: absolute; width: 800px; left: 50px; top: 950px; border-radius: 2%;" tabindex="0">
-
-            <p style="left: 1350px; top: 880px;">Screensaver (Website game)</p>
-            <img class="clickable" src="/Images/screensaver.png" onclick="window.location.href = '/showcase/screensaver'" style="position: absolute; width: 800px; left: 1050px; top: 950px; border-radius: 2%;" tabindex="0">
-        </div>
-
-        <div class="header">
-            <div class="masthead clickable" onclick="window.location.href = '/'" tabindex="0">
-                <p style="font-size: 40px; top: -40px; left: 10px;">Quib Inc.</p>
-                <p style="font-size: 10px; top: 35px; left: 35px;">Games, Music, Websites</p>
-            </div>
-
-            <div class="mode clickable" onclick="swapCol()" tabindex="0"><p style="top: -10px; left: 60px; font-size: 20px;">Mode</p></div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 480px), 350px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Oth. Orgs</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/info'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/content'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Content</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 320px), 410px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Projects</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/games'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Games</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/music'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Music</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/websites'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Websites</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 160px), 670px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Main</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/team'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Team</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
-            </div>
+            <div id="website" class="row-flex" style="justify-content: space-evenly; flex-wrap: wrap; width: var(--media-width); row-gap: calc(var(--media-width) * 100/var(--scale-width));"></div>
+            <div style="height: calc(var(--media-width) * 300/var(--scale-width));"></div>
         </div>
     </div>
+
+    <div id="header-container"></div>
+    
+    <script src="/index.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="/elements.jsx"></script>
 </body>
 </html>

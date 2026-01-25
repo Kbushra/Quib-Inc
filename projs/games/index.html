@@ -8,74 +8,27 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="container">
-        <script src="/index.js" defer></script>
+    <script src="/index.js" defer></script>
 
-        <div class="main" style="height: max(2100px, calc(var(--vh) - 80px));">
-            <p style="font-size: 30px; top: -10px; left: 700px; width: 500px; text-align: center;">
-                Here, you can find games produced by Quib Inc. alongside their embeds (click to start). For more info, you can check Info/Team for itch.io accounts.
+    <div id="main-container">
+        <div id="main">
+            <p style="font-size: var(--font-big); width: calc(var(--media-width) * 800/var(--scale-width));">
+                Here, you can find games produced by Quib Inc. alongside their embeds (click to start).
+                For more info, you can check Info/Team for itch.io accounts.<br>
+                (Note that these are not mobile games.)
             </p>
 
-            <p style="left: 330px; top: 280px;">Polydraws (Mini Jam 177)</p>
-            <iframe allow="autoplay" allowfullscreen style="left: -350px; top: 100px;"></iframe>
-            <div class="iframe clickable" style="--src: https://html-classic.itch.zone/html/13767402/index.html; left: -350px; top: 100px;" tabindex="0">
-                <img src="/Images/polydrawstitle.png" style="position: absolute; top: 5px; left: 5px;">
-            </div>
-
-            <p style="left: 1350px; top: 280px;">Charge Cycle (Mini Jam 179)</p>
-            <iframe allow="autoplay" allowfullscreen style="left: 650px; top: 100px;"></iframe>
-            <div class="iframe clickable" style="--src: https://html-classic.itch.zone/html/13767261/index.html; left: 650px; top: 100px;" tabindex="0">
-                <img src="/Images/chargecycletitle.png" style="position: absolute; top: 5px; left: 5px;">
-            </div>
-            
-            <p style="left: 330px; top: 880px;">Nestkeeping (Mini Jam 184)</p>
-            <iframe allow="autoplay" allowfullscreen style="left: -350px; top: 700px;"></iframe>
-            <div class="iframe clickable" style="--src: https://html-classic.itch.zone/html/13686725/index.html; left: -350px; top: 700px;" tabindex="0">
-                <img src="/Images/nestkeepingtitle.png" style="position: absolute; top: 5px; left: 5px;">
-            </div>
-
-            <p style="left: 1320px; top: 880px;">Black Hole White Hole (Mini Jam 187)</p>
-            <iframe allow="autoplay" allowfullscreen style="left: 650px; top: 700px;"></iframe>
-            <div class="iframe clickable" style="--src: https://html-classic.itch.zone/html/14113049/index.html; left: 650px; top: 700px;" tabindex="0">
-                <img src="/Images/bhwhtitle.png" style="position: absolute; top: 5px; left: 5px;">
-            </div>
-
-            <p style="left: 870px; top: 1500px;">So Polarising! (BETA)</p>
-            <iframe allow="autoplay" allowfullscreen style="left: 150px; top: 1300px;"></iframe>
-            <div class="iframe clickable" style="--src: https://html-classic.itch.zone/html/14683992/index.html; left: 150px; top: 1300px;" tabindex="0">
-                <img src="/Images/polarising.png" style="position: absolute; top: 5px; left: 5px;">
-            </div>
-        </div>
-
-        <div class="header">
-            <div class="masthead clickable" onclick="window.location.href = '/'" tabindex="0">
-                <p style="font-size: 40px; top: -40px; left: 10px;">Quib Inc.</p>
-                <p style="font-size: 10px; top: 35px; left: 35px;">Games, Music, Websites</p>
-            </div>
-
-            <div class="mode clickable" onclick="swapCol()" tabindex="0"><p style="top: -10px; left: 60px; font-size: 20px;">Mode</p></div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 480px), 350px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Oth. Orgs</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/info'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/content'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Content</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 320px), 410px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Projects</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/games'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Games</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/music'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Music</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/websites'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Websites</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 160px), 670px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Main</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/team'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Team</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
-            </div>
+            <div id="games" class="row-flex" style="justify-content: space-evenly; flex-wrap: wrap; width: var(--media-width); row-gap: calc(var(--media-width) * 600/var(--scale-width));"></div>
         </div>
     </div>
+
+    <div id="header-container"></div>
+    
+    <script src="/index.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="/elements.jsx"></script>
 </body>
 </html>
