@@ -1,4 +1,4 @@
-import app from "./backend.ts";
+import app from "./backend.js";
 import http from "http";
 
 const httpServer = http.createServer(app);
