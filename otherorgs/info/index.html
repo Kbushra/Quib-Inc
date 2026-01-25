@@ -1,57 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quib Inc.</title>
-    <link rel="icon" type="image/gif" href="favicon.apng">
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <div class="container">
-        <script src="/index.js" defer></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quib Inc.</title>
+        <link rel="icon" type="image/gif" href="favicon.apng">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="main">
+                <p style="font-size: 5rem; margin-top: 0; margin-bottom: 0;">Mediaocre Games</p>
 
-        <div class="main" style="height: calc(var(--vh) - 80px)">
-            <p style="font-size: 30px; top: -10px; left: 700px; width: 500px; text-align: center;">
-                Quib Inc. is associated with other teams as well, such as Mediaocre Games!<br>
-                They comprise of Krystal (Krys for short), Jayden, Ava and Aaqib.<br>
-                <br>
-                Together, we work on making original games as well as fangames for popular indies such as Undertale.
-            </p>
+                <p style="font-size: var(--font-big); width: calc(var(--media-width) * 800/var(--scale-width));">
+                    Quib Inc. is associated with Mediaocre Games for non-personal, larger projects.<br>
+                    They comprise of Krystal (Krys for short), Jayden, Ava and Aaqib.<br>
+                    <br>
+                    Together, we work on making original games as well as fangames for popular indies such as Undertale.
+                </p>
 
-            <img src="/Images/darkness.png" style="position: absolute; left: 300px; top: 400px; height: 400px;">
-            <img src="/Images/undertembattle.webp" style="position: absolute; left: 1000px; top: 400px; height: 400px;">
-        </div>
+                <div class="row-flex">
+                    <img src="/Images/darkness.png" style="position: relative; height: calc(var(--media-width) * 400/var(--scale-width));">
+                    <img src="/Images/undertembattle.webp" style="position: relative; height: calc(var(--media-width) * 400/var(--scale-width));">
+                </div>
 
-        <div class="header">
-            <div class="masthead clickable" onclick="window.location.href = '/'" tabindex="0">
-                <p style="font-size: 40px; top: -40px; left: 10px;">Quib Inc.</p>
-                <p style="font-size: 10px; top: 35px; left: 35px;">Games, Music, Websites</p>
-            </div>
-
-            <div class="mode clickable" onclick="swapCol()" tabindex="0"><p style="top: -10px; left: 60px; font-size: 20px;">Mode</p></div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 480px), 350px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Oth. Orgs</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/info'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/content'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Content</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 320px), 410px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Projects</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/games'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Games</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/music'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Music</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/websites'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Websites</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 160px), 670px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Main</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/team'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Team</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
+                <div style="height: calc(var(--media-width) * 300/var(--scale-width));"></div>
             </div>
         </div>
-    </div>
-</body>
+
+        <div id="header-container"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel" src="/elements.jsx"></script>
+    </body>
 </html>

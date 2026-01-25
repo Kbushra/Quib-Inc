@@ -34,7 +34,7 @@ html, body { overflow-x: hidden; }
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex: 0 0 auto;
 }
 

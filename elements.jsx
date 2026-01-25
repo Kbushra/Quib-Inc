@@ -152,6 +152,85 @@ if (websiteContainer != null)
     , websiteContainer);
 }
 
+function Contact({ icon, content })
+{
+    return (
+        <div className="row-flex" style={{gap: "calc(var(--media-width) * 20/var(--scale-width))"}}>
+            <img src={icon} style={{width: "calc(var(--media-width) * 80/var(--scale-width))", borderRadius: "20%"}}/>
+            <p style={{fontSize: "2rem", textAlign: "left"}}>{content}</p>
+        </div>
+    );
+}
+
+let contactContainer = document.getElementById("contacts");
+
+if (contactContainer != null)
+{
+    ReactDOM.render(
+    <>
+        <Contact content={<>Aaqib: @keepchatting_nooneexplodes<br/>Dylan: @sifud808</>} icon="/Images/discord.jpg"/>
+        <Contact content={<>Aaqib: aaqibchoudhury3@gmail.com</>} icon="/Images/gmail.webp"/>
+        <Contact content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></>} icon="/Images/youtube.webp"/>
+        <Contact content={<>Aaqib: <a href="https://keepchatting.itch.io/">Account</a></>} icon="/Images/itch.png"/>
+    </>
+    , contactContainer);
+}
+
+function Form({ email })
+{
+    return (
+        <form id="request-form" style={{position: "relative", left: "0px"}}>
+            <div className="column-flex" style={{rowGap: "calc(var(--media-width) * 20/var(--scale-width))"}}>
+                <div className="row-flex" style={{position: "relative", top: "calc(var(--media-width) * 30/var(--scale-width))", width: "calc(var(--media-width) * 800/var(--scale-width))", justifyContent: "space-between"}}>
+                    <p style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 400/var(--scale-width))", textAlign: "left"}}>Email {email}</p>
+                    <p id="result" style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 400/var(--scale-width))", textAlign: "right"}}>Result: None</p>
+                </div>
+
+                <input maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{position: "relative", width: "calc(var(--media-width) * 800/var(--scale-width))", height: "calc(var(--media-width) * 70/var(--scale-width))", fontSize: "calc(var(--font-big) * 4/3)"}}/>
+                <input maxLength="100" required name="subject" type="text" placeholder="Subject" style={{position: "relative", width: "calc(var(--media-width) * 800/var(--scale-width))", height: "calc(var(--media-width) * 70/var(--scale-width))", fontSize: "calc(var(--font-big) * 4/3)"}}/>
+                <textarea maxLength="1500" required name="content" placeholder="Content" style={{position: "relative", width: "calc(var(--media-width) * 800/var(--scale-width))", height: "calc(var(--media-width) * 300/var(--scale-width))", fontSize: "var(--font-big)"}}></textarea>
+                <img src="/Images/arrow.png" style={{position: "relative", top: "calc(var(--media-width) * -300/var(--scale-width))", left: "calc(var(--media-width) * 450/var(--scale-width))", width: "calc(var(--media-width) * 100/var(--scale-width))"}}/>
+                <button style={{background: "transparent", border: "none", cursor: "pointer", position: "relative", top: "calc(var(--media-width) * -400/var(--scale-width))", left: "calc(var(--media-width) * 450/var(--scale-width))", width: "calc(var(--media-width) * 100/var(--scale-width))", height: "calc(var(--media-width) * 50/var(--scale-width))"}}></button>
+            </div>
+        </form>
+    );
+}
+
+let formContainer = document.getElementById("form");
+
+if (formContainer != null)
+{
+    ReactDOM.render(<Form email={formContainer.getAttribute("email")}/>, formContainer);
+
+    let form = document.getElementById("request-form");
+    let result = document.getElementById("result");
+
+    form.addEventListener("submit", async (ev) =>
+    {
+        ev.preventDefault();
+        
+        let dat = new FormData(form);
+        const formJSON = Object.fromEntries(dat.entries());
+        const destJSON = JSON.parse(`{"dest": "${formContainer.getAttribute("email")}"}`);
+
+        result.innerText = "...";
+
+        let response = await fetch("http://localhost:3000" + "/api/email",
+        {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...formJSON, ...destJSON })
+        });
+
+        result.innerText = response.status == 200 ? "Result: Successful!" :
+        response.status == 413 ? "Result: Message too long!" :
+        response.status == 429 ? "Result: Slow down!" :
+        response.status == 503 ? "Result: No more tokens." :
+        response.status == 400 ? "Result: Invalid request" :
+        "Result: Internal Server Error.";
+    });
+}
+
 let clickables = document.getElementsByClassName("clickable");
 
 for (let i = 0; i < clickables.length; i++)

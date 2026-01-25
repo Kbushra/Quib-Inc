@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quib Inc.</title>
-    <link rel="icon" type="image/gif" href="favicon.apng">
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <script src="/index.js" defer></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quib Inc.</title>
+        <link rel="icon" type="image/gif" href="favicon.apng">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="main">
+                <p style="font-size: var(--font-big); width: calc(var(--media-width) * 800/var(--scale-width));">
+                    Here, you can find games produced by Quib Inc. alongside their embeds (click to start).
+                    For more info, you can check Info/Team for itch.io accounts.<br>
+                    (Note that these are not mobile games.)
+                </p>
 
-    <div id="main-container">
-        <div id="main">
-            <p style="font-size: var(--font-big); width: calc(var(--media-width) * 800/var(--scale-width));">
-                Here, you can find games produced by Quib Inc. alongside their embeds (click to start).
-                For more info, you can check Info/Team for itch.io accounts.<br>
-                (Note that these are not mobile games.)
-            </p>
-
-            <div id="games" class="row-flex" style="justify-content: space-evenly; flex-wrap: wrap; width: var(--media-width); row-gap: calc(var(--media-width) * 600/var(--scale-width));"></div>
+                <div id="games" class="row-flex" style="justify-content: space-evenly; flex-wrap: wrap; width: var(--media-width); row-gap: calc(var(--media-width) * 600/var(--scale-width));"></div>
+            </div>
         </div>
-    </div>
 
-    <div id="header-container"></div>
-    
-    <script src="/index.js" defer></script>
+        <div id="header-container"></div>
+        
+        <script src="/index.js" defer></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel" src="/elements.jsx"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel" src="/elements.jsx"></script>
+    </body>
 </html>

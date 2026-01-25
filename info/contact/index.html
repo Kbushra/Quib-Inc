@@ -1,76 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quib Inc.</title>
-    <link rel="icon" type="image/gif" href="favicon.apng">
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    <div class="container">
-        <script src="/index.js" defer></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quib Inc.</title>
+        <link rel="icon" type="image/gif" href="favicon.apng">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="main">
+                <p style="font-size: var(--font-big); width: calc(var(--media-width) * 800/var(--scale-width));">
+                    You can contact Quib Inc. via email (a form will be provided), as well as social media platforms such as Discord and Youtube.
+                </p>
 
-        <div class="main" style="height: calc(var(--vh) - 80px)">
-            <p style="font-size: 30px; top: -10px; left: 700px; width: 500px; text-align: center;">
-                You can contact Quib Inc. via email (a form will be provided), as well as social media platforms such as Discord and Youtube.
-            </p>
-
-            <img src="/Images/youtube.webp" style="position: absolute; left: 190px; top: 300px; width: 100px;">
-            <p style="position: absolute; left: 300px; top: 300px; font-size: 30px;">Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></p>
-            <img src="/Images/discord.jpg" style="position: absolute; left: 200px; top: 450px; width: 80px; border-radius: 20%;">
-            <p style="position: absolute; left: 300px; top: 420px; font-size: 30px;">
-                Aaqib: @keepchatting_nooneexplodes<br>
-                Dylan: @sifud808
-            </p>
-            <img src="/Images/gmail.webp" style="position: absolute; left: 200px; top: 590px; width: 80px;">
-            <p style="position: absolute; left: 300px; top: 570px; font-size: 30px;">
-                Aaqib: aaqibchoudhury3@gmail.com
-            </p>
-
-            <form style="position: absolute; left: 0px;;">
-                <p style="position: absolute; left: 1000px; top: 250px; font-size: 20px; width: 800px;">Email aaqibchoudhury3@gmail.com</p>
-                <p id="result" style="position: absolute; left: 1005px; top: 250px; font-size: 20px; width: 800px; text-align: right;">Result: None</p>
-
-                <input maxlength="100" name="email" type="email" placeholder="Your email (optional)" style="position: absolute; left: 1000px; top: 300px; width: 800px; height: 70px; font-size: 40px;">
-                <input maxlength="100" required name="subject" type="text" placeholder="Subject" style="position: absolute; left: 1000px; top: 400px; width: 800px; height: 70px; font-size: 40px;">
-                <textarea maxlength="1500" required name="content" placeholder="Content" style="position: absolute; left: 1000px; top: 500px; width: 800px; height: 300px; font-size: 30px;"></textarea>
-                <img src="/Images/arrow.png" style="position: absolute; left: 1810px; top: 500px; width: 100px;">
-                <button style="background: transparent; border: none; cursor: pointer; position: absolute; left: 1810px; top: 500px; width: 100px; height: 100px;"></button>
-            </form>
-
-            <script src="/info/contact/form.js"></script>
-        </div>
-
-        <div class="header">
-            <div class="masthead clickable" onclick="window.location.href = '/'" tabindex="0">
-                <p style="font-size: 40px; top: -40px; left: 10px;">Quib Inc.</p>
-                <p style="font-size: 10px; top: 35px; left: 35px;">Games, Music, Websites</p>
-            </div>
-
-            <div class="mode clickable" onclick="swapCol()" tabindex="0"><p style="top: -10px; left: 60px; font-size: 20px;">Mode</p></div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 480px), 350px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Oth. Orgs</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/info'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/content'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Content</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/otherorgs/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 320px), 410px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Projects</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/games'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Games</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/music'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Music</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/projs/websites'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Websites</p>
-            </div>
-
-            <div class="dropdown" style="left: max(calc(var(--vw) - 160px), 670px);" tabindex="0">
-                <p style="top: -15px; font-size: 30px;">Info</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/'" style="--targ-top: 55px; font-size: 30px;" tabindex="0">Main</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/team'" style="--targ-top: 125px; font-size: 30px;" tabindex="0">Team</p>
-                <p class="subdrop clickable" onclick="window.location.href = '/info/contact'" style="--targ-top: 195px; font-size: 30px;" tabindex="0">Contact</p>
+                <div class="row-flex" style="column-gap: calc(var(--media-width) * 800/var(--scale-width));">
+                    <div id="contacts" class="row-flex" style="position: relative; top: calc(var(--media-width) * -100/var(--scale-width)); column-gap: calc(var(--media-width) * 50/var(--scale-width)); flex-wrap: wrap; width: 0px; justify-content: flex-start;"></div>
+                    <div id="form" email="aaqibchoudhury3@gmail.com"></div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+
+        <div id="header-container"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel" src="/elements.jsx"></script>
+    </body>
 </html>
