@@ -5,7 +5,7 @@
   "main": "backend.js",
   "scripts": {
     "compile-ts": "tsc",
-    "compile-jsx": "esbuild ./elements.jsx --bundle --minify --outfile=./elements.js",
+    "compile-jsx": "esbuild ./src/elements.jsx --bundle --minify --outfile=./elements.js",
     "compile": "npm run compile-ts && npm run compile-jsx"
   },
   "repository": {
