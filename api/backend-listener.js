@@ -1,4 +1,4 @@
-import app from "./src/backend.js";
+import app from "./backend.js";
 import http from "http";
 const httpServer = http.createServer(app);
 httpServer.listen(3000, () => console.log("Running backend locally..."));

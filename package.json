@@ -4,7 +4,9 @@
   "description": "",
   "main": "backend.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile-ts": "tsc",
+    "compile-jsx": "esbuild ./elements.jsx --bundle --minify --outfile=./elements.js",
+    "compile": "npm run compile-ts && npm run compile-jsx"
   },
   "repository": {
     "type": "git",
@@ -26,12 +28,20 @@
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
     "path": "^0.12.7",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "serverless-http": "^4.0.0",
     "url": "^0.11.4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.28.6",
+    "@babel/preset-env": "^7.28.6",
+    "@babel/preset-react": "^7.28.5",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "typescript": "^5.9.3"
+    "esbuild": "^0.27.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   }
 }

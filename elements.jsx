@@ -1,3 +1,7 @@
+import ReactDOM from "react-dom/client";
+
+/////////////////////CSS UPDATING/////////////////////
+
 function updateWidth()
 {
     var newWidth = Math.min(window.screen.width, 1905);
@@ -34,7 +38,9 @@ function swapCol(light)
 }
 
 let mode = localStorage.getItem("lightMode");
-swapCol(mode != null ? mode == "enabled" : window.matchMedia("(prefers-color-scheme: light)").matches);
+swapCol(mode ? mode == "enabled" : window.matchMedia("(prefers-color-scheme: light)").matches);
+
+/////////////////////ELEMENTS AND RENDERING/////////////////////
 
 function Dropdown({ mainName, categoryNames, categoryUrls })
 {
@@ -70,7 +76,11 @@ function Header()
 }
 
 let headerContainer = document.getElementById("header-container");
-ReactDOM.render(<Header />, headerContainer);
+
+if (headerContainer)
+{
+    ReactDOM.createRoot(headerContainer).render(<Header />);
+}
 
 function GameEmbed({ name, icon, link })
 {
@@ -89,17 +99,16 @@ function GameEmbed({ name, icon, link })
 
 let gameContainer = document.getElementById("games");
 
-if (gameContainer != null)
+if (gameContainer)
 {
-    ReactDOM.render(
+    ReactDOM.createRoot(gameContainer).render(
     <>
         <GameEmbed name="Polydraws (Mini Jam 177)" icon="/Images/polydrawstitle.png" link="https://html-classic.itch.zone/html/13767402/index.html"/>
         <GameEmbed name="Charge Cycle (Mini Jam 179)" icon="/Images/chargecycletitle.png" link="https://html-classic.itch.zone/html/13767261/index.html"/>
         <GameEmbed name="Nestkeeping (Mini Jam 184)" icon="/Images/nestkeepingtitle.png" link="https://html-classic.itch.zone/html/13686725/index.html"/>
         <GameEmbed name="Black Hole White Hole (Mini Jam 187)" icon="/Images/bhwhtitle.png" link="https://html-classic.itch.zone/html/14113049/index.html"/>
         <GameEmbed name="So Polarising! (PROTOTYPE)" icon="/Images/polarising.png" link="https://html-classic.itch.zone/html/14683992/index.html"/>
-    </>
-    , gameContainer);
+    </>);
 }
 
 function MusicEmbed({ name, link })
@@ -116,16 +125,15 @@ function MusicEmbed({ name, link })
 
 let musicContainer = document.getElementById("music");
 
-if (musicContainer != null)
+if (musicContainer)
 {
-    ReactDOM.render(
+    ReactDOM.createRoot(musicContainer).render(
     <>
         <MusicEmbed name="Polydraws - Paper (Dylan)" link="https://www.youtube.com/embed/Rsk8uy1KByU"/>
         <MusicEmbed name="Charge Cycle - Charging (Dylan)" link="https://www.youtube.com/embed/KpCpu4bzeLA"/>
         <MusicEmbed name="Nestkeeping - Day, Night, Migration (Dylan)" link="https://www.youtube.com/embed/KUwOUs33suI"/>
         <MusicEmbed name="Black Hole White Hole - Void, Polarity (Aaqib)" link="https://www.youtube.com/embed/hoYnwby-qZ4"/>
-    </>
-    , musicContainer);
+    </>);
 }
 
 function WebsiteEmbed({ name, icon, link })
@@ -140,16 +148,26 @@ function WebsiteEmbed({ name, icon, link })
 
 let websiteContainer = document.getElementById("website");
 
-if (websiteContainer != null)
+if (websiteContainer)
 {
-    ReactDOM.render(
+    ReactDOM.createRoot(websiteContainer).render(
     <>
         <WebsiteEmbed name="Newhome Studios" icon="/Images/newhomestudios.png" link="https://newhomestudios.neocities.org/"/>
         <WebsiteEmbed name="Testimonial Slider" icon="/Images/testimonial.png" link="/showcase/testimonial"/>
         <WebsiteEmbed name="Progress Bar" icon="/Images/progressbar.png" link="/showcase/progress"/>
         <WebsiteEmbed name="Screensaver (Website game)" icon="/Images/screensaver.png" link="/showcase/screensaver"/>
-    </>
-    , websiteContainer);
+    </>);
+}
+
+let contentMediaocreContainer = document.getElementById("content-mediaocre");
+
+if (contentMediaocreContainer)
+{
+    ReactDOM.createRoot(contentMediaocreContainer).render(
+    <>
+        <GameEmbed name="Into the Darkness (Micro Jam 046)" icon="/Images/darkness.png" link="https://html-classic.itch.zone/html/14903577/index.html"/>
+        <MusicEmbed name="Into the Darkness - Isolation (Aaqib)" link="https://www.youtube.com/embed/wlpSJbSUSRQ"/>
+    </>);
 }
 
 function Contact({ icon, content })
@@ -164,16 +182,27 @@ function Contact({ icon, content })
 
 let contactContainer = document.getElementById("contacts");
 
-if (contactContainer != null)
+if (contactContainer)
 {
-    ReactDOM.render(
+    ReactDOM.createRoot(contactContainer).render(
     <>
         <Contact content={<>Aaqib: @keepchatting_nooneexplodes<br/>Dylan: @sifud808</>} icon="/Images/discord.jpg"/>
         <Contact content={<>Aaqib: aaqibchoudhury3@gmail.com</>} icon="/Images/gmail.webp"/>
         <Contact content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></>} icon="/Images/youtube.webp"/>
         <Contact content={<>Aaqib: <a href="https://keepchatting.itch.io/">Account</a></>} icon="/Images/itch.png"/>
-    </>
-    , contactContainer);
+    </>);
+}
+
+let contactMediaocreContainer = document.getElementById("contacts-mediaocre");
+
+if (contactMediaocreContainer)
+{
+    ReactDOM.createRoot(contactMediaocreContainer).render(
+    <>
+        <Contact content={<>Aaqib: @keepchatting_nooneexplodes<br/>Krys: @ricekryspiez_<br/>Jayden: @im_ruben<br/>Ava: @sekairotted</>} icon="/Images/discord.jpg"/>
+        <Contact content={<>Undertem: undertemtheshitpost@gmail.com</>} icon="/Images/gmail.webp"/>
+        <Contact content={<>Mediaocre Games: <a href="https://www.youtube.com/@MediaocreUT">YT</a></>} icon="/Images/youtube.webp"/>
+    </>);
 }
 
 function Form({ email })
@@ -182,8 +211,8 @@ function Form({ email })
         <form id="request-form" style={{position: "relative", left: "0px"}}>
             <div className="column-flex" style={{rowGap: "calc(var(--media-width) * 20/var(--scale-width))"}}>
                 <div className="row-flex" style={{position: "relative", top: "calc(var(--media-width) * 30/var(--scale-width))", width: "calc(var(--media-width) * 800/var(--scale-width))", justifyContent: "space-between"}}>
-                    <p style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 400/var(--scale-width))", textAlign: "left"}}>Email {email}</p>
-                    <p id="result" style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 400/var(--scale-width))", textAlign: "right"}}>Result: None</p>
+                    <p style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 600/var(--scale-width))", textAlign: "left"}}>Email {email}</p>
+                    <p id="result" style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 500/var(--scale-width))", textAlign: "right"}}>Result: None</p>
                 </div>
 
                 <input maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{position: "relative", width: "calc(var(--media-width) * 800/var(--scale-width))", height: "calc(var(--media-width) * 70/var(--scale-width))", fontSize: "calc(var(--font-big) * 4/3)"}}/>
@@ -198,70 +227,33 @@ function Form({ email })
 
 let formContainer = document.getElementById("form");
 
-if (formContainer != null)
+if (formContainer)
 {
-    ReactDOM.render(<Form email={formContainer.getAttribute("email")}/>, formContainer);
-
-    let form = document.getElementById("request-form");
-    let result = document.getElementById("result");
-
-    form.addEventListener("submit", async (ev) =>
-    {
-        ev.preventDefault();
-        
-        let dat = new FormData(form);
-        const formJSON = Object.fromEntries(dat.entries());
-        const destJSON = JSON.parse(`{"dest": "${formContainer.getAttribute("email")}"}`);
-
-        result.innerText = "...";
-
-        let response = await fetch("/api/email",
-        {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ...formJSON, ...destJSON })
-        });
-
-        result.innerText = response.status == 200 ? "Result: Successful!" :
-        response.status == 413 ? "Result: Message too long!" :
-        response.status == 429 ? "Result: Slow down!" :
-        response.status == 503 ? "Result: No more tokens." :
-        response.status == 400 ? "Result: Invalid request" :
-        "Result: Internal Server Error.";
-    });
+    ReactDOM.createRoot(formContainer).render(<Form email={formContainer.getAttribute("email")}/>);
 }
 
-let clickables = document.getElementsByClassName("clickable");
+/////////////////////EVENT LISTENERS/////////////////////
 
-for (let i = 0; i < clickables.length; i++)
+function clickableClick(ev)
 {
-    clickables[i].addEventListener("keydown", (ev) =>
-    {
-        if (ev.key != "Enter" && ev.key != " ") { return; }
-        if (document.activeElement != ev.currentTarget) { return; }
-        ev.currentTarget.click();
-    });
+    if (ev.key != "Enter" && ev.key != " ") { return; }
+    if (document.activeElement != ev.currentTarget) { return; }
+    ev.currentTarget.click();
 }
 
-let dropdowns = document.getElementsByClassName("dropdown");
-
-for (let i = 0; i < dropdowns.length; i++)
+function dropdownFocus(ev)
 {
-    //Just focus one of the subdrops doesn't matter which one
-    dropdowns[i].addEventListener("pointerup", (ev) =>
-    {
-        let targ = ev.currentTarget;
-        targ.children[1].focus();
-        setTimeout(() => targ.children[1].focus(), 100);
-    });
+    let targ = ev.currentTarget;
+    targ.children[1].focus();
+    setTimeout(() => targ.children[1].focus(), 100);
+}
 
-    dropdowns[i].addEventListener("pointerleave", (ev) =>
+function dropdownBlur(ev)
+{
+    for (let i = 0; i < ev.currentTarget.children.length; i++)
     {
-        for (let i = 0; i < ev.currentTarget.children.length; i++)
-        {
-            ev.currentTarget.children[i].blur();
-        }
-    });
+        ev.currentTarget.children[i].blur();
+    }
 }
 
 function subdropTransition(ev)
@@ -281,38 +273,101 @@ function subdropTransition(ev)
     document.body.removeChild(dummy);
 }
 
-let subdrops = document.getElementsByClassName("subdrop");
-
-for (let i = 0; i < subdrops.length; i++)
+function iframeFocus(ev)
 {
-    subdrops[i].addEventListener("transitionend", subdropTransition);
+    let div = ev.currentTarget;
+    let ind = div.ind;
+    let frame = document.getElementsByTagName("iframe")[ind];
+
+    if (frame.src != window.getComputedStyle(div).getPropertyValue("--src"))
+    {
+        frame.src = window.getComputedStyle(div).getPropertyValue("--src");
+        
+        frame.focus();
+        frame.contentWindow.focus();
+    }
+
+    frame.requestFullscreen();
+    
+    for (let c = div.childNodes.length - 1; c >= 0; c--)
+    {
+        div.childNodes[c].remove();
+    }
 }
 
-let iframeDivs = document.getElementsByClassName("iframe");
-
-for (let i = 0; i < iframeDivs.length; i++)
+async function formRequest(ev)
 {
-    iframeDivs[i].addEventListener("click", () =>
+    ev.preventDefault();
+
+    let form = document.getElementById("request-form");
+    let result = document.getElementById("result");
+    
+    let dat = new FormData(form);
+    const formJSON = Object.fromEntries(dat.entries());
+    const destJSON = JSON.parse(`{"dest": "${formContainer.getAttribute("email")}"}`);
+
+    result.innerText = "...";
+
+    let response = await fetch("/api/email",
     {
-        let div = iframeDivs[i];
-        let ind = div.ind;
-        let frame = document.getElementsByTagName("iframe")[ind];
-
-        if (frame.src != window.getComputedStyle(div).getPropertyValue("--src"))
-        {
-            frame.src = window.getComputedStyle(div).getPropertyValue("--src");
-            
-            frame.focus();
-            frame.contentWindow.focus();
-        }
-
-        frame.requestFullscreen();
-        
-        for (let c = div.childNodes.length - 1; c >= 0; c--)
-        {
-            div.childNodes[c].remove();
-        }
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formJSON, ...destJSON })
     });
 
-    iframeDivs[i].ind = i;
+    result.innerText = response.status == 200 ? "Result: Successful!" :
+    response.status == 413 ? "Result: Message too long!" :
+    response.status == 429 ? "Result: Slow down!" :
+    response.status == 503 ? "Result: No more tokens." :
+    response.status == 400 ? "Result: Invalid request" :
+    "Result: Internal Server Error.";
 }
+
+const observer = new MutationObserver(() =>
+{
+    let clickables = document.getElementsByClassName("clickable");
+
+    for (let i = 0; i < clickables.length; i++)
+    {
+        clickables[i].removeEventListener("keydown", clickableClick);
+        clickables[i].addEventListener("keydown", clickableClick);
+    }
+
+    let dropdowns = document.getElementsByClassName("dropdown");
+
+    for (let i = 0; i < dropdowns.length; i++)
+    {
+        //Just focus one of the subdrops doesn't matter which one
+        dropdowns[i].removeEventListener("pointerup", dropdownFocus);
+        dropdowns[i].addEventListener("pointerup", dropdownFocus);
+
+        dropdowns[i].removeEventListener("pointerleave", dropdownBlur);
+        dropdowns[i].addEventListener("pointerleave", dropdownBlur);
+    }
+
+    let subdrops = document.getElementsByClassName("subdrop");
+
+    for (let i = 0; i < subdrops.length; i++)
+    {
+        subdrops[i].removeEventListener("transitionend", subdropTransition);
+        subdrops[i].addEventListener("transitionend", subdropTransition);
+    }
+
+    let iframeDivs = document.getElementsByClassName("iframe");
+
+    for (let i = 0; i < iframeDivs.length; i++)
+    {
+        iframeDivs[i].addEventListener("click", iframeFocus);
+        iframeDivs[i].ind = i;
+    }
+
+    let form = document.getElementById("request-form");
+    let result = document.getElementById("result");
+
+    if (form && result)
+    {
+        form.addEventListener("submit", formRequest);
+    }
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
