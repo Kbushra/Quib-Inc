@@ -4,14 +4,18 @@ import ReactDOM from "react-dom/client";
 
 function updateWidth()
 {
-    var newWidth = Math.min(window.screen.width, 1905);
-    document.documentElement.style.setProperty("--media-width", `${newWidth}px`);
-    document.documentElement.style.setProperty("--real-media-width", `${window.screen.width}px`);
-    requestAnimationFrame(updateWidth);
+    const scrollWidth = (document.documentElement.scrollHeight > document.documentElement.clientHeight) ? 30 : 0;
+    const width = window.outerWidth - scrollWidth;
+    const posBound = 1600;
+    const scaleBound = 1280;
+
+    document.documentElement.style.setProperty("--scale-media-width", `${Math.min(posBound + width - scaleBound, posBound)}px`);
+    document.documentElement.style.setProperty("--pos-media-width", `${Math.min(width, posBound)}px`);
+    document.documentElement.style.setProperty("--real-media-width", `${width}px`);
 }
 
 updateWidth();
-requestAnimationFrame(updateWidth);
+window.addEventListener("resize", updateWidth);
 
 function swapCol(light)
 {
@@ -46,10 +50,10 @@ function Dropdown({ mainName, categoryNames, categoryUrls })
 {
     return (
     <div className="dropdown" tabIndex="0">
-        <p style={{top: "calc(var(--media-width) * -20/1905)", fontSize: "2rem"}}>{mainName}</p>
-        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[0]} style={{"--targ-top": "calc(var(--media-width) * 55/1905)", fontSize: "2rem"}} tabIndex="0">{categoryNames[0]}</p>
-        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[1]} style={{"--targ-top": "calc(var(--media-width) * 125/1905)", fontSize: "2rem"}} tabIndex="0">{categoryNames[1]}</p>
-        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[2]} style={{"--targ-top": "calc(var(--media-width) * 195/1905)", fontSize: "2rem"}} tabIndex="0">{categoryNames[2]}</p>
+        <p style={{top: "calc(var(--scale-media-width) * -10/var(--scale-width))", fontSize: "1.8rem"}}>{mainName}</p>
+        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[0]} style={{"--targ-top": "calc(var(--scale-media-width) * 65/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[0]}</p>
+        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[1]} style={{"--targ-top": "calc(var(--scale-media-width) * 135/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[1]}</p>
+        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[2]} style={{"--targ-top": "calc(var(--scale-media-width) * 205/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[2]}</p>
     </div>);
 }
 
@@ -59,18 +63,18 @@ function Header()
     <div id="header">
         <div id="header-left">
             <div className="masthead clickable" onClick={() => window.location.href = '/'} tabIndex="0">
-                <p style={{position: "relative", fontSize: "2.5rem", top: "calc(var(--media-width) * -40/1905)"}}>Quib Inc.</p>
-                <p style={{position: "relative", fontSize: "0.8rem", top: "calc(var(--media-width) * -90/1905)"}}>Games, Music, Websites</p>
+                <p style={{fontSize: "1.8rem"}}>Quib Inc.</p>
+                <p style={{position: "relative", fontSize: "0.8rem", top: "calc(var(--scale-media-width) * -25/var(--scale-width))"}}>Games, Music, Websites</p>
             </div>
 
             <div className="mode clickable" onClick={() => swapCol(localStorage.getItem("lightMode") == "disabled")} tabIndex="0"></div>
-            <p style={{position: "relative", left: "calc(var(--media-width) * 30/1905)", fontSize: "1.5rem"}}>(Light/Dark) Mode</p>
+            <p style={{position: "relative", left: "calc(var(--pos-media-width) * 10/var(--scale-width))", fontSize: "1.2rem"}}>(Light/Dark) Mode</p>
         </div>
 
         <div id="header-right">
             <Dropdown mainName="Oth. Orgs" categoryNames={["Info", "Content", "Contact"]} categoryUrls={['/otherorgs/info', '/otherorgs/content', '/otherorgs/contact']}/>
             <Dropdown mainName="Projects" categoryNames={["Games", "Music", "Websites"]} categoryUrls={['/projs/games', '/projs/music', '/projs/websites']}/>
-            <Dropdown mainName="Info" categoryNames={["Main", "Team", "Contact"]} categoryUrls={['/', '/info/team', '/info/contact']}/>
+            <Dropdown mainName="Info" categoryNames={["Main", "News", "Contact"]} categoryUrls={['/', '/info/news', '/info/contact']}/>
         </div>
     </div>);
 }
@@ -82,15 +86,66 @@ if (headerContainer)
     ReactDOM.createRoot(headerContainer).render(<Header />);
 }
 
+function Footer()
+{
+    return (
+        <>
+            <div className="break-line"></div>
+            <p style={{fontSize: "1.5rem"}}>{new Date().getUTCFullYear()} © Quib Inc.</p>
+            <div id="footer-contents">
+                <img className="clickable" src="/Images/discord.jpg" onClick={() => window.location.href = "https://discordapp.com/users/1209583285215436871"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
+                <img className="clickable" src="/Images/gmail.webp" onClick={() => window.location.href = "https://mail.google.com/mail/u/?authuser=aaqibchoudhury3@gmail.com"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
+                <img className="clickable" src="/Images/youtube.webp" onClick={() => window.location.href = "https://www.youtube.com/@keepmaking-ane"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
+                <img className="clickable" src="/Images/itch.png" onClick={() => window.location.href = "https://keepchatting.itch.io/"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
+            </div>
+        </>
+    );
+}
+
+let footerContainer = document.getElementById("footer-container");
+
+if (footerContainer)
+{
+    ReactDOM.createRoot(footerContainer).render(<Footer />);
+}
+
+function NewsArticle({ name, tagline })
+{
+    return (
+        <div>
+            <div className="break-line"></div>
+            <p style={{fontSize: "1.5rem"}}>{name}</p>
+            <p style={{fontSize: "1rem"}}>{tagline}</p>
+        </div>
+    );
+}
+
+let newsContainer = document.getElementById("news-container");
+
+if (newsContainer)
+{
+    ReactDOM.createRoot(newsContainer).render(
+    <>
+        <NewsArticle name="Jan/Feb 2026 Update" tagline="Undertem progress and So Polarising redo"/>
+        {  
+            newsContainer.getAttribute("amount") == "all" &&
+            <>
+                <NewsArticle name="a" tagline="b"/>
+            </>
+        }
+    </>);
+    
+}
+
 function GameEmbed({ name, icon, link })
 {
     return (
         <div className="column-flex" style={{width: "calc(var(--real-media-width) * 800/var(--scale-width))", gap: "0"}}>
-            <p style={{fontSize: "var(--font-big)"}}>{name}</p>
+            <p style={{fontSize: "1.5rem"}}>{name}</p>
             <div style={{height: "0"}}>
-                <iframe allow="autoplay" scrolling="no" allowFullScreen style={{top: "calc(var(--media-width) * -250/var(--scale-width))"}}></iframe>
-                <div className="iframe clickable" style={{"--src": link, top: "calc(var(--media-width) * -1255/var(--scale-width))"}} tabIndex="0">
-                    <img src={icon} style={{position: "relative", width: "calc(var(--media-width) * 200/var(--scale-width))", left: "calc(var(--media-width) * 5/var(--scale-width))"}}/>
+                <iframe allow="autoplay" scrolling="no" allowFullScreen style={{top: "calc(var(--scale-media-width) * -250/var(--scale-width))"}}></iframe>
+                <div className="iframe clickable" style={{"--src": link, top: "calc(var(--scale-media-width) * -1255/var(--scale-width))"}} tabIndex="0">
+                    <img src={icon} style={{position: "relative", width: "calc(var(--scale-media-width) * 200/var(--scale-width))", left: "calc(var(----pos-media-width) * 5/var(--scale-width))"}}/>
                 </div>
             </div>
         </div>
@@ -115,9 +170,9 @@ function MusicEmbed({ name, link })
 {
     return (
         <div className="column-flex" style={{width: "calc(var(--real-media-width) * 800/var(--scale-width))", gap: "0"}}>
-            <p style={{fontSize: "var(--font-big)"}}>{name}</p>
+            <p style={{fontSize: "1.5rem"}}>{name}</p>
             <div style={{height: "0px"}}>
-                <iframe allowFullScreen scrolling="no" src={link} style={{top: "calc(var(--media-width) * -250/var(--scale-width))"}}></iframe>
+                <iframe allowFullScreen scrolling="no" src={link} style={{top: "calc(var(--scale-media-width) * -250/var(--scale-width))"}}></iframe>
             </div>
         </div>
     );
@@ -140,8 +195,8 @@ function WebsiteEmbed({ name, icon, link })
 {
     return (
         <div className="column-flex" style={{width: "calc(var(--real-media-width) * 800/var(--scale-width))", gap: "0"}}>
-            <p style={{fontSize: "var(--font-big)"}}>{name}</p>
-            <img class="clickable" src={icon} onClick={() => window.location.href = link} style={{width: "calc(var(--real-media-width) * 800/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
+            <p style={{fontSize: "1.5rem"}}>{name}</p>
+            <img className="clickable" src={icon} onClick={() => window.location.href = link} style={{width: "calc(var(--scale-media-width) * 800/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
         </div>
     );
 }
@@ -173,9 +228,9 @@ if (contentMediaocreContainer)
 function Contact({ icon, content })
 {
     return (
-        <div className="row-flex" style={{gap: "calc(var(--media-width) * 20/var(--scale-width))"}}>
-            <img src={icon} style={{width: "calc(var(--media-width) * 80/var(--scale-width))", borderRadius: "20%"}}/>
-            <p style={{fontSize: "2rem", textAlign: "left"}}>{content}</p>
+        <div className="row-flex" style={{gap: "calc(var(--scale-media-width) * 20/var(--scale-width))"}}>
+            <img src={icon} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "20%"}}/>
+            <p style={{fontSize: "1.5rem", textAlign: "left"}}>{content}</p>
         </div>
     );
 }
@@ -209,17 +264,17 @@ function Form({ email })
 {
     return (
         <form id="request-form" style={{position: "relative", left: "0px"}}>
-            <div className="column-flex" style={{rowGap: "calc(var(--media-width) * 20/var(--scale-width))"}}>
-                <div className="row-flex" style={{position: "relative", top: "calc(var(--media-width) * 30/var(--scale-width))", width: "calc(var(--media-width) * 800/var(--scale-width))", justifyContent: "space-between"}}>
-                    <p style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 600/var(--scale-width))", textAlign: "left"}}>Email {email}</p>
-                    <p id="result" style={{fontSize: "1.5rem", width: "calc(var(--media-width) * 500/var(--scale-width))", textAlign: "right"}}>Result: None</p>
+            <div className="column-flex" style={{rowGap: "calc(var(--scale-media-width) * 20/var(--scale-width))"}}>
+                <div className="row-flex" style={{position: "relative", top: "calc(var(--scale-media-width) * 30/var(--scale-width))", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", justifyContent: "space-between"}}>
+                    <p style={{fontSize: "1.5rem", width: "calc(var(--scale-media-width) * 600/var(--scale-width))", textAlign: "left"}}>Email {email}</p>
+                    <p id="result" style={{fontSize: "1.5rem", width: "calc(var(--scale-media-width) * 500/var(--scale-width))", textAlign: "right"}}>Result: None</p>
                 </div>
 
-                <input maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{position: "relative", width: "calc(var(--media-width) * 800/var(--scale-width))", height: "calc(var(--media-width) * 70/var(--scale-width))", fontSize: "calc(var(--font-big) * 4/3)"}}/>
-                <input maxLength="100" required name="subject" type="text" placeholder="Subject" style={{position: "relative", width: "calc(var(--media-width) * 800/var(--scale-width))", height: "calc(var(--media-width) * 70/var(--scale-width))", fontSize: "calc(var(--font-big) * 4/3)"}}/>
-                <textarea maxLength="1500" required name="content" placeholder="Content" style={{position: "relative", width: "calc(var(--media-width) * 800/var(--scale-width))", height: "calc(var(--media-width) * 300/var(--scale-width))", fontSize: "var(--font-big)"}}></textarea>
-                <img src="/Images/arrow.png" style={{position: "relative", top: "calc(var(--media-width) * -300/var(--scale-width))", left: "calc(var(--media-width) * 450/var(--scale-width))", width: "calc(var(--media-width) * 100/var(--scale-width))"}}/>
-                <button style={{background: "transparent", border: "none", cursor: "pointer", position: "relative", top: "calc(var(--media-width) * -400/var(--scale-width))", left: "calc(var(--media-width) * 450/var(--scale-width))", width: "calc(var(--media-width) * 100/var(--scale-width))", height: "calc(var(--media-width) * 50/var(--scale-width))"}}></button>
+                <input maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{position: "relative", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
+                <input maxLength="100" required name="subject" type="text" placeholder="Subject" style={{position: "relative", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
+                <textarea maxLength="1500" required name="content" placeholder="Content" style={{position: "relative", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", height: "calc(var(--scale-media-width) * 300/var(--scale-width))", fontSize: "1.5rem"}}></textarea>
+                <img src="/Images/arrow.png" style={{position: "relative", top: "calc(var(--scale-media-width) * -300/var(--scale-width))", left: "calc(var(--pos-media-width) * 450/var(--scale-width))", width: "calc(var(--scale-media-width) * 100/var(--scale-width))"}}/>
+                <button style={{background: "transparent", border: "none", cursor: "pointer", position: "relative", top: "calc(var(--scale-media-width) * -400/var(--scale-width))", left: "calc(var(--pos-media-width) * 450/var(--scale-width))", width: "calc(var(--scale-media-width) * 100/var(--scale-width))", height: "calc(var(--scale-media-width) * 50/var(--scale-width))"}}></button>
             </div>
         </form>
     );

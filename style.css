@@ -3,10 +3,10 @@
 :root
 {
     --scale-width: 1905;
-    --media-width: calc(1px * var(--scale-width));
+    --scale-media-width: calc(1px * var(--scale-width));
+    --pos-media-width: calc(1px * var(--scale-width));
     --real-media-width: calc(1px * var(--scale-width));
-    --font-big: min(32px, calc(var(--media-width) * 48/var(--scale-width)));
-    font-size: calc(var(--media-width) * 16/var(--scale-width));
+    font-size: calc(var(--scale-media-width) * 16/var(--scale-width));
 
     --black: black;
     --white-darkerer: rgb(90, 90, 90);
@@ -53,10 +53,10 @@ html, body { overflow-x: hidden; }
     left: 0px;
     top: 0px;
     width: 100vw;
-    height: calc(var(--media-width) * 80/var(--scale-width));
+    height: calc(var(--scale-media-width) * 80/var(--scale-width));
 
     background: var(--white);
-    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/var(--scale-width)) var(--white-darker);
+    box-shadow: inset 0px 0px 0px calc(var(--scale-media-width) * 5/var(--scale-width)) var(--white-darker);
 
     display: flex;
     flex-direction: row;
@@ -68,8 +68,8 @@ html, body { overflow-x: hidden; }
     position: relative;
     left: 0px;
     top: 0px;
-    width: var(--media-width);
-    height: calc(var(--media-width) * 80/var(--scale-width));
+    width: var(--real-media-width);
+    height: calc(var(--scale-media-width) * 80/var(--scale-width));
 
     display: flex;
     flex-direction: row;
@@ -80,21 +80,19 @@ html, body { overflow-x: hidden; }
 {
     margin-right: auto;
 
-    width: var(--media-width);
+    width: var(--scale-media-width);
 
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
 }
 
 #header-right
 {
     margin-left: auto;
 
-    position: relative;
-    left: calc(var(--media-width) * -10/var(--scale-width));
-
-    width: var(--media-width);
+    width: var(--scale-media-width);
 
     display: flex;
     flex-direction: row;
@@ -103,20 +101,19 @@ html, body { overflow-x: hidden; }
 
 .masthead
 {
-    position: relative;
-    width: calc(var(--media-width) * 200/var(--scale-width));
+    width: calc(var(--scale-media-width) * 200/var(--scale-width));
     aspect-ratio: 3/1;
 }
 
 .mode
 {
     position: relative;
-    top: calc(var(--media-width) * 10/var(--scale-width));
-    width: calc(var(--media-width) * 60/var(--scale-width));
-    height: calc(var(--media-width) * 60/var(--scale-width));
+    top: calc(var(--pos-media-width) * 0/var(--scale-width));
+    width: calc(var(--scale-media-width) * 60/var(--scale-width));
+    height: calc(var(--scale-media-width) * 60/var(--scale-width));
 
     background: var(--black);
-    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 3/var(--scale-width)) var(--white-darkerer);
+    box-shadow: inset 0px 0px 0px calc(var(--scale-media-width) * 3/var(--scale-width)) var(--white-darkerer);
 
     border-radius: 100%;
 }
@@ -126,12 +123,11 @@ html, body { overflow-x: hidden; }
 .dropdown
 {
     position: relative;
-    top: calc(var(--media-width) * 5/var(--scale-width));
-    width: calc(var(--media-width) * 160/var(--scale-width));
-    height: calc(var(--media-width) * 70/var(--scale-width));
+    width: calc(var(--scale-media-width) * 160/var(--scale-width));
+    height: calc(var(--scale-media-width) * 70/var(--scale-width));
 
     background-color: var(--white);
-    box-shadow: inset 0px 0px 0px calc(var(--media-width) * 5/var(--scale-width)) var(--white);
+    box-shadow: inset 0px 0px 0px calc(var(--scale-media-width) * 5/var(--scale-width)) var(--white);
 
     display: flex;
     justify-content: center;
@@ -145,7 +141,7 @@ html, body { overflow-x: hidden; }
 .dropdown:hover, .dropdown:has(:focus)
 {
     background-color: var(--white-darker);
-    height: calc(var(--media-width) * 300/var(--scale-width));
+    height: calc(var(--scale-media-width) * 300/var(--scale-width));
 }
 
 .subdrop
@@ -154,9 +150,9 @@ html, body { overflow-x: hidden; }
 
     position: absolute;
     top: 0px;
-    left: calc(var(--media-width) * 10/var(--scale-width));
-    width: calc(var(--media-width) * 140/var(--scale-width));
-    height: calc(var(--media-width) * 70/var(--scale-width));
+    left: calc(var(--pos-media-width) * 10/var(--scale-width));
+    width: calc(var(--scale-media-width) * 140/var(--scale-width));
+    height: calc(var(--scale-media-width) * 70/var(--scale-width));
 
     display: flex;
     justify-content: center;
@@ -179,11 +175,33 @@ html, body { overflow-x: hidden; }
     color: var(--white-darkerer);
 }
 
+.break-line
+{
+    width: 100vw;
+    height: calc(var(--scale-media-width) * 10/var(--scale-width));
+
+    background: var(--white-darker);
+}
+
+#footer-contents
+{
+    width: 100vw;
+    height: calc(var(--scale-media-width) * 80/var(--scale-width));
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    column-gap: calc(var(--pos-media-width) * 10/var(--scale-width));
+
+    padding-bottom: calc(var(--scale-media-width) * 50/var(--scale-width));
+}
+
 #main-container
 {
     position: absolute;
     left: 0px;
-    top: calc(var(--media-width) * 80/var(--scale-width));
+    top: calc(var(--scale-media-width) * 80/var(--scale-width));
     width: 100vw;
 
     background: linear-gradient(var(--white-darker), var(--white) 20px);
@@ -195,7 +213,7 @@ html, body { overflow-x: hidden; }
 
 #main
 {
-    width: var(--media-width);
+    width: var(--scale-media-width);
 
     display: flex;
     flex-direction: column;
@@ -215,8 +233,8 @@ p
 iframe, .iframe
 {
     position: relative;
-    width: calc(var(--media-width) * 1600/var(--scale-width));
-    height: calc(var(--media-width) * 1000/var(--scale-width));
+    width: calc(var(--scale-media-width) * 1600/var(--scale-width));
+    height: calc(var(--scale-media-width) * 1000/var(--scale-width));
 
     transform: scale(0.5);
 
