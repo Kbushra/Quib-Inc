@@ -188,7 +188,7 @@ if (newsContainer)
                 <p className="large-width">
                     For those of you who don't know what Undertem is,
                     it's an Undertale fangame being worked on by both Quib Inc. and Mediaocre Games, focusing on
-                    the character called Temmies as the Underground goes through a revolution.
+                    the species called the Temmies as the Underground goes through a revolution.
                 </p>
             </NewsRow>
             <NewsRow>
