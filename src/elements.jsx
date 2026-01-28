@@ -155,7 +155,7 @@ function ExpandableArticle({ article })
         return (<>
             {expandedArticle(article)}
             <div className="row-flex clickable" onClick={() => expand(false)} style={{width: "fit-content"}}>
-                <p className="hover-darken large-width" style={{fontSize: "1.5rem"}}>Click to unexpand</p>
+                <p className="hover-darken" style={{fontSize: "1.5rem"}}>Click to unexpand</p>
             </div>
         </>);
     }
@@ -165,7 +165,7 @@ function ExpandableArticle({ article })
         <p className="large-width" style={{marginBottom: "0px", fontSize: "3.5rem"}}>{article.name}</p>
         <p className="large-width" style={{marginTop: "0px", fontSize: "2.5rem"}}>{article.tagline}</p>
         <div className="row-flex clickable" onClick={() => expand(true)} style={{width: "fit-content"}}>
-            <p className="hover-darken large-width" style={{fontSize: "1.5rem"}}>Click to expand</p>
+            <p className="hover-darken" style={{fontSize: "1.5rem"}}>Click to expand</p>
         </div>
     </>);
 }
