@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 
 /////////////////////CSS UPDATING/////////////////////
@@ -38,6 +39,13 @@ function swapCol(light)
         rootStyle.setProperty("--white", "white");
 
         localStorage.setItem("lightMode", "enabled");
+    }
+
+    let dropdowns = document.getElementsByClassName("dropdown");
+    for (let i = 0; i < dropdowns.length; i++)
+    {
+        dropdowns[i].style.transition = "height 0.2s cubic-bezier(0.1, 0.9, 1, 1)";
+        requestAnimationFrame(() => dropdowns[i].style.transition = "background-color 0.2s cubic-bezier(0.1, 0.9, 1, 1), height 0.2s cubic-bezier(0.1, 0.9, 1, 1)");
     }
 }
 
@@ -109,38 +117,168 @@ if (footerContainer)
     ReactDOM.createRoot(footerContainer).render(<Footer />);
 }
 
-function NewsArticle({ name, tagline })
+function NewsArticle({ name, tagline, children })
 {
     return (
-        <div>
+        <>
             <div className="break-line"></div>
-            <p style={{fontSize: "1.5rem"}}>{name}</p>
-            <p style={{fontSize: "1rem"}}>{tagline}</p>
+            <p className="large-width" style={{marginBottom: "0px", fontSize: "3.5rem"}}>{name}</p>
+            <p className="large-width" style={{marginTop: "0px", fontSize: "2.5rem"}}>{tagline}</p>
+            <div>{children}</div>
+        </>
+    );
+}
+
+function NewsRow({ style, children })
+{
+    return (
+        <div className="row-flex" style={{...{gap: "2rem"}, ...style}}>
+            {children}
         </div>
     );
+}
+
+function expandedArticle(article)
+{
+    return (
+    <NewsArticle name={article.name} tagline={article.tagline}>
+        {article.content}
+    </NewsArticle>);
+}
+
+function ExpandableArticle({ article })
+{
+    const [expanded, expand] = useState(false);
+
+    if (expanded)
+    {
+        return (<>
+            {expandedArticle(article)}
+            <div className="row-flex clickable" onClick={() => expand(false)} style={{width: "fit-content"}}>
+                <p className="hover-darken large-width" style={{fontSize: "1.5rem"}}>Click to unexpand</p>
+            </div>
+        </>);
+    }
+
+    return (<>
+        <div className="break-line"></div>
+        <p className="large-width" style={{marginBottom: "0px", fontSize: "3.5rem"}}>{article.name}</p>
+        <p className="large-width" style={{marginTop: "0px", fontSize: "2.5rem"}}>{article.tagline}</p>
+        <div className="row-flex clickable" onClick={() => expand(true)} style={{width: "fit-content"}}>
+            <p className="hover-darken large-width" style={{fontSize: "1.5rem"}}>Click to expand</p>
+        </div>
+    </>);
 }
 
 let newsContainer = document.getElementById("news-container");
 
 if (newsContainer)
 {
-    ReactDOM.createRoot(newsContainer).render(
-    <>
-        <NewsArticle name="Jan/Feb 2026 Update" tagline="Undertem progress and So Polarising redo"/>
-        {  
-            newsContainer.getAttribute("amount") == "all" &&
-            <>
-                <NewsArticle name="a" tagline="b"/>
-            </>
-        }
-    </>);
+    let latestArticle =
+    {
+        name: "Jan/Feb 2026 Update",
+        tagline: "Undertem progress and So Polarising redo",
+        content:
+        <>
+            <NewsRow style={{columnGap: "0.5rem"}}>
+                <p>Yes, there is progress.</p>
+                <img src="/Images/temaddle.png" style={{height: "2rem"}}/>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    For those of you who don't know what Undertem is,
+                    it's an Undertale fangame being worked on by both Quib Inc. and Mediaocre Games, focusing on
+                    the character called Temmies as the Underground goes through a revolution.
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    Though the UNDEREVENT deadline is slowly creeping up behind us,
+                    there's surprisingly quite a lot of content that we have in store,
+                    especially after a half-year stagnation.
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    We have 2 actual artists on our team (way more than the 0 we had before for sure)
+                    and the entire Ruins has been fixed! I even got a bit of pathfinding in there for when we do the guards.
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    The lore has became much more well-established than the more jokey and loose
+                    story that we had before. The artstyle is also getting sorted out.
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    Right, some teasers.
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <video className="large-width" style={{aspectRatio: "3/2"}} controls>
+                    <source src="/Videos/ruins-intro.mp4" type="video/mp4"/>
+                    Video not supported.
+                </video>
+                <p className="medium-width">
+                    Here is a clip of the Ruins entrance in-game.
+                    Everything is subject to change.
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <p className="medium-width">
+                    Here is another clip of wander and pathfinding AI in the game.
+                    Note that the sprites are not permanent (the AI also just reuses a different sprite as a placeholder).
+                </p>
+                <video className="large-width" style={{aspectRatio: "3/2"}} controls>
+                    <source src="/Videos/pathfinding.mp4" type="video/mp4"/>
+                    Video not supported.
+                </video>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    And as for So Polarising...
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    Although I love the concept, I cannot make it on my own.
+                    I'll be doing a small redo to some of the art and might add some more movement,
+                    but I do need some other people if I want to actually make the entire thing.
+                </p>
+            </NewsRow>
+            <NewsRow>
+                <p className="large-width">
+                    As of now, it's simply a concept.
+                    Any help is appreciated!
+                </p>
+            </NewsRow>
+            <NewsRow style={{columnGap: "0.5rem"}}>
+                <p>Sneezing off.</p>
+                <img src="/Images/sneeze.gif" style={{height: "2rem"}}/>
+            </NewsRow>
+        </>
+    };
+
+    if (newsContainer.getAttribute("amount") == "all")
+    {
+        ReactDOM.createRoot(newsContainer).render(
+        <>
+            <ExpandableArticle article={latestArticle}/>
+            {/*More articles go here, with their structs set directly*/}
+        </>);
+    }
+    else
+    {
+        ReactDOM.createRoot(newsContainer).render(expandedArticle(latestArticle));
+    }
     
 }
 
 function GameEmbed({ name, icon, link })
 {
     return (
-        <div className="column-flex" style={{width: "calc(var(--real-media-width) * 800/var(--scale-width))", gap: "0"}}>
+        <div className="column-flex large-width" style={{gap: "0"}}>
             <p style={{fontSize: "1.5rem"}}>{name}</p>
             <div style={{height: "0"}}>
                 <iframe allow="autoplay" scrolling="no" allowFullScreen style={{top: "calc(var(--scale-media-width) * -250/var(--scale-width))"}}></iframe>
@@ -169,7 +307,7 @@ if (gameContainer)
 function MusicEmbed({ name, link })
 {
     return (
-        <div className="column-flex" style={{width: "calc(var(--real-media-width) * 800/var(--scale-width))", gap: "0"}}>
+        <div className="column-flex large-width" style={{gap: "0"}}>
             <p style={{fontSize: "1.5rem"}}>{name}</p>
             <div style={{height: "0px"}}>
                 <iframe allowFullScreen scrolling="no" src={link} style={{top: "calc(var(--scale-media-width) * -250/var(--scale-width))"}}></iframe>
@@ -194,9 +332,9 @@ if (musicContainer)
 function WebsiteEmbed({ name, icon, link })
 {
     return (
-        <div className="column-flex" style={{width: "calc(var(--real-media-width) * 800/var(--scale-width))", gap: "0"}}>
+        <div className="column-flex large-width" style={{gap: "0"}}>
             <p style={{fontSize: "1.5rem"}}>{name}</p>
-            <img className="clickable" src={icon} onClick={() => window.location.href = link} style={{width: "calc(var(--scale-media-width) * 800/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
+            <img className="clickable large-width" src={icon} onClick={() => window.location.href = link} style={{borderRadius: "2%"}} tabIndex="0"/>
         </div>
     );
 }
@@ -265,14 +403,14 @@ function Form({ email })
     return (
         <form id="request-form" style={{position: "relative", left: "0px"}}>
             <div className="column-flex" style={{rowGap: "calc(var(--scale-media-width) * 20/var(--scale-width))"}}>
-                <div className="row-flex" style={{position: "relative", top: "calc(var(--scale-media-width) * 30/var(--scale-width))", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", justifyContent: "space-between"}}>
+                <div className="row-flex large-width" style={{position: "relative", top: "calc(var(--scale-media-width) * 30/var(--scale-width))", justifyContent: "space-between"}}>
                     <p style={{fontSize: "1.5rem", width: "calc(var(--scale-media-width) * 600/var(--scale-width))", textAlign: "left"}}>Email {email}</p>
                     <p id="result" style={{fontSize: "1.5rem", width: "calc(var(--scale-media-width) * 500/var(--scale-width))", textAlign: "right"}}>Result: None</p>
                 </div>
 
-                <input maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{position: "relative", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
-                <input maxLength="100" required name="subject" type="text" placeholder="Subject" style={{position: "relative", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
-                <textarea maxLength="1500" required name="content" placeholder="Content" style={{position: "relative", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", height: "calc(var(--scale-media-width) * 300/var(--scale-width))", fontSize: "1.5rem"}}></textarea>
+                <input className="large-width" maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{position: "relative", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
+                <input className="large-width" maxLength="100" required name="subject" type="text" placeholder="Subject" style={{position: "relative", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
+                <textarea className="large-width" maxLength="1500" required name="content" placeholder="Content" style={{position: "relative", height: "calc(var(--scale-media-width) * 300/var(--scale-width))", fontSize: "1.5rem"}}></textarea>
                 <img src="/Images/arrow.png" style={{position: "relative", top: "calc(var(--scale-media-width) * -300/var(--scale-width))", left: "calc(var(--pos-media-width) * 450/var(--scale-width))", width: "calc(var(--scale-media-width) * 100/var(--scale-width))"}}/>
                 <button style={{background: "transparent", border: "none", cursor: "pointer", position: "relative", top: "calc(var(--scale-media-width) * -400/var(--scale-width))", left: "calc(var(--pos-media-width) * 450/var(--scale-width))", width: "calc(var(--scale-media-width) * 100/var(--scale-width))", height: "calc(var(--scale-media-width) * 50/var(--scale-width))"}}></button>
             </div>
@@ -380,6 +518,8 @@ async function formRequest(ev)
 
 const observer = new MutationObserver(() =>
 {
+    updateWidth();
+
     let clickables = document.getElementsByClassName("clickable");
 
     for (let i = 0; i < clickables.length; i++)
