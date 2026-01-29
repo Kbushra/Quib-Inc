@@ -27,7 +27,7 @@
     }
 }
 
-html, body { overflow-x: hidden; }
+html, body { overflow-x: clip; }
 
 .row-flex
 {
@@ -49,6 +49,8 @@ html, body { overflow-x: hidden; }
 
 #header-container
 {
+    overflow-x: clip;
+
     position: absolute;
     left: 0px;
     top: 0px;
@@ -200,6 +202,8 @@ html, body { overflow-x: hidden; }
 
 #main-container
 {
+    overflow-x: clip;
+
     position: absolute;
     left: 0px;
     top: calc(var(--scale-media-width) * 75/var(--scale-width));
