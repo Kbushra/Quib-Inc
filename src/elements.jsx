@@ -102,10 +102,10 @@ function Footer()
             <div className="break-line"></div>
             <p style={{fontSize: "1.5rem"}}>{new Date().getUTCFullYear()} © Quib Inc.</p>
             <div id="footer-contents">
-                <img className="clickable" src="/Images/discord.jpg" onClick={() => window.location.href = "https://discordapp.com/users/1209583285215436871"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
-                <img className="clickable" src="/Images/gmail.webp" onClick={() => window.location.href = "https://mail.google.com/mail/u/?authuser=aaqibchoudhury3@gmail.com"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
-                <img className="clickable" src="/Images/youtube.webp" onClick={() => window.location.href = "https://www.youtube.com/@keepmaking-ane"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
-                <img className="clickable" src="/Images/itch.png" onClick={() => window.location.href = "https://keepchatting.itch.io/"} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "2%"}} tabIndex="0"/>
+                <img className="clickable" src="/Images/discord.png" onClick={() => window.location.href = "https://discordapp.com/users/1209583285215436871"} style={{borderRadius: "2%"}} tabIndex="0"/>
+                <img className="clickable" src="/Images/gmail.png" onClick={() => window.location.href = "https://mail.google.com/mail/u/?authuser=aaqibchoudhury3@gmail.com"} style={{borderRadius: "2%"}} tabIndex="0"/>
+                <img className="clickable" src="/Images/youtube.png" onClick={() => window.location.href = "https://www.youtube.com/@keepmaking-ane"} style={{borderRadius: "2%"}} tabIndex="0"/>
+                <img className="clickable" src="/Images/itch.png" onClick={() => window.location.href = "https://keepchatting.itch.io/"} style={{borderRadius: "2%"}} tabIndex="0"/>
             </div>
         </>
     );
@@ -368,7 +368,7 @@ function Contact({ icon, content })
 {
     return (
         <div className="row-flex" style={{gap: "calc(var(--scale-media-width) * 20/var(--scale-width))"}}>
-            <img src={icon} style={{width: "calc(var(--scale-media-width) * 80/var(--scale-width))", borderRadius: "20%"}}/>
+            <img src={icon} style={{borderRadius: "2%"}}/>
             <p style={{fontSize: "1.5rem", textAlign: "left"}}>{content}</p>
         </div>
     );
@@ -380,9 +380,9 @@ if (contactContainer)
 {
     ReactDOM.createRoot(contactContainer).render(
     <>
-        <Contact content={<>Aaqib: @keepchatting_nooneexplodes<br/>Dylan: @sifud808</>} icon="/Images/discord.jpg"/>
-        <Contact content={<>Aaqib: aaqibchoudhury3@gmail.com</>} icon="/Images/gmail.webp"/>
-        <Contact content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></>} icon="/Images/youtube.webp"/>
+        <Contact content={<>Aaqib: @keepchatting_nooneexplodes<br/>Dylan: @sifud808</>} icon="/Images/discord.png"/>
+        <Contact content={<>Aaqib: aaqibchoudhury3@gmail.com</>} icon="/Images/gmail.png"/>
+        <Contact content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></>} icon="/Images/youtube.png"/>
         <Contact content={<>Aaqib: <a href="https://keepchatting.itch.io/">Account</a></>} icon="/Images/itch.png"/>
     </>);
 }
@@ -393,9 +393,9 @@ if (contactMediaocreContainer)
 {
     ReactDOM.createRoot(contactMediaocreContainer).render(
     <>
-        <Contact content={<>Aaqib: @keepchatting_nooneexplodes<br/>Krys: @ricekryspiez_<br/>Jayden: @im_ruben<br/>Ava: @sekairotted</>} icon="/Images/discord.jpg"/>
-        <Contact content={<>Undertem: undertemtheshitpost@gmail.com</>} icon="/Images/gmail.webp"/>
-        <Contact content={<>Mediaocre Games: <a href="https://www.youtube.com/@MediaocreUT">YT</a></>} icon="/Images/youtube.webp"/>
+        <Contact content={<>Aaqib: @keepchatting_nooneexplodes<br/>Krys: @ricekryspiez_<br/>Jayden: @im_ruben<br/>Ava: @sekairotted</>} icon="/Images/discord.png"/>
+        <Contact content={<>Undertem: undertemtheshitpost@gmail.com</>} icon="/Images/gmail.png"/>
+        <Contact content={<>Mediaocre Games: <a href="https://www.youtube.com/@MediaocreUT">YT</a></>} icon="/Images/youtube.png"/>
     </>);
 }
 
