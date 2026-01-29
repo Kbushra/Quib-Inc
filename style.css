@@ -51,7 +51,7 @@ html, body { overflow-x: hidden; }
 {
     position: absolute;
     left: 0px;
-    top: calc(var(--scale-media-width) * -5/var(--scale-width));
+    top: 0px;
     width: 100vw;
     height: calc(var(--scale-media-width) * 80/var(--scale-width));
 
@@ -123,8 +123,9 @@ html, body { overflow-x: hidden; }
 .dropdown
 {
     position: relative;
+    top: calc(var(--scale-media-width) * 5/var(--scale-width));
     width: calc(var(--scale-media-width) * 160/var(--scale-width));
-    height: calc(var(--scale-media-width) * 70/var(--scale-width));
+    height: calc(var(--scale-media-width) * 65/var(--scale-width));
 
     background-color: var(--white);
     box-shadow: inset 0px 0px 0px calc(var(--scale-media-width) * 5/var(--scale-width)) var(--white);
@@ -231,8 +232,8 @@ p
     font-size: 2rem;
 }
 
-.large-width { width: calc(var(--real-media-width) * 800/var(--scale-width)); }
-.medium-width { width: calc(var(--real-media-width) * 600/var(--scale-width)); }
+.large-width { width: calc(var(--real-media-width) * 1000/var(--scale-width)); }
+.medium-width { width: calc(var(--real-media-width) * 700/var(--scale-width)); }
 
 .hover-darken
 {
@@ -247,7 +248,9 @@ p
 
 iframe, .iframe
 {
-    position: relative;
+    position: absolute;
+    left: calc(var(--scale-media-width) * -400/var(--scale-width));
+    top: calc(var(--scale-media-width) * -250/var(--scale-width));
     width: calc(var(--scale-media-width) * 1600/var(--scale-width));
     height: calc(var(--scale-media-width) * 1000/var(--scale-width));
 

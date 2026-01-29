@@ -16,6 +16,7 @@ function updateWidth()
 }
 
 updateWidth();
+setTimeout(updateWidth, 1000); //Sometimes it doesn't update width properly idk how
 window.addEventListener("resize", updateWidth);
 
 function swapCol(light)
@@ -58,10 +59,10 @@ function Dropdown({ mainName, categoryNames, categoryUrls })
 {
     return (
     <div className="dropdown" tabIndex="0">
-        <p style={{top: "calc(var(--scale-media-width) * -10/var(--scale-width))", fontSize: "1.8rem"}}>{mainName}</p>
-        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[0]} style={{"--targ-top": "calc(var(--scale-media-width) * 65/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[0]}</p>
-        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[1]} style={{"--targ-top": "calc(var(--scale-media-width) * 135/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[1]}</p>
-        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[2]} style={{"--targ-top": "calc(var(--scale-media-width) * 205/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[2]}</p>
+        <p style={{top: "calc(var(--scale-media-width) * -15/var(--scale-width))", fontSize: "1.8rem"}}>{mainName}</p>
+        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[0]} style={{"--targ-top": "calc(var(--scale-media-width) * 60/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[0]}</p>
+        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[1]} style={{"--targ-top": "calc(var(--scale-media-width) * 130/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[1]}</p>
+        <p className="subdrop clickable" onClick={() => window.location.href = categoryUrls[2]} style={{"--targ-top": "calc(var(--scale-media-width) * 200/var(--scale-width))", fontSize: "1.8rem"}} tabIndex="0">{categoryNames[2]}</p>
     </div>);
 }
 
@@ -71,8 +72,8 @@ function Header()
     <div id="header">
         <div id="header-left">
             <div className="masthead clickable" onClick={() => window.location.href = '/'} tabIndex="0">
-                <p style={{fontSize: "1.8rem"}}>Quib Inc.</p>
-                <p style={{position: "relative", fontSize: "0.8rem", top: "calc(var(--scale-media-width) * -25/var(--scale-width))"}}>Games, Music, Websites</p>
+                <p style={{margin: "0px", fontSize: "1.8rem"}}>Quib Inc.</p>
+                <p style={{margin: "0px", fontSize: "0.8rem"}}>Games, Music, Websites</p>
             </div>
 
             <div className="mode clickable" onClick={() => swapCol(localStorage.getItem("lightMode") == "disabled")} tabIndex="0"></div>
@@ -155,7 +156,7 @@ function ExpandableArticle({ article })
         return (<>
             {expandedArticle(article)}
             <div className="row-flex clickable" onClick={() => expand(false)} style={{width: "fit-content"}}>
-                <p className="hover-darken" style={{fontSize: "1.5rem"}}>Click to unexpand</p>
+                <p className="hover-darken clickable" style={{fontSize: "1.5rem"}} tabIndex="0">Click to unexpand</p>
             </div>
         </>);
     }
@@ -165,7 +166,7 @@ function ExpandableArticle({ article })
         <p className="large-width" style={{marginBottom: "0px", fontSize: "3.5rem"}}>{article.name}</p>
         <p className="large-width" style={{marginTop: "0px", fontSize: "2.5rem"}}>{article.tagline}</p>
         <div className="row-flex clickable" onClick={() => expand(true)} style={{width: "fit-content"}}>
-            <p className="hover-darken" style={{fontSize: "1.5rem"}}>Click to expand</p>
+            <p className="hover-darken clickable" style={{fontSize: "1.5rem"}} tabIndex="0">Click to expand</p>
         </div>
     </>);
 }
@@ -278,11 +279,11 @@ if (newsContainer)
 function GameEmbed({ name, icon, link })
 {
     return (
-        <div className="column-flex large-width" style={{gap: "0"}}>
-            <p style={{fontSize: "1.5rem"}}>{name}</p>
-            <div style={{height: "0"}}>
-                <iframe allow="autoplay" scrolling="no" allowFullScreen style={{top: "calc(var(--scale-media-width) * -250/var(--scale-width))"}}></iframe>
-                <div className="iframe clickable" style={{"--src": link, top: "calc(var(--scale-media-width) * -1255/var(--scale-width))"}} tabIndex="0">
+        <div className="column-flex" style={{gap: "0px"}}>
+            <p style={{fontSize: "1.5rem", width: "fit-content"}}>{name}</p>
+            <div style={{height: "0px", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", position: "relative"}}>
+                <iframe allow="autoplay" scrolling="no" allowFullScreen></iframe>
+                <div className="iframe clickable" style={{"--src": link}} tabIndex="0">
                     <img src={icon} style={{position: "relative", width: "calc(var(--scale-media-width) * 200/var(--scale-width))", left: "calc(var(----pos-media-width) * 5/var(--scale-width))"}}/>
                 </div>
             </div>
@@ -307,10 +308,10 @@ if (gameContainer)
 function MusicEmbed({ name, link })
 {
     return (
-        <div className="column-flex large-width" style={{gap: "0"}}>
+        <div className="column-flex" style={{gap: "0px"}}>
             <p style={{fontSize: "1.5rem"}}>{name}</p>
-            <div style={{height: "0px"}}>
-                <iframe allowFullScreen scrolling="no" src={link} style={{top: "calc(var(--scale-media-width) * -250/var(--scale-width))"}}></iframe>
+            <div style={{height: "0px", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", position: "relative"}}>
+                <iframe allowFullScreen scrolling="no" src={link}></iframe>
             </div>
         </div>
     );
@@ -332,9 +333,9 @@ if (musicContainer)
 function WebsiteEmbed({ name, icon, link })
 {
     return (
-        <div className="column-flex large-width" style={{gap: "0"}}>
+        <div className="column-flex" style={{gap: "0"}}>
             <p style={{fontSize: "1.5rem"}}>{name}</p>
-            <img className="clickable large-width" src={icon} onClick={() => window.location.href = link} style={{borderRadius: "2%"}} tabIndex="0"/>
+            <img className="clickable medium-width" src={icon} onClick={() => window.location.href = link} style={{borderRadius: "2%"}} tabIndex="0"/>
         </div>
     );
 }
