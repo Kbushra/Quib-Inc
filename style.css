@@ -38,7 +38,7 @@ html, body { overflow-x: clip; }
     flex: 0 0 auto;
 }
 
-.column-flex, #main, #news-container
+.column-flex, #main, #news-container, #game-page
 {
     display: flex;
     flex-direction: column;
@@ -238,6 +238,8 @@ p
 
 .large-width { width: calc(var(--real-media-width) * 1000/var(--scale-width)); }
 .medium-width { width: calc(var(--real-media-width) * 700/var(--scale-width)); }
+.linked-image-height { height: calc(var(--real-media-width) * 400/var(--scale-width)); }
+.contact-image { width: calc(var(--real-media-width) * 80/var(--scale-width)); }
 
 .hover-darken
 {
@@ -253,14 +255,34 @@ p
 iframe, .iframe
 {
     position: absolute;
-    left: calc(var(--scale-media-width) * -400/var(--scale-width));
-    top: calc(var(--scale-media-width) * -250/var(--scale-width));
-    width: calc(var(--scale-media-width) * 1600/var(--scale-width));
-    height: calc(var(--scale-media-width) * 1000/var(--scale-width));
 
-    transform: scale(0.5);
+    width: 1600px;
+    aspect-ratio: 16/9;
+    transform: scale(calc(var(--pos-media-width)/(var(--scale-width) * 1px)));
+    transform-origin: top center;
 
     background: black;
+}
+
+.iframe-small
+{
+    width: 800px;
+}
+
+.iframe-container
+{
+    position: relative;
+    top: calc(var(--scale-media-width) * 50/var(--scale-width));
+    width: calc(var(--pos-media-width) * 1600/var(--scale-width));
+    aspect-ratio: 16/9;
+
+    overflow: hidden;
+}
+
+.iframe-container-music
+{
+    top: 0;
+    width: calc(var(--pos-media-width) * 800/var(--scale-width));
 }
 
 /*For divs imitating iframes*/

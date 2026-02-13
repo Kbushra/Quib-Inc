@@ -276,42 +276,13 @@ if (newsContainer)
     
 }
 
-function GameEmbed({ name, icon, link })
-{
-    return (
-        <div className="column-flex" style={{gap: "0px"}}>
-            <p style={{fontSize: "1.5rem", width: "fit-content"}}>{name}</p>
-            <div style={{height: "0px", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", position: "relative"}}>
-                <iframe allow="autoplay" scrolling="no" allowFullScreen></iframe>
-                <div className="iframe clickable" style={{"--src": link}} tabIndex="0">
-                    <img src={icon} style={{position: "relative", width: "calc(var(--scale-media-width) * 200/var(--scale-width))", left: "calc(var(----pos-media-width) * 5/var(--scale-width))"}}/>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-let gameContainer = document.getElementById("games");
-
-if (gameContainer)
-{
-    ReactDOM.createRoot(gameContainer).render(
-    <>
-        <GameEmbed name="Polydraws (Mini Jam 177)" icon="/Images/polydrawstitle.png" link="https://html-classic.itch.zone/html/13767402/index.html"/>
-        <GameEmbed name="Charge Cycle (Mini Jam 179)" icon="/Images/chargecycletitle.png" link="https://html-classic.itch.zone/html/13767261/index.html"/>
-        <GameEmbed name="Nestkeeping (Mini Jam 184)" icon="/Images/nestkeepingtitle.png" link="https://html-classic.itch.zone/html/13686725/index.html"/>
-        <GameEmbed name="Black Hole White Hole (Mini Jam 187)" icon="/Images/bhwhtitle.png" link="https://html-classic.itch.zone/html/14113049/index.html"/>
-        <GameEmbed name="So Polarising! (PROTOTYPE)" icon="/Images/polarising.png" link="https://html-classic.itch.zone/html/14683992/index.html"/>
-    </>);
-}
-
 function MusicEmbed({ name, link })
 {
     return (
         <div className="column-flex" style={{gap: "0px"}}>
             <p style={{fontSize: "1.5rem"}}>{name}</p>
-            <div style={{height: "0px", width: "calc(var(--scale-media-width) * 800/var(--scale-width))", position: "relative"}}>
-                <iframe allowFullScreen scrolling="no" src={link}></iframe>
+            <div class="column-flex iframe-container iframe-container-music">
+                <iframe class="iframe-small" allowFullScreen scrolling="no" src={link}></iframe>
             </div>
         </div>
     );
@@ -330,12 +301,12 @@ if (musicContainer)
     </>);
 }
 
-function WebsiteEmbed({ name, icon, link })
+function LinkedImage({ name, icon, link })
 {
     return (
         <div className="column-flex" style={{gap: "0"}}>
             <p style={{fontSize: "1.5rem"}}>{name}</p>
-            <img className="clickable medium-width" src={icon} onClick={() => window.location.href = link} style={{borderRadius: "2%"}} tabIndex="0"/>
+            <img className="clickable linked-image-height" src={icon} onClick={() => window.location.href = link} style={{borderRadius: "2%"}} tabIndex="0"/>
         </div>
     );
 }
@@ -346,10 +317,25 @@ if (websiteContainer)
 {
     ReactDOM.createRoot(websiteContainer).render(
     <>
-        <WebsiteEmbed name="Newhome Studios" icon="/Images/newhomestudios.png" link="https://newhomestudios.neocities.org/"/>
-        <WebsiteEmbed name="Testimonial Slider" icon="/Images/testimonial.png" link="/showcase/testimonial"/>
-        <WebsiteEmbed name="Progress Bar" icon="/Images/progressbar.png" link="/showcase/progress"/>
-        <WebsiteEmbed name="Screensaver (Website game)" icon="/Images/screensaver.png" link="/showcase/screensaver"/>
+        <LinkedImage name="Newhome Studios" icon="/Images/newhomestudios.png" link="https://newhomestudios.neocities.org/"/>
+        <LinkedImage name="Testimonial Slider" icon="/Images/testimonial.png" link="/showcase/testimonial"/>
+        <LinkedImage name="Progress Bar" icon="/Images/progressbar.png" link="/showcase/progress"/>
+        <LinkedImage name="Screensaver (Website game)" icon="/Images/screensaver.png" link="/showcase/screensaver"/>
+    </>);
+}
+
+let gameContainer = document.getElementById("games");
+
+if (gameContainer)
+{
+    ReactDOM.createRoot(gameContainer).render(
+    <>
+        <LinkedImage name="Polydraws (Mini Jam 177)" icon="/Images/polydrawstitle.png" link={"/game-page?game-id=polydraws"}/>
+        <LinkedImage name="Charge Cycle (Mini Jam 179)" icon="/Images/chargecycletitle.png" link={"/game-page?game-id=chargecycle"}/>
+        <LinkedImage name="Nestkeeping (Mini Jam 184)" icon="/Images/nestkeepingtitle.png" link={"/game-page?game-id=nestkeeping"}/>
+        <LinkedImage name="Black Hole White Hole (Mini Jam 187)" icon="/Images/bhwhtitle.png" link={"/game-page?game-id=bhwh"}/>
+        <LinkedImage name="So Polarising! (PROTOTYPE)" icon="/Images/polarisingtitle.png" link={"/game-page?game-id=polarising"}/>
+        <LinkedImage name="The Metal Forge" icon="/Images/metalforgetitle.png" link={"/game-page?game-id=metalforge"}/>
     </>);
 }
 
@@ -359,16 +345,102 @@ if (contentMediaocreContainer)
 {
     ReactDOM.createRoot(contentMediaocreContainer).render(
     <>
-        <GameEmbed name="Into the Darkness (Micro Jam 046)" icon="/Images/darkness.png" link="https://html-classic.itch.zone/html/14903577/index.html"/>
+        <LinkedImage name="Into the Darkness (Micro Jam 046)" icon="/Images/darkness.png" link="/game-page?game-id=darkness"/>
         <MusicEmbed name="Into the Darkness - Isolation (Aaqib)" link="https://www.youtube.com/embed/wlpSJbSUSRQ"/>
     </>);
+}
+
+function GameEmbed({ link })
+{
+    return (
+        <div className="column-flex iframe-container">
+            <iframe allow="autoplay" scrolling="no" allowFullScreen></iframe>
+            <div className="iframe clickable" style={{"--src": link}} tabIndex="0"></div>
+        </div>
+    );
+}
+
+function GamePage({ title, icon, embedLink = "", downloadLink = "" })
+{
+    return (
+    <>
+        <p>{title}</p>
+        <img className="medium-width" src={icon}/>
+        {(embedLink != "") ? <GameEmbed link={embedLink}/> : <></>}
+    </>);
+}
+
+let gamePageContainer = document.getElementById("game-page");
+
+if (gamePageContainer)
+{
+    let page = (new URLSearchParams(window.location.search)).get("game-id");
+
+    switch (page)
+    {
+        case "polydraws":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Polydraws"
+            icon="/Images/polydrawstitle.png"
+            embedLink="https://html-classic.itch.zone/html/13767402/index.html"
+        />); break;
+
+        case "chargecycle":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Charge Cycle"
+            icon="/Images/chargecycletitle.png"
+            embedLink="https://html-classic.itch.zone/html/13767261/index.html"
+        />); break;
+
+        case "nestkeeping":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Nestkeeping"
+            icon="/Images/nestkeepingtitle.png"
+            embedLink="https://html-classic.itch.zone/html/13686725/index.html"
+        />); break;
+
+        case "bhwh":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Black Hole White Hole"
+            icon="/Images/bhwhtitle.png"
+            embedLink="https://html-classic.itch.zone/html/14113049/index.html"
+        />); break;
+
+        case "polarising":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="So Polarising!"
+            icon="/Images/polarisingtitle.png"
+            embedLink="https://html-classic.itch.zone/html/14683992/index.html"
+        />); break;
+
+        case "metalforge":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="The Metal Forge"
+            icon="/Images/metalforgetitle.png"
+            embedLink="/local-games/metalforge/index.html"
+        />); break;
+
+        case "darkness":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Into the Darkness"
+            icon="/Images/darkness.png"
+            embedLink="https://html-classic.itch.zone/html/14903577/index.html"
+        />); break;
+    }
 }
 
 function Contact({ icon, content })
 {
     return (
         <div className="row-flex" style={{gap: "calc(var(--scale-media-width) * 20/var(--scale-width))"}}>
-            <img src={icon} style={{borderRadius: "2%"}}/>
+            <img className="contact-image" src={icon} style={{borderRadius: "2%"}}/>
             <p style={{fontSize: "1.5rem", textAlign: "left"}}>{content}</p>
         </div>
     );
@@ -409,11 +481,11 @@ function Form({ email })
                     <p id="result" style={{fontSize: "1.5rem", width: "calc(var(--scale-media-width) * 500/var(--scale-width))", textAlign: "right"}}>Result: None</p>
                 </div>
 
-                <input className="large-width" maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{position: "relative", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
-                <input className="large-width" maxLength="100" required name="subject" type="text" placeholder="Subject" style={{position: "relative", height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
-                <textarea className="large-width" maxLength="1500" required name="content" placeholder="Content" style={{position: "relative", height: "calc(var(--scale-media-width) * 300/var(--scale-width))", fontSize: "1.5rem"}}></textarea>
-                <img src="/Images/arrow.png" style={{position: "relative", top: "calc(var(--scale-media-width) * -300/var(--scale-width))", left: "calc(var(--pos-media-width) * 450/var(--scale-width))", width: "calc(var(--scale-media-width) * 100/var(--scale-width))"}}/>
-                <button style={{background: "transparent", border: "none", cursor: "pointer", position: "relative", top: "calc(var(--scale-media-width) * -400/var(--scale-width))", left: "calc(var(--pos-media-width) * 450/var(--scale-width))", width: "calc(var(--scale-media-width) * 100/var(--scale-width))", height: "calc(var(--scale-media-width) * 50/var(--scale-width))"}}></button>
+                <input className="large-width" maxLength="100" name="email" type="email" placeholder="Your email (optional)" style={{height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
+                <input className="large-width" maxLength="100" required name="subject" type="text" placeholder="Subject" style={{height: "calc(var(--scale-media-width) * 70/var(--scale-width))", fontSize: "calc(1.5rem * 4/3)"}}/>
+                <textarea className="large-width" maxLength="1500" required name="content" placeholder="Content" style={{height: "calc(var(--scale-media-width) * 300/var(--scale-width))", fontSize: "1.5rem"}}></textarea>
+                <img src="/Images/arrow.png" style={{width: "calc(var(--scale-media-width) * 100/var(--scale-width))"}}/>
+                <button style={{background: "transparent", border: "none", cursor: "pointer", position: "relative", top: "calc(var(--scale-media-width) * -100/var(--scale-width))", width: "calc(var(--scale-media-width) * 100/var(--scale-width))", height: "calc(var(--scale-media-width) * 50/var(--scale-width))"}}></button>
             </div>
         </form>
     );
