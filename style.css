@@ -276,6 +276,8 @@ iframe, .iframe
     width: calc(var(--pos-media-width) * 1600/var(--scale-width));
     aspect-ratio: 16/9;
 
+    margin-bottom: calc(var(--scale-media-width) * 50/var(--scale-width));
+
     overflow: hidden;
 }
 
@@ -283,6 +285,7 @@ iframe, .iframe
 {
     top: 0;
     width: calc(var(--pos-media-width) * 800/var(--scale-width));
+    margin-bottom: 0;
 }
 
 /*For divs imitating iframes*/

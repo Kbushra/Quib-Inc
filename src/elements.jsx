@@ -350,92 +350,6 @@ if (contentMediaocreContainer)
     </>);
 }
 
-function GameEmbed({ link })
-{
-    return (
-        <div className="column-flex iframe-container">
-            <iframe allow="autoplay" scrolling="no" allowFullScreen></iframe>
-            <div className="iframe clickable" style={{"--src": link}} tabIndex="0"></div>
-        </div>
-    );
-}
-
-function GamePage({ title, icon, embedLink = "", downloadLink = "" })
-{
-    return (
-    <>
-        <p>{title}</p>
-        <img className="medium-width" src={icon}/>
-        {(embedLink != "") ? <GameEmbed link={embedLink}/> : <></>}
-    </>);
-}
-
-let gamePageContainer = document.getElementById("game-page");
-
-if (gamePageContainer)
-{
-    let page = (new URLSearchParams(window.location.search)).get("game-id");
-
-    switch (page)
-    {
-        case "polydraws":
-        ReactDOM.createRoot(gamePageContainer).render(
-        <GamePage
-            title="Polydraws"
-            icon="/Images/polydrawstitle.png"
-            embedLink="https://html-classic.itch.zone/html/13767402/index.html"
-        />); break;
-
-        case "chargecycle":
-        ReactDOM.createRoot(gamePageContainer).render(
-        <GamePage
-            title="Charge Cycle"
-            icon="/Images/chargecycletitle.png"
-            embedLink="https://html-classic.itch.zone/html/13767261/index.html"
-        />); break;
-
-        case "nestkeeping":
-        ReactDOM.createRoot(gamePageContainer).render(
-        <GamePage
-            title="Nestkeeping"
-            icon="/Images/nestkeepingtitle.png"
-            embedLink="https://html-classic.itch.zone/html/13686725/index.html"
-        />); break;
-
-        case "bhwh":
-        ReactDOM.createRoot(gamePageContainer).render(
-        <GamePage
-            title="Black Hole White Hole"
-            icon="/Images/bhwhtitle.png"
-            embedLink="https://html-classic.itch.zone/html/14113049/index.html"
-        />); break;
-
-        case "polarising":
-        ReactDOM.createRoot(gamePageContainer).render(
-        <GamePage
-            title="So Polarising!"
-            icon="/Images/polarisingtitle.png"
-            embedLink="https://html-classic.itch.zone/html/14683992/index.html"
-        />); break;
-
-        case "metalforge":
-        ReactDOM.createRoot(gamePageContainer).render(
-        <GamePage
-            title="The Metal Forge"
-            icon="/Images/metalforgetitle.png"
-            embedLink="/local-games/metalforge/index.html"
-        />); break;
-
-        case "darkness":
-        ReactDOM.createRoot(gamePageContainer).render(
-        <GamePage
-            title="Into the Darkness"
-            icon="/Images/darkness.png"
-            embedLink="https://html-classic.itch.zone/html/14903577/index.html"
-        />); break;
-    }
-}
-
 function Contact({ icon, content })
 {
     return (
@@ -498,6 +412,149 @@ if (formContainer)
     ReactDOM.createRoot(formContainer).render(<Form email={formContainer.getAttribute("email")}/>);
 }
 
+function GameEmbed({ link })
+{
+    return (
+    <>
+        <div className="column-flex iframe-container">
+            <iframe allow="autoplay" scrolling="no" allowFullScreen></iframe>
+            <div className="iframe clickable" style={{"--src": link}} tabIndex="0"></div>
+        </div>
+        <img className="clickable fullscreen" src="/Images/fullscreen.png" onClick={iframeFullscreen} style={{width: "10rem", borderRadius: "2%"}} tabIndex="0"/>
+    </>);
+}
+
+function GamePage({ title, icon, desc, pageLink, pageIcon="/Images/itch.png", embedLink = "", downloadLink = "", children = <></> })
+{
+    return (
+    <>
+        <div className="row-flex" style={{gap: "2rem", position: "relative", top: "1rem"}}>
+            <img style={{height: "30rem"}} src={icon}/>
+            <div className="column-flex" style={{width: "60rem", height: "30rem", alignItems: "flex-start"}}>
+                <div className="row-flex" style={{gap: "2rem"}}>
+                    <img className="clickable" src={pageIcon} onClick={() => window.location.href = pageLink} style={{width: "5rem", borderRadius: "2%"}} tabIndex="0"/>
+                    {(downloadLink != "") ? <img className="clickable" src="/Images/download.png" onClick={() => window.location.href = downloadLink} style={{width: "5rem", borderRadius: "2%"}} tabIndex="0"/> : <></>}
+                </div>
+
+                <p style={{textAlign: "left", fontSize: "2.5rem", margin: "0"}}>{title}</p>
+                {desc}
+            </div>
+        </div>
+        {(embedLink != "") ? <GameEmbed link={embedLink}/> : <></>}
+        {children}
+    </>);
+}
+
+let gamePageContainer = document.getElementById("game-page");
+
+if (gamePageContainer)
+{
+    let page = (new URLSearchParams(window.location.search)).get("game-id");
+
+    switch (page)
+    {
+        case "polydraws":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Polydraws"
+            icon="/Images/polydrawstitle.png"
+            desc={<p style={{textAlign: "left"}}>
+            Game made for the Mini Jam 177: Paper.<br/>
+            A platformer where you morph through 3 shapes. Takes around 15 minutes to finish.
+            </p>}
+            pageLink="https://keepchatting.itch.io/polydraws"
+            downloadLink="/local-games/polydraws/polydraws.zip"
+            embedLink="https://html-classic.itch.zone/html/13767402/index.html"
+        />); break;
+
+        case "chargecycle":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Charge Cycle"
+            icon="/Images/chargecycletitle.png"
+            desc={<p style={{textAlign: "left"}}>
+            Game made for the Mini Jam 179: Energy.<br/>
+            The CPU's having a bit of a meltdown and its your job to repair it! You have limited power though, and so does the CPU it seems...
+            </p>}
+            pageLink="https://keepchatting.itch.io/charge-cycle"
+            downloadLink="/local-games/chargecycle/chargecycle.zip"
+            embedLink="https://html-classic.itch.zone/html/13767261/index.html"
+        />); break;
+
+        case "nestkeeping":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Nestkeeping"
+            icon="/Images/nestkeepingtitle.png"
+            desc={<p style={{textAlign: "left"}}>
+            Game made for the Mini Jam 184: Birds.<br/>
+            You're a bird, and you want to do bird things, but those pesky ravens want to eat your eggs for breakfast! You have to do everything in under one minute so they dont take away your children forever.
+            </p>}
+            pageLink="https://keepchatting.itch.io/nestkeeping"
+            downloadLink="/local-games/nestkeeping/nestkeeping.zip"
+            embedLink="https://html-classic.itch.zone/html/13686725/index.html"
+        />); break;
+
+        case "bhwh":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Black Hole White Hole"
+            icon="/Images/bhwhtitle.png"
+            desc={<p style={{textAlign: "left"}}>
+            Game made for Mini Jam 187: Polarity.<br/>
+            You're a black hole, linked with a white hole in a parallel dimension.<br/>
+            With limited energy resource, you have to repair the holes in your universe.<br/>
+            Swap between you and your parallel, fix holes and gather materials, and charge up the center of everything.
+            </p>}
+            pageLink="https://keepchatting.itch.io/black-hole-white-hole"
+            downloadLink="/local-games/bhwh/bhwh.zip"
+            embedLink="https://html-classic.itch.zone/html/14113049/index.html"
+        />); break;
+
+        case "polarising":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="So Polarising!"
+            icon="/Images/polarisingtitle.png"
+            desc={<p style={{textAlign: "left"}}>
+            Game inspired by Pizza Tower<br/>
+            Propel yourself with magnets to fling through rooms and wind through the course into freedom.
+            </p>}
+            pageLink="https://keepchatting.itch.io/so-polarising"
+            downloadLink="/local-games/polarising/polarising.zip"
+            embedLink="https://html-classic.itch.zone/html/14683992/index.html"
+        />); break;
+
+        case "metalforge":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="The Metal Forge"
+            icon="/Images/metalforgetitle.png"
+            desc={<p style={{textAlign: "left"}}>
+            Game made as a school project.<br/>
+            Though metal lusts for destruction, you lust for profit. Massacre metal with their harvested materials, and profit from your endeavours.
+            </p>}
+            pageLink="https://keepchatting.itch.io/the-metal-forge"
+            downloadLink="/local-games/metalforge/metalforge.zip"
+            embedLink="/local-games/metalforge/index.html"
+        />); break;
+
+        case "darkness":
+        ReactDOM.createRoot(gamePageContainer).render(
+        <GamePage
+            title="Into the Darkness"
+            icon="/Images/darkness.png"
+            desc={<p style={{textAlign: "left"}}>
+            Game made for the Micro Jam 046: Night.<br/>
+            You can only feel light; The dark is known to cause mirages...
+            </p>}
+            pageLink="https://kryspigames.itch.io/into-the-darkness"
+            downloadLink="/local-games/darkness/darkness.zip"
+            embedLink="https://html-classic.itch.zone/html/14903577/index.html"
+        />); break;
+    }
+}
+
 /////////////////////EVENT LISTENERS/////////////////////
 
 function clickableClick(ev)
@@ -541,24 +598,34 @@ function subdropTransition(ev)
 
 function iframeFocus(ev)
 {
-    let div = ev.currentTarget;
-    let ind = div.ind;
+    let targ = ev.currentTarget;
+    let ind = targ.ind;
+
+    let div = document.getElementsByClassName("iframe")[ind];
     let frame = document.getElementsByTagName("iframe")[ind];
 
     if (frame.src != window.getComputedStyle(div).getPropertyValue("--src"))
     {
         frame.src = window.getComputedStyle(div).getPropertyValue("--src");
-        
-        frame.focus();
-        frame.contentWindow.focus();
     }
-
-    frame.requestFullscreen();
+        
+    frame.focus();
+    frame.contentWindow.focus();
     
     for (let c = div.childNodes.length - 1; c >= 0; c--)
     {
         div.childNodes[c].remove();
     }
+}
+
+function iframeFullscreen(ev)
+{
+    let targ = ev.currentTarget;
+    let ind = targ.ind;
+    let frame = document.getElementsByTagName("iframe")[ind];
+
+    iframeFocus(ev);
+    frame.requestFullscreen();
 }
 
 async function formRequest(ev)
@@ -622,11 +689,13 @@ const observer = new MutationObserver(() =>
     }
 
     let iframeDivs = document.getElementsByClassName("iframe");
+    let iframeButtons = document.getElementsByClassName("fullscreen");
 
     for (let i = 0; i < iframeDivs.length; i++)
     {
         iframeDivs[i].addEventListener("click", iframeFocus);
         iframeDivs[i].ind = i;
+        iframeButtons[i].ind = i;
     }
 
     let form = document.getElementById("request-form");
