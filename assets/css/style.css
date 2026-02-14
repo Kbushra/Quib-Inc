@@ -1011,6 +1011,7 @@ body.modern-page #main.page-shell {
   height: 100% !important;
   aspect-ratio: auto;
   transform: none !important;
+}
 
 .modern-page .media-grid .iframe-small {
   width: 100% !important;
