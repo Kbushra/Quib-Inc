@@ -2,19 +2,11 @@
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "cleanUrls": true,
     "trailingSlash": false,
-    "redirects":
-    [
-        { "source": "/pages/game-page/:path*", "destination": "/game-page/:path*", "permanent": true },
-        { "source": "/pages/info/:path*", "destination": "/info/:path*", "permanent": true },
-        { "source": "/pages/otherorgs/:path*", "destination": "/otherorgs/:path*", "permanent": true },
-        { "source": "/pages/projs/:path*", "destination": "/projs/:path*", "permanent": true },
-        { "source": "/pages/showcase/:path*", "destination": "/showcase/:path*", "permanent": true },
-        { "source": "/pages/local-games/:path*", "destination": "/local-games/:path*", "permanent": true }
-    ],
+    "outputDirectory": ".",
     "rewrites":
     [
         { "source": "/api/email", "destination": "/api/backend-exporter" },
-        { "source": "/game-page", "destination": "/pages/game-page/index.html" },
+        { "source": "/game-page", "destination": "/pages/game-page" },
         { "source": "/game-page/:path*", "destination": "/pages/game-page/:path*" },
         { "source": "/info/:path*", "destination": "/pages/info/:path*" },
         { "source": "/otherorgs/:path*", "destination": "/pages/otherorgs/:path*" },

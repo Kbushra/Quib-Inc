@@ -1003,8 +1003,19 @@ body.modern-page #main.page-shell {
   aspect-ratio: 16/9;
 }
 
+.modern-page .media-grid .iframe-container iframe,
+.modern-page .media-grid .iframe-container .iframe {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto;
+  transform: none !important;
+}
+
 .modern-page .media-grid .iframe-small {
-  width: 1600px !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 body.page-projs-games .media-grid > .column-flex,
