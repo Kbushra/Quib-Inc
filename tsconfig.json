@@ -16,7 +16,7 @@
     // "types": ["node"],
     // and npm install -D @types/node
 
-    "rootDir": "./src",
+    "rootDir": "./src/server",
     "outDir": "./api",
 
     // Other Outputs
@@ -45,6 +45,7 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "skipLibCheck": true
+  },
+  "include": ["src/server/**/*.ts"]
 }
