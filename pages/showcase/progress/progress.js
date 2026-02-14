@@ -21,12 +21,12 @@ for (let i = 0; i < stages.length; i++)
             if (stage <= ind && !icons[stage].src.includes("tick.png"))
             {
                 icons[stage].style.animationPlayState = "running";
-                icons[stage].src = "/showcase/progress/Images/tick.png";
+                icons[stage].src = "/pages/showcase/progress/Images/tick.png";
             }
             else if (stage > ind && !icons[stage].src.includes("cross.png"))
             {
                 icons[stage].style.animationPlayState = "running";
-                icons[stage].src = "/showcase/progress/Images/cross.png";
+                icons[stage].src = "/pages/showcase/progress/Images/cross.png";
             }
         }
     });

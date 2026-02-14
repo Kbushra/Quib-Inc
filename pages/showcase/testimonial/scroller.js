@@ -1,4 +1,4 @@
-var personList = ["/showcase/testimonial/People/guy1.jpg", "/showcase/testimonial/People/guy2.jpg", "/showcase/testimonial/People/donald.jpg"];
+var personList = ["/pages/showcase/testimonial/People/guy1.jpg", "/pages/showcase/testimonial/People/guy2.jpg", "/pages/showcase/testimonial/People/donald.jpg"];
 var descList = ["I'm smiling because of how great this product is! Would definitely recommend.", "This product cured my eye dementia, heavily recommend.", "I'm Donald Trump don't listen to me."];
 var nameList = ["Guy Fawkes", "Guy IBalls", "Donald Trump"];
 
