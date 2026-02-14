@@ -2,6 +2,8 @@
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "cleanUrls": true,
     "trailingSlash": false,
+    "buildCommand": "npm run compile",
+    "installCommand": "npm install",
     "redirects":
     [
         { "source": "/pages/game-page/:path*", "destination": "/game-page/:path*", "permanent": true },
