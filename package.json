@@ -5,7 +5,7 @@
   "main": "api/backend.js",
   "scripts": {
     "compile-ts": "tsc",
-    "compile-jsx": "esbuild ./src/elements.jsx --bundle --minify --sourcemap --outfile=./assets/js/elements.js",
+    "compile-jsx": "esbuild ./src/jsx/*.jsx --bundle --minify --sourcemap --format=esm --outdir=./scripts",
     "compile": "npm run compile-ts && npm run compile-jsx"
   },
   "repository": {
@@ -40,6 +40,7 @@
     "@babel/preset-react": "^7.28.5",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/react-dom": "^19.2.3",
     "esbuild": "^0.27.2",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"
