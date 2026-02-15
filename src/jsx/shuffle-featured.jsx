@@ -4,7 +4,7 @@ import { gameIds } from "../../scripts/game-ids";
 function FeaturedGame({ name, id, image })
 {
     return (
-        <a className="landing-card" href={`/game-page?game-id=${id}`}>
+        <a className="linked-panel" href={`/game-page?game-id=${id}`}>
             <img src={image} alt={name}/>
             <span>{name}</span>
         </a>

@@ -1,31 +1,5 @@
 const STORAGE_KEY = "lightMode";
 
-const themes =
-{
-    dark:
-    {
-        "--bg-color": "#09090b",
-        "--card-bg": "rgba(24, 24, 27, 0.6)",
-        "--border-color": "#27272a",
-        "--text-color": "#fafafa",
-        "--text-muted": "#a1a1aa",
-        "--header-bg": "rgba(9, 9, 11, 0.8)",
-        "--mesh-opacity": "0.2",
-        "--mesh-blur": "120px",
-    },
-    light:
-    {
-        "--bg-color": "#ffffff",
-        "--card-bg": "rgba(24, 24, 27, 0.05)",
-        "--border-color": "#e4e4e7",
-        "--text-color": "#18181b",
-        "--text-muted": "#52525b",
-        "--header-bg": "rgba(255, 255, 255, 0.82)",
-        "--mesh-opacity": "0.055",
-        "--mesh-blur": "132px",
-    },
-};
-
 function safeGetStorage()
 {
     try
@@ -47,35 +21,16 @@ function safeSetStorage(value)
     catch { } // Ignore write failures (private mode or blocked storage).
 }
 
-function applyTheme(themeName, persist = true)
-{
-    const theme = themes[themeName] || themes.dark;
-    const root = document.documentElement;
-
-    for (const key in theme)
-    {
-        root.style.setProperty(key, theme[key]);
-    }
-
-    root.dataset.theme = themeName;
-
-    if (persist)
-    {
-        safeSetStorage(themeName === "light" ? "enabled" : "disabled");
-    }
-}
-
 function resolveInitialTheme()
 {
     const stored = safeGetStorage();
-    if (stored === "enabled") { return "light"; }
-    if (stored === "disabled") { return "dark"; }
+    if (stored !== null) { return stored; }
 
     return (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches)
         ? "light" : "dark";
 }
 
-applyTheme(resolveInitialTheme(), false);
+document.documentElement.dataset.theme = resolveInitialTheme();
 
 if (window.matchMedia)
 {
@@ -86,7 +41,7 @@ if (window.matchMedia)
 
         if (stored === null)
         {
-            applyTheme(event.matches ? "light" : "dark", false);
+            document.documentElement.dataset.theme = resolveInitialTheme();
         }
     });
 
@@ -99,7 +54,8 @@ if (window.matchMedia)
 export function toggleTheme()
 {
     const toggled = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-    applyTheme(toggled);
+    document.documentElement.dataset.theme = toggled;
+    safeSetStorage(toggled);
 
     //So that dropdowns instantly change colour
     let dropdowns = document.getElementsByClassName("dropdown");

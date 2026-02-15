@@ -5,16 +5,16 @@ function Dropdown({ mainName, categoryNames, categoryUrls })
 {
     return (
         <div className="dropdown" tabIndex="0">
-            <p style={{ top: "-1rem", fontSize: "1.8rem" }}>
+            <p style={{ fontSize: "1.8rem" }}>
                 {mainName}
             </p>
-            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[0])} style={{ "--targ-top": "4rem", fontSize: "1.8rem" }} tabIndex="0">
+            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[0])} style={{ "--targ-top": "5rem", fontSize: "1.8rem" }} tabIndex="0">
                 {categoryNames[0]}
             </p>
-            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[1])} style={{ "--targ-top": "8rem", fontSize: "1.8rem" }} tabIndex="0">
+            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[1])} style={{ "--targ-top": "10rem", fontSize: "1.8rem" }} tabIndex="0">
                 {categoryNames[1]}
             </p>
-            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[2])} style={{ "--targ-top": "12rem", fontSize: "1.8rem" }} tabIndex="0">
+            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[2])} style={{ "--targ-top": "15rem", fontSize: "1.8rem" }} tabIndex="0">
                 {categoryNames[2]}
             </p>
         </div>

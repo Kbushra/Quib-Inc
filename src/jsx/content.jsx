@@ -4,8 +4,8 @@ import { gameIds } from "../../scripts/game-ids";
 function MusicEmbed({ name, link })
 {
     return (
-        <div className="column-flex media-card media-card-music">
-            <p className="media-card-title">{name}</p>
+        <div className="column-flex linked-panel media-card-music">
+            <p className="panel-title">{name}</p>
             <div className="column-flex iframe-container iframe-container-music">
                 <iframe className="iframe-small" allowFullscreen scrolling="no" src={link}></iframe>
             </div>
@@ -40,9 +40,9 @@ if (musicContainer)
 function LinkedImage({ name, icon, link })
 {
     return (
-        <div className="column-flex media-card">
-            <p className="media-card-title">{name}</p>
-            <img className="clickable linked-image-height content-img" src={icon} alt={name} onClick={() => (window.location.href = link)} tabIndex="0"/>
+        <div className="column-flex linked-panel clickable" onClick={() => (window.location.href = link)}>
+            <p className="panel-title">{name}</p>
+            <img className="linked-image-height" src={icon} alt={name} tabIndex="0"/>
         </div>
     );
 }

@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 function NewsArticle({ name, tagline, children })
 {
     return (<>
-        <div className="break-line"></div>
         <p className="large-width" style={{ marginBottom: "0px", fontSize: "3.5rem", fontWeight: "700" }}>
             {name}
         </p>
@@ -18,7 +17,7 @@ function NewsArticle({ name, tagline, children })
 function NewsRow({ style, children })
 {
     return (
-        <div className="row-flex news-row" style={{ gap: "2rem", ...style }}>
+        <div className="row-flex news-row" style={{ gap: "5rem", ...style }}>
             {children}
         </div>
     );
@@ -39,19 +38,17 @@ function ExpandableArticle({ article })
 
     if (expanded)
     {
-        return (<>
+        return (<div class="column-flex page-section page-news-section">
             {expandedArticle(article)}
             <div className="row-flex clickable" onClick={() => expand(false)} style={{ width: "fit-content", marginBottom: "1rem" }}>
                 <p className="hover-darken clickable" style={{ margin: "0px", fontSize: "1.5rem" }} tabIndex="0">
                     Click to unexpand
                 </p>
             </div>
-        </>);
+        </div>);
     }
 
-    return (<>
-        <div className="break-line"></div>
-
+    return (<div class="column-flex page-section page-news-section">
         <p className="large-width" style={{ marginBottom: "0px", fontSize: "3.5rem", fontWeight: "700" }}>
             {article.name}
         </p>
@@ -63,7 +60,7 @@ function ExpandableArticle({ article })
                 Click to expand
             </p>
         </div>
-    </>);
+    </div>);
 }
 
 let newsContainer = document.getElementById("news-container");
@@ -174,6 +171,7 @@ if (newsContainer)
     if (newsContainer.getAttribute("amount") == "all")
     {
         ReactDOM.createRoot(newsContainer).render(<>
+            <div className="break-line"></div>
             <ExpandableArticle article={latestArticle} />
             {/*More expandable articles go here, with their structs set directly*/}
         </>);

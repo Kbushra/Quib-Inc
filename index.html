@@ -36,40 +36,36 @@
     />
     <link rel="stylesheet" href="/style.css" />
   </head>
-  <body class="landing-page">
+  <body>
     <div id="main-container">
       <div id="main">
-        <section class="landing-surface landing-hero">
-          <div class="landing-copy">
-            <h1 class="landing-title">Games, Music, Websites</h1>
-            <p class="landing-lead">
+        <section class="large-panel square-grid">
+          <div class="column-flex" style="align-items: flex-start; justify-content: center; gap: 1.35rem;">
+            <h1 style="margin-bottom: 0; font-size: 5.8rem;">Games, Music, Websites</h1>
+            <p style="text-align: left; font-size: 1.5rem; width: 42rem;">
               Quib Inc. is an organisation managed by Aaqib Choudhury. We build
               jam games, original soundtracks, and interactive web projects with
               a focus on creativity and learning.
             </p>
             <div class="row-flex" style="gap: 0.9rem;">
-              <a class="landing-cta landing-cta-primary" href="/projs/games"
-                >Explore Games</a
-              >
-              <a class="landing-cta" href="/projs/music">Listen to Music</a>
-              <a class="landing-cta" href="/projs/websites"
-                >See Web Projects</a
-              >
+              <a class="linked-pill main-focus" href="/projs/games">Explore Games</a>
+              <a class="linked-pill" href="/projs/music">Listen to Music</a>
+              <a class="linked-pill" href="/projs/websites">See Web Projects</a>
             </div>
           </div>
 
-          <div class="landing-gallery" id="featured-games">
-            <a class="landing-card" href="/game-page?game-id=polydraws">
+          <div class="square-grid" id="featured-games">
+            <a class="linked-panel" href="/game-page?game-id=polydraws">
               <img src="/assets/images/polydrawstitle.png" alt="Polydraws" />
               <span>Polydraws</span>
             </a>
           </div>
         </section>
 
-        <section class="landing-news">
-          <div class="landing-news-head">
-            <p class="landing-news-label">Most Recent Newsletter</p>
-            <a class="landing-news-link" href="/info/news">View All Updates</a>
+        <section style="width: 100%; padding: 0.25rem 0.15rem 0.8rem;">
+          <div class="row-flex" style="justify-content: space-between;">
+            <p style="font-size: 1rem; letter-spacing: 0.08rem; color: var(--text-muted);">MOST RECENT NEWSLETTER</p>
+            <a class="link" style="font-size: 0.9rem;" href="/info/news">View All Updates</a>
           </div>
           <div id="news-container" amount="preview"></div>
         </section>
