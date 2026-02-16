@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 function Contact({ icon, content })
 {
     return (
-        <div className="row-flex contact-row">
-            <img className="contact-image content-img" src={icon} />
-            <p className="contact-row-content">{content}</p>
+        <div className="row-flex panel" style={{justifyContent: "flex-start", gap: "1rem", minHeight: "0",
+        background: "color-mix(in srgb, var(--bg-color) 75%, transparent 25%)"}}>
+            <img className="content-image" style={{width: "2.5rem"}} src={icon}/>
+            <p className="caption" style={{textAlign: "left"}}>{content}</p>
         </div>
     );
 }
@@ -24,11 +25,11 @@ if (contactContainer)
             icon="/assets/images/gmail.png"
         />
         <Contact
-            content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></>}
+            content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane" className="link">YT</a></>}
             icon="/assets/images/youtube.png"
         />
         <Contact
-            content={<>Aaqib: <a href="https://keepchatting.itch.io/">Account</a></>}
+            content={<>Aaqib: <a href="https://keepchatting.itch.io/" className="link">Account</a></>}
             icon="/assets/images/itch.png"
         />
     </>);
@@ -57,24 +58,24 @@ if (contactMediaocreContainer)
 function Form({ email })
 {
     return (
-        <form id="request-form" className="contact-form">
-            <div className="column-flex form-fields">
-                <div className="row-flex large-width form-meta">
-                    <p className="form-destination">Email {email}</p>
-                    <p id="result" className="form-result">
+        <form id="request-form">
+            <div className="column-flex" style={{alignItems: "stretch", gap: "0.7rem"}}>
+                <div className="row-flex" style={{justifyContent: "space-between"}}>
+                    <p style={{fontSize: "0.9rem", color: "var(--text-muted)"}}>Email {email}</p>
+                    <p id="result" style={{fontSize: "0.9rem", color: "var(--text-muted)"}}>
                         Result: None
                     </p>
                 </div>
 
                 <input
-                    className="large-width form-input"
+                    style={{minHeight: "3rem"}}
                     maxLength="100"
                     name="email"
                     type="email"
                     placeholder="Your email (optional)"
                 />
                 <input
-                    className="large-width form-input"
+                    style={{minHeight: "3rem"}}
                     maxLength="100"
                     required
                     name="subject"
@@ -82,13 +83,13 @@ function Form({ email })
                     placeholder="Subject"
                 />
                 <textarea
-                    className="large-width form-textarea"
+                    style={{minHeight: "15rem"}}
                     maxLength="1500"
                     required
                     name="content"
                     placeholder="Content"
                 ></textarea>
-                <button type="submit" className="form-submit clickable">
+                <button type="submit" className="linked-pill main-focus clickable" style={{width: "20%"}}>
                     Send Message
                 </button>
             </div>

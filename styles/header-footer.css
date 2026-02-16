@@ -68,6 +68,12 @@
   aspect-ratio: auto;
 }
 
+#masthead p { transition: color 0.2s ease; color: var(--text-color); }
+
+#masthead:hover p {
+  color: var(--accent-color);
+}
+
 #mode-label {
   position: relative;
   left: calc(var(--pos-media-factor) * 8);
@@ -120,6 +126,7 @@ html[data-theme="light"] #mode::before {
   height: 4rem;
 
   background-color: transparent;
+  border: 1px solid transparent;
 
   display: flex;
   justify-content: center;
@@ -130,6 +137,7 @@ html[data-theme="light"] #mode::before {
   border-radius: 12px;
   transition:
     background-color 0.2s cubic-bezier(0.1, 0.9, 1, 1),
+    border-color 0.2s ease,
     height 0.2s cubic-bezier(0.1, 0.9, 1, 1);
 }
 
@@ -148,7 +156,7 @@ html[data-theme="light"] #mode::before {
 .dropdown:has(:focus) {
   background-color: var(--bg-color);
   height: 19rem;
-  border: 1px solid var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .subdrop {

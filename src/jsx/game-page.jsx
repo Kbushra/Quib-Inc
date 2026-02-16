@@ -4,8 +4,8 @@ import { gameIds } from "../../scripts/game-ids";
 function GameEmbed({ link })
 {
     return (<>
-        <div className="column-flex iframe-container">
-            <iframe allow="autoplay" scrolling="no" allowFullScreen></iframe>
+        <div className="column-flex iframe-container" style={{marginTop: "2rem", marginBottom: "2rem"}}>
+            <iframe className="iframe-hoverable" allow="autoplay" scrolling="no" allowFullScreen></iframe>
             <div
                 className="iframe clickable"
                 style={{ "--src": link }}
@@ -13,7 +13,7 @@ function GameEmbed({ link })
             ></div>
         </div>
         <img
-            className="clickable fullscreen content-img"
+            className="clickable fullscreen content-image"
             src="/assets/images/fullscreen.png"
             tabIndex="0"
         />
@@ -23,20 +23,20 @@ function GameEmbed({ link })
 function GamePage({ title, icon, desc, pageLink, pageIcon = "/assets/images/itch.png", embedLink = "", downloadLink = "", children = <></>, })
 {
     return (<>
-        <div className="row-flex game-hero">
-            <img className="game-hero-image content-img" src={icon} />
-            <div className="column-flex game-hero-copy">
-                <div className="row-flex game-hero-actions">
-                    <img className="clickable content-img game-action-icon" src={pageIcon} onClick={() => (window.location.href = pageLink)} tabIndex="0"/>
+        <div id="game-description-panel" className="row-flex panel" style={{gap: "1rem", justifyContent: "flex-start", alignItems: "flex-start"}}>
+            <img className="content-image" src={icon} style={{width: "min(100%, 30rem)", height: "20rem"}}/>
+            <div className="column-flex" style={{alignItems: "flex-start"}}>
+                <div className="row-flex" style={{justifyContent: "flex-start"}}>
+                    <img className="clickable content-image" style={{borderRadius: "12px", width: "4rem"}} src={pageIcon} onClick={() => (window.location.href = pageLink)} tabIndex="0"/>
 
                     {
                         (downloadLink == "") ? <></> :
-                        <img className="clickable content-img game-action-icon" src="/assets/images/download.png"
+                        <img className="clickable content-image" style={{borderRadius: "12px", width: "4rem"}} src="/assets/images/download.png"
                         onClick={() => (window.location.href = downloadLink)} tabIndex="0"/>
                     }
                 </div>
 
-                <p className="game-hero-title">{title}</p>
+                <p className="title">{title}</p>
                 {desc}
             </div>
         </div>

@@ -28,3 +28,4 @@ export function updateWidth()
 updateWidth();
 setTimeout(updateWidth, 1000); //Sometimes it doesn't update width properly idk how
 window.addEventListener("resize", updateWidth);
+window.addEventListener("fullscreenchange", updateWidth);

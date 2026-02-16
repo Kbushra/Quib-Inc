@@ -16,28 +16,27 @@
 
         <title>Quib Inc.</title>
         <link rel="icon" type="image/apng" href="favicon.apng">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styles/entrypoint.css">
     </head>
-    <body class="modern-page page-projs-websites">
+    <body>
         <div id="main-container">
-            <div id="main" class="page-shell">
-                <section class="page-intro">
-                    <h1 class="page-title">Project Websites</h1>
-                    <p class="page-subtitle">
-                        Interactive and experimental web projects, including design studies and community sites.
-                    </p>
+            <div id="main" style="align-items: flex-start;">
+                <h1 class="title">Project Websites</h1>
+                <p class="caption">
+                    Interactive and experimental web projects, including design studies and community sites.
+                </p>
+                <div class="break-line" style="margin: 0"></div>
+
+                <section class="panel row-flex">
+                    <div id="website" class="grid" style="width: 90%;"></div>
                 </section>
 
-                <section class="page-section">
-                    <div id="website" class="row-flex media-grid"></div>
-                </section>
-
-                <div id="footer-container" class="page-footer"></div>
+                <div id="footer-container"></div>
             </div>
         </div>
 
         <div id="header-container"></div>
 
-        <script src="/scripts/entry-point.js" type="module" defer></script>
+        <script src="/scripts/entrypoint.js" type="module" defer></script>
     </body>
 </html>

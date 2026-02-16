@@ -81,7 +81,7 @@ function Footer() {
         </p>
         <div id="footer-contents">
             <img
-                className="clickable content-img"
+                className="clickable content-image"
                 src="/assets/images/discord.png"
                 onClick={() =>
                     (window.location.href =
@@ -91,7 +91,7 @@ function Footer() {
                 tabIndex="0"
             />
             <img
-                className="clickable content-img"
+                className="clickable content-image"
                 src="/assets/images/gmail.png"
                 onClick={() =>
                     (window.location.href =
@@ -101,7 +101,7 @@ function Footer() {
                 tabIndex="0"
             />
             <img
-                className="clickable content-img"
+                className="clickable content-image"
                 src="/assets/images/youtube.png"
                 onClick={() =>
                     (window.location.href = "https://www.youtube.com/@keepmaking-ane")
@@ -110,7 +110,7 @@ function Footer() {
                 tabIndex="0"
             />
             <img
-                className="clickable content-img"
+                className="clickable content-image"
                 src="/assets/images/itch.png"
                 onClick={() =>
                     (window.location.href = "https://keepchatting.itch.io/")

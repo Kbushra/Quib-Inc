@@ -30,7 +30,7 @@ textarea:focus {
 }
 
 iframe,
-.iframe {
+.iframe, .iframe-hoverable {
   position: absolute;
 
   width: calc(var(--width) * 1px);
@@ -43,14 +43,18 @@ iframe,
   border: 1px solid var(--border-color);
 }
 
+.iframe-hoverable { transition: top 0.2s ease, border-color 0.2s ease; top: 0px; }
+
+.iframe-container:hover .iframe-hoverable {
+  top: -5px;
+  border-color: var(--accent-color);
+}
+
 .iframe-container, .iframe-container-small {
   position: relative;
-  top: 3rem;
   --width: 1600;
   width: calc(var(--pos-media-factor) * var(--width));
   aspect-ratio: 16/9;
-
-  margin-bottom: 3rem;
 
   /*overflow: hidden;*/
   border-radius: 1rem;
@@ -65,5 +69,6 @@ iframe,
 /*For divs imitating iframes*/
 .iframe {
   --src: "";
-  background: none;
+  background: transparent;
+  opacity: 0;
 }

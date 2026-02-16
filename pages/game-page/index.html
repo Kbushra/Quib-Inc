@@ -16,28 +16,25 @@
 
         <title>Quib Inc.</title>
         <link rel="icon" type="image/apng" href="favicon.apng">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styles/entrypoint.css">
     </head>
-    <body class="modern-page page-game">
+    <body>
         <div id="main-container">
-            <div id="main" class="page-shell">
-                <section class="page-intro">
-                    <h1 class="page-title">Game Details</h1>
-                    <p class="page-subtitle">
-                        A closer look at each release, including description, playable embed and download links where available.
-                    </p>
-                </section>
+            <div id="main" style="align-items: flex-start;">
+                <h1 class="title">Game Details</h1>
+                <p class="caption">
+                    Quib Inc's customised game page, including description, playable embeds and download links where available.
+                </p>
+                <div class="break-line" style="margin: 0"></div>
 
-                <section class="page-section page-section-flat">
-                    <div id="game-page"></div>
-                </section>
+                <div id="game-page"></div>
 
-                <div id="footer-container" class="page-footer"></div>
+                <div id="footer-container"></div>
             </div>
         </div>
 
         <div id="header-container"></div>
 
-        <script src="/scripts/entry-point.js" type="module" defer></script>
+        <script src="/scripts/entrypoint.js" type="module" defer></script>
     </body>
 </html>

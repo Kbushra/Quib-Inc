@@ -47,100 +47,6 @@
   gap: 0.7rem !important;
 }
 
-.panel-title {
-  margin: 0;
-  width: 100%;
-  text-align: left;
-  color: var(--text-color);
-  font-size: clamp(1rem, 0.9rem + 0.52vw, 1.38rem) !important;
-  line-height: 1.4;
-
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.contact-row {
-  width: 100%;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.8rem !important;
-}
-
-.contact-row-content {
-  margin: 0;
-  text-align: left;
-  color: var(--text-muted);
-  font-size: clamp(0.95rem, 0.9rem + 0.34vw, 1.15rem) !important;
-  line-height: 1.55;
-  overflow-wrap: anywhere;
-}
-
-.contact-form {
-  width: 100%;
-}
-
-.form-fields {
-  width: 100%;
-  align-items: stretch !important;
-  row-gap: 0.7rem !important;
-}
-
-.form-meta {
-  justify-content: space-between !important;
-  align-items: flex-end;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.form-destination,
-.form-result {
-  font-size: clamp(0.92rem, 0.88rem + 0.3vw, 1.05rem) !important;
-  color: var(--text-muted);
-  text-align: left;
-}
-
-.form-result {
-  text-align: right;
-  margin-left: auto;
-}
-
-.form-input,
-.form-textarea {
-  width: 100% !important;
-  font-size: 1rem !important;
-}
-
-.form-input {
-  min-height: 3rem;
-}
-
-.form-textarea {
-  min-height: clamp(13rem, 28vh, 17rem);
-  resize: vertical;
-}
-
-.form-submit {
-  align-self: flex-start;
-  min-height: 2.7rem;
-  min-width: 10.5rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  background: color-mix(in srgb, var(--accent-color) 20%, var(--bg-color) 80%);
-  color: var(--text-color);
-  font-size: 0.98rem;
-  font-weight: 600;
-  padding: 0.45rem 1rem;
-  transition:
-    transform 0.18s ease,
-    border-color 0.18s ease;
-}
-
-.form-submit:hover {
-  transform: translateY(-1px);
-  border-color: var(--accent-color);
-}
-
 .fullscreen {
   width: clamp(8rem, 16vw, 10rem);
 }
@@ -240,10 +146,6 @@
   margin-bottom: 0;
 }
 
-.modern-page .media-grid .iframe-container-music {
-  aspect-ratio: 16/9;
-}
-
 .modern-page .media-grid .iframe-container iframe,
 .modern-page .media-grid .iframe-container .iframe {
   position: absolute;
@@ -267,18 +169,7 @@ body.page-otherorgs-content .media-grid > .column-flex {
   max-width: 410px;
 }
 
-body.page-projs-music .media-grid > .column-flex {
-  flex: 1 1 min(100%, 760px) !important;
-  width: min(100%, 760px) !important;
-  max-width: 760px;
-}
 
-.modern-page .page-contact-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
-  gap: 1.15rem;
-  align-items: start;
-}
 
 .modern-page .page-contact-layout > * {
   min-width: 0;
@@ -419,10 +310,6 @@ body.page-projs-music .media-grid > .column-flex {
 }
 
 @media (max-width: 1280px) {
-  body.page-projs-music .media-grid > .column-flex {
-    max-width: none;
-  }
-
   .modern-page .page-contact-layout {
     grid-template-columns: 1fr;
   }

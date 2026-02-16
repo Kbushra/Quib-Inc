@@ -118,7 +118,7 @@ if (newsContainer)
             </NewsRow>
             <NewsRow>
                 <video
-                    className="large-width content-img"
+                    className="large-width content-image"
                     style={{ aspectRatio: "3/2" }}
                     controls
                 >
@@ -137,7 +137,7 @@ if (newsContainer)
                     different sprite as a placeholder).
                 </p>
                 <video
-                    className="large-width content-img"
+                    className="large-width content-image"
                     style={{ aspectRatio: "3/2" }}
                     controls
                 >

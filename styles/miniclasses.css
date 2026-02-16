@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex: 0 0 auto;
 }
 
 .column-flex,
@@ -14,7 +13,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex: 0 0 auto;
 }
 
 .grid {
@@ -37,6 +35,11 @@
 
 .caption {
   font-size: 1.03rem;
+  color: var(--text-muted);
+}
+
+.mini-caption {
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
@@ -70,15 +73,15 @@
 }
 
 .main-focus {
-  background: color-mix(in srgb, var(--accent-color) 22%, var(--bg-color) 78%);
+  background-color: color-mix(in srgb, var(--accent-color) 22%, var(--bg-color) 78%);
   border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color) 55%);
 }
 
 .link {
-  color: var(--text-muted);
+  color: var(--text-color);
   transition: color 0.15s ease;
 }
 
 .link:hover {
-  color: var(--text-color);
+  color: var(--accent-color);
 }
