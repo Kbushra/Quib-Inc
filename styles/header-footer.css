@@ -1,0 +1,206 @@
+#header-container {
+  overflow-x: clip;
+
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 5rem;
+  z-index: 50;
+
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#header {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: calc(var(--real-media-factor) * var(--scale-width));
+  height: 5rem;
+  padding-inline: clamp(0.2rem, 1vw, 0.8rem);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#header-left {
+  margin-right: 0;
+  width: auto;
+  min-width: 0;
+  flex: 1 1 auto;
+  gap: 0.6rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#header-right {
+  margin-left: 0;
+  width: auto;
+  min-width: 0;
+  flex: 0 1 auto;
+  height: 100%;
+  gap: 0.45rem;
+  padding-top: 0.5rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+#masthead {
+  width: auto;
+  min-width: 190px;
+  aspect-ratio: auto;
+}
+
+#mode-label {
+  position: relative;
+  left: calc(var(--pos-media-factor) * 8);
+  font-size: clamp(0.95rem, 0.84rem + 0.45vw, 1.2rem);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+#mode {
+  position: relative;
+  width: 5rem;
+  height: 2.5rem;
+
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+
+  border-radius: 999px;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+#mode::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: var(--text-color);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+html[data-theme="light"] #mode::before {
+  transform: translateX(2.5rem);
+}
+
+#mode:hover {
+  border-color: var(--accent-color);
+}
+
+.dropdown {
+  position: relative;
+  top: 0;
+  margin-top: 0;
+  width: clamp(120px, 8.8vw, 160px);
+  height: 4rem;
+
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+
+  cursor: default;
+
+  border-radius: 12px;
+  transition:
+    background-color 0.2s cubic-bezier(0.1, 0.9, 1, 1),
+    height 0.2s cubic-bezier(0.1, 0.9, 1, 1);
+}
+
+.dropdown > p:first-child {
+  top: 0 !important;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+/*If the subdrop in a dropdown has focus, stay focused itself*/
+.dropdown:hover,
+.dropdown:has(:focus) {
+  background-color: var(--bg-color);
+  height: 19rem;
+  border: 1px solid var(--accent-color);
+}
+
+.subdrop {
+  --targ-top: 0px;
+
+  position: absolute;
+  top: 0px;
+  left: 8px;
+  width: calc(100% - 16px);
+  height: 3.5rem;
+
+  display: flex;
+  justify-content: center;
+
+  opacity: 0;
+  transition:
+    opacity 0.2s cubic-bezier(0.1, 0.9, 1, 1),
+    top 0.2s cubic-bezier(0.1, 0.9, 1, 1),
+    color 0.1s cubic-bezier(0.1, 0.9, 1, 1);
+
+  pointer-events: none; /*Starts out unclickable, turns clickable after transition*/
+}
+
+/*If the subdrop in a dropdown has focus, keep all dropdowns visible still*/
+.dropdown:hover .subdrop,
+.dropdown:has(:focus) .subdrop {
+  opacity: 1;
+  top: var(--targ-top);
+}
+
+.subdrop:hover {
+  color: var(--accent-color);
+}
+
+#footer-container { width: 100%; }
+
+#footer-contents {
+  width: 100%;
+  height: 5rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  column-gap: calc(var(--pos-media-factor) * 10);
+  row-gap: 0.45rem;
+
+  padding-bottom: 3rem;
+}
+
+#footer-contents img {
+  width: clamp(2.4rem, 2.2rem + 0.8vw, 3.1rem);
+  border-radius: 16px;
+}

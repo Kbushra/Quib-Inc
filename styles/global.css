@@ -1,0 +1,113 @@
+:root {
+  /*Set by elements.jsx, allows for screen size support and unchanged layout on zoom*/
+  --scale-media-factor: 1px;
+  --pos-media-factor: 1px;
+  --real-media-factor: 1px;
+  --scale-width: 1905;
+  font-size: calc(var(--scale-media-factor) * 16);
+
+  /*Dark mode variables*/
+  --bg-color: #09090b;
+  --card-bg: rgba(24, 24, 27, 0.6);
+  --border-color: #27272a;
+  --text-color: #fafafa;
+  --text-muted: #a1a1aa;
+  --accent-color: #38bdf8; /* Sky 400 */
+  --header-bg: rgba(9, 9, 11, 0.8);
+  --mesh-opacity: 0.2;
+  --mesh-blur: 120px;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+/* Light Mode Overrides */
+:root[data-theme="light"] {
+  --bg-color: #ffffff;
+  --card-bg: rgba(24, 24, 27, 0.05);
+  --border-color: #e4e4e7;
+  --text-color: #18181b;
+  --text-muted: #52525b;
+  --header-bg: rgba(255, 255, 255, 0.82);
+  --mesh-opacity: 0.055;
+  --mesh-blur: 132px;
+}
+
+/* Background Mesh Effect */
+.bg-mesh,
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: var(--mesh-opacity);
+  background-color: transparent;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(220, 68%, 20%, 0.5) 0%, transparent 56%),
+    radial-gradient(at 100% 0%, hsla(260, 56%, 20%, 0.45) 0%, transparent 56%),
+    radial-gradient(
+      at 100% 100%,
+      hsla(180, 42%, 18%, 0.42) 0%,
+      transparent 56%
+    ),
+    radial-gradient(at 0% 100%, hsla(0, 0%, 16%, 0.35) 0%, transparent 56%);
+  filter: blur(var(--mesh-blur));
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+html,
+body {
+  min-height: 100%;
+  overflow-x: clip;
+  background-color: transparent;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#main-container {
+  overflow-x: clip;
+
+  position: absolute;
+  left: 0px;
+  top: 4.5rem;
+  width: 100%;
+  padding-inline: clamp(0.6rem, 2.5vw, 2.8rem);
+  box-sizing: border-box;
+
+  padding-top: 1rem;
+
+  background: transparent;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#main {
+  width: min(calc(var(--scale-media-factor) * var(--scale-width)), 100%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  gap: 1rem;
+}

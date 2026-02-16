@@ -1,0 +1,84 @@
+.row-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.column-flex,
+#main,
+#news-container,
+#game-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.grid {
+  --column-count: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
+  gap: 2rem;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding-right: 0.9rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 3.5rem;
+}
+
+.caption {
+  font-size: 1.03rem;
+  color: var(--text-muted);
+}
+
+.large-width {
+  width: min(100%, 70rem);
+}
+
+.medium-width {
+  width: min(100%, 48rem);
+}
+
+.linked-image-height {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+
+.hover-darken {
+  color: var(--text-color);
+  transition: color 0.1s cubic-bezier(0.1, 0.9, 1, 1);
+}
+
+.hover-darken:hover {
+  color: var(--accent-color);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.main-focus {
+  background: color-mix(in srgb, var(--accent-color) 22%, var(--bg-color) 78%);
+  border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color) 55%);
+}
+
+.link {
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--text-color);
+}

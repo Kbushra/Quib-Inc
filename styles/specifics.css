@@ -1,0 +1,18 @@
+.music-panel {
+    --panel-width: 800;
+}
+
+.music-panel p {
+    width: calc(var(--pos-media-factor) * var(--panel-width));
+    text-align: left;
+}
+
+.music-panel div {
+    --width: var(--panel-width);
+}
+
+@media (max-width: 1050px) {
+  .music-panel {
+    --panel-width: 1600;
+  }
+}

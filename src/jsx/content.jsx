@@ -4,10 +4,12 @@ import { gameIds } from "../../scripts/game-ids";
 function MusicEmbed({ name, link })
 {
     return (
-        <div className="column-flex linked-panel media-card-music">
-            <p className="panel-title">{name}</p>
-            <div className="column-flex iframe-container iframe-container-music">
-                <iframe className="iframe-small" allowFullscreen scrolling="no" src={link}></iframe>
+        <div className="column-flex">
+            <div className="column-flex linked-panel music-panel">
+                <p className="caption">{name}</p>
+                <div className="column-flex iframe-container-small">
+                    <iframe className="iframe-small" allowFullScreen scrolling="no" src={link}></iframe>
+                </div>
             </div>
         </div>
     );
@@ -41,7 +43,7 @@ function LinkedImage({ name, icon, link })
 {
     return (
         <div className="column-flex linked-panel clickable" onClick={() => (window.location.href = link)}>
-            <p className="panel-title">{name}</p>
+            <p className="caption" style={{width: "100%", textAlign: "left"}}>{name}</p>
             <img className="linked-image-height" src={icon} alt={name} tabIndex="0"/>
         </div>
     );

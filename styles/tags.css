@@ -1,0 +1,69 @@
+p {
+  position: relative;
+  color: var(--text-color);
+  text-align: center;
+  margin: 0;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.55;
+}
+
+input,
+textarea {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.75rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+}
+
+iframe,
+.iframe {
+  position: absolute;
+
+  width: calc(var(--width) * 1px);
+  aspect-ratio: 16/9;
+  transform: scale(calc(var(--pos-media-factor) / 1px));
+  transform-origin: top center;
+
+  background: black;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.iframe-container, .iframe-container-small {
+  position: relative;
+  top: 3rem;
+  --width: 1600;
+  width: calc(var(--pos-media-factor) * var(--width));
+  aspect-ratio: 16/9;
+
+  margin-bottom: 3rem;
+
+  /*overflow: hidden;*/
+  border-radius: 1rem;
+}
+
+.iframe-container-small {
+  top: 0;
+  margin-bottom: 0;
+  --width: 600;
+}
+
+/*For divs imitating iframes*/
+.iframe {
+  --src: "";
+  background: none;
+}
