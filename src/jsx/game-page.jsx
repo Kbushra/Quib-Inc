@@ -4,7 +4,7 @@ import { gameIds } from "../../scripts/game-ids";
 function GameEmbed({ link })
 {
     return (<>
-        <div className="column-flex iframe-container" style={{marginTop: "2rem", marginBottom: "2rem"}}>
+        <div className="column-flex iframe-container" style={{marginTop: "2rem", marginBottom: "1rem"}}>
             <iframe className="iframe-hoverable" allow="autoplay" scrolling="no" allowFullScreen></iframe>
             <div
                 className="iframe clickable"
@@ -14,6 +14,7 @@ function GameEmbed({ link })
         </div>
         <img
             className="clickable fullscreen content-image"
+            style={{width: "8rem", marginBottom: "1rem"}}
             src="/assets/images/fullscreen.png"
             tabIndex="0"
         />
@@ -26,12 +27,12 @@ function GamePage({ title, icon, desc, pageLink, pageIcon = "/assets/images/itch
         <div className="row-flex panel wrap-when-small" style={{gap: "1rem", justifyContent: "flex-start", alignItems: "flex-start"}}>
             <img className="content-image" src={icon} style={{width: "min(100%, 30rem)", height: "20rem"}}/>
             <div className="column-flex" style={{alignItems: "flex-start"}}>
-                <div className="row-flex" style={{justifyContent: "flex-start"}}>
-                    <img className="clickable content-image" style={{borderRadius: "12px", width: "4rem"}} src={pageIcon} onClick={() => (window.location.href = pageLink)} tabIndex="0"/>
+                <div className="row-flex" style={{justifyContent: "flex-start", gap: "1rem"}}>
+                    <img className="clickable content-image" style={{borderRadius: "1rem", width: "4rem"}} src={pageIcon} onClick={() => (window.location.href = pageLink)} tabIndex="0"/>
 
                     {
                         (downloadLink == "") ? <></> :
-                        <img className="clickable content-image" style={{borderRadius: "12px", width: "4rem"}} src="/assets/images/download.png"
+                        <img className="clickable content-image" style={{borderRadius: "1rem", width: "4rem"}} src="/assets/images/download.png"
                         onClick={() => (window.location.href = downloadLink)} tabIndex="0"/>
                     }
                 </div>
