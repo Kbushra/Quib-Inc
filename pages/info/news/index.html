@@ -16,19 +16,18 @@
 
         <title>Quib Inc.</title>
         <link rel="icon" type="image/apng" href="favicon.apng">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styles/entrypoint.css">
     </head>
-    <body class="modern-page page-news">
+    <body>
         <div id="main-container">
-            <div id="main" class="page-shell">
-                <section class="page-intro">
-                    <h1 class="page-title">Newsletter</h1>
-                    <p class="page-subtitle">
-                        Project updates, progress notes, and development logs from Quib Inc. and partner teams.
-                    </p>
-                </section>
+            <div id="main" style="align-items: flex-start;">
+                <h1 class="title">Newsletter</h1>
+                <p class="caption">
+                    Project updates, progress checks and development logs from Quib Inc. and partner teams.
+                </p>
+                <div class="break-line" style="margin: 0;"></div>
 
-                <div id="news-container" amount="all"></div>
+                <div id="news-container" amount="all" style="width: 100%"></div>
 
                 <div id="footer-container" class="page-footer"></div>
             </div>
@@ -36,6 +35,6 @@
 
         <div id="header-container"></div>
 
-        <script src="/scripts/entry-point.js" type="module" defer></script>
+        <script src="/scripts/entrypoint.js" type="module" defer></script>
     </body>
 </html>

@@ -1,5 +1,6 @@
 :root {
   /*Set by elements.jsx, allows for screen size support and unchanged layout on zoom*/
+  --fast-scale-media-factor: 1px;
   --scale-media-factor: 1px;
   --pos-media-factor: 1px;
   --real-media-factor: 1px;
@@ -88,7 +89,7 @@ body {
 
   position: absolute;
   left: 0px;
-  top: 4.5rem;
+  top: calc(var(--fast-scale-media-factor) * 80);
   width: 100%;
   padding-inline: clamp(0.6rem, 2.5vw, 2.8rem);
   box-sizing: border-box;

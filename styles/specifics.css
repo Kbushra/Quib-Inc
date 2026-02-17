@@ -18,10 +18,3 @@
     --panel-width: 1600;
   }
 }
-
-#contact-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
-  gap: 1.15rem;
-  align-items: start;
-}

@@ -5,16 +5,16 @@ function Dropdown({ mainName, categoryNames, categoryUrls })
 {
     return (
         <div className="dropdown" tabIndex="0">
-            <p style={{ fontSize: "1.8rem" }}>
+            <p style={{ fontSize: "1.8em" }}>
                 {mainName}
             </p>
-            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[0])} style={{ "--targ-top": "5rem", fontSize: "1.8rem" }} tabIndex="0">
+            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[0])} style={{ "--targ-top": "2.5em", fontSize: "1.8em" }} tabIndex="0">
                 {categoryNames[0]}
             </p>
-            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[1])} style={{ "--targ-top": "10rem", fontSize: "1.8rem" }} tabIndex="0">
+            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[1])} style={{ "--targ-top": "5em", fontSize: "1.8em" }} tabIndex="0">
                 {categoryNames[1]}
             </p>
-            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[2])} style={{ "--targ-top": "15rem", fontSize: "1.8rem" }} tabIndex="0">
+            <p className="subdrop clickable" onClick={() => (window.location.href = categoryUrls[2])} style={{ "--targ-top": "7.5em", fontSize: "1.8em" }} tabIndex="0">
                 {categoryNames[2]}
             </p>
         </div>
@@ -27,10 +27,10 @@ function Header()
         <div id="header">
             <div id="header-left">
                 <div id="masthead" className="clickable" onClick={() => (window.location.href = "/")} tabIndex="0">
-                    <p style={{ margin: "0px", fontSize: "1.8rem", fontWeight: "600" }}>
+                    <p style={{ margin: "0px", fontSize: "1.8em", fontWeight: "600" }}>
                         Quib Inc.
                     </p>
-                    <p style={{ margin: "0px", fontSize: "0.8rem", color: "var(--text-muted)" }}>
+                    <p style={{ margin: "0px", fontSize: "0.8em", color: "var(--text-muted)" }}>
                         Games, Music, Websites
                     </p>
                 </div>
@@ -76,7 +76,7 @@ if (headerContainer)
 function Footer() {
     return (<>
         <div className="break-line"></div>
-        <p style={{ fontSize: "1.5rem", color: "var(--text-muted)" }}>
+        <p style={{ fontSize: "1.5em", color: "var(--text-muted)" }}>
             {new Date().getUTCFullYear()} © Quib Inc.
         </p>
         <div id="footer-contents">
@@ -131,16 +131,21 @@ if (footerContainer)
 
 function dropdownFocus(ev)
 {
-    let targ = ev.currentTarget;
+    const targ = ev.currentTarget;
+    targ.open = true;
+
     targ.children[1].focus();
     setTimeout(() => targ.children[1].focus(), 100);
 }
 
 function dropdownBlur(ev)
 {
-    for (let i = 0; i < ev.currentTarget.children.length; i++)
+    const targ = ev.currentTarget;
+    targ.open = false;
+
+    for (let i = 0; i < targ.children.length; i++)
     {
-        ev.currentTarget.children[i].blur();
+        targ.children[i].blur();
     }
 }
 
@@ -148,18 +153,9 @@ function subdropTransition(ev)
 {
     if (ev.propertyName !== "top") { return; }
 
-    let el = ev.currentTarget;
-    let top = parseFloat(getComputedStyle(el).top);
-
-    let dummy = document.createElement("div");
-    dummy.style.position = "absolute";
-    dummy.style.top = getComputedStyle(el).getPropertyValue("--targ-top");
-    document.body.appendChild(dummy);
-
-    let toTarget = Math.floor(top) === Math.floor(parseFloat(getComputedStyle(dummy).top));
-    el.style.pointerEvents = toTarget ? "auto" : "none";
-
-    document.body.removeChild(dummy);
+    const targ = ev.currentTarget;
+    targ.style.pointerEvents = targ.parentElement.open ? "auto" : "none";
+    console.log(`${targ.style.pointerEvents} ${targ.parentElement.open}`);
 }
 
 export function dropdownListeners()
@@ -168,9 +164,13 @@ export function dropdownListeners()
     
     for (let i = 0; i < dropdowns.length; i++)
     {
+        dropdowns[i].open = false;
+
         //Just focus one of the subdrops doesn't matter which one
         dropdowns[i].removeEventListener("pointerup", dropdownFocus);
         dropdowns[i].addEventListener("pointerup", dropdownFocus);
+        dropdowns[i].removeEventListener("pointerover", (ev) => ev.currentTarget.open = true);
+        dropdowns[i].addEventListener("pointerover", (ev) => ev.currentTarget.open = true);
 
         dropdowns[i].removeEventListener("pointerleave", dropdownBlur);
         dropdowns[i].addEventListener("pointerleave", dropdownBlur);
@@ -182,5 +182,10 @@ export function dropdownListeners()
     {
         subdrops[i].removeEventListener("transitionend", subdropTransition);
         subdrops[i].addEventListener("transitionend", subdropTransition);
+        
+        subdrops[i].removeEventListener("focusin", (ev) => ev.currentTarget.parentElement.open = true);
+        subdrops[i].addEventListener("focusin", (ev) => ev.currentTarget.parentElement.open = true);
+        subdrops[i].removeEventListener("focusout", (ev) => ev.currentTarget.parentElement.open = false);
+        subdrops[i].addEventListener("focusout", (ev) => ev.currentTarget.parentElement.open = false);
     }
 }

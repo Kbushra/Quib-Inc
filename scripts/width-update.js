@@ -1,13 +1,18 @@
 export function updateWidth()
 {
-    const scrollWidth = (document.documentElement.scrollHeight > document.documentElement.clientHeight) ? 30 : 0;
-    const width = window.outerWidth - scrollWidth;
+    const width = window.outerWidth;
     const posBound = 1600;
     const scaleBound = 900;
     const scaleWidth = Math.min(posBound + width - scaleBound, posBound);
+    const fastScaleWidth = Math.min(posBound + (width - scaleBound) * 1.8, posBound);
     const posWidth = Math.min(width, posBound);
 
     const cssScale = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scale-width"));
+
+    document.documentElement.style.setProperty(
+        "--fast-scale-media-factor",
+        `${fastScaleWidth / cssScale}px`
+    );
 
     document.documentElement.style.setProperty(
         "--scale-media-factor",

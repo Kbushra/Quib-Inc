@@ -4,20 +4,20 @@ import ReactDOM from "react-dom/client";
 function NewsArticle({ name, tagline, children })
 {
     return (<>
-        <p className="large-width" style={{ marginBottom: "0px", fontSize: "3.5rem", fontWeight: "700" }}>
+        <h1 className="title large-width" style={{ textAlign: "center", margin: "0px" }}>
             {name}
-        </p>
-        <p className="large-width" style={{ marginTop: "0px", fontSize: "2.5rem", color: "var(--text-muted)" }}>
+        </h1>
+        <p className="caption large-width" style={{ textAlign: "center", margin: "0px", fontSize: "2.5rem" }}>
             {tagline}
         </p>
-        <div>{children}</div>
+        <div className="column-flex" style={{gap: "1rem"}}>{children}</div>
     </>);
 }
 
 function NewsRow({ style, children })
 {
     return (
-        <div className="row-flex news-row" style={{ gap: "5rem", ...style }}>
+        <div className="row-flex" style={{ flexWrap: "wrap", gap: "2rem", width: "100%", ...style }}>
             {children}
         </div>
     );
@@ -38,28 +38,24 @@ function ExpandableArticle({ article })
 
     if (expanded)
     {
-        return (<div class="column-flex page-section page-news-section">
+        return (<div class="column-flex" style={{gap: "1rem"}}>
             {expandedArticle(article)}
-            <div className="row-flex clickable" onClick={() => expand(false)} style={{ width: "fit-content", marginBottom: "1rem" }}>
-                <p className="hover-darken clickable" style={{ margin: "0px", fontSize: "1.5rem" }} tabIndex="0">
-                    Click to unexpand
-                </p>
-            </div>
+            <p className="hover-darken clickable" onClick={() => expand(false)} style={{ textAlign: "center", marginTop: "1rem", marginBottom: "1rem", fontSize: "1.5rem" }} tabIndex="0">
+                Click to unexpand
+            </p>
         </div>);
     }
 
-    return (<div class="column-flex page-section page-news-section">
-        <p className="large-width" style={{ marginBottom: "0px", fontSize: "3.5rem", fontWeight: "700" }}>
+    return (<div class="column-flex" style={{gap: "1rem"}}>
+        <h1 className="title large-width" style={{ textAlign: "center", margin: "0px" }}>
             {article.name}
-        </p>
-        <p className="large-width" style={{ marginTop: "0px", fontSize: "2.5rem", color: "var(--text-muted)" }}>
+        </h1>
+        <p className="caption large-width" style={{ textAlign: "center", margin: "0px", fontSize: "2.5rem" }}>
             {article.tagline}
         </p>
-        <div className="row-flex clickable" onClick={() => expand(true)} style={{ width: "fit-content", marginBottom: "1rem" }}>
-            <p className="hover-darken clickable" style={{ margin: "0px", fontSize: "1.5rem" }} tabIndex="0">
-                Click to expand
-            </p>
-        </div>
+        <p className="hover-darken clickable" onClick={() => expand(true)} style={{ textAlign: "center", marginTop: "1rem", marginBottom: "1rem", fontSize: "1.5rem" }} tabIndex="0">
+            Click to expand
+        </p>
     </div>);
 }
 
@@ -118,7 +114,7 @@ if (newsContainer)
             </NewsRow>
             <NewsRow>
                 <video
-                    className="large-width content-image"
+                    className="medium-width content-image"
                     style={{ aspectRatio: "3/2" }}
                     controls
                 >
@@ -137,7 +133,7 @@ if (newsContainer)
                     different sprite as a placeholder).
                 </p>
                 <video
-                    className="large-width content-image"
+                    className="medium-width content-image"
                     style={{ aspectRatio: "3/2" }}
                     controls
                 >
@@ -171,7 +167,6 @@ if (newsContainer)
     if (newsContainer.getAttribute("amount") == "all")
     {
         ReactDOM.createRoot(newsContainer).render(<>
-            <div className="break-line"></div>
             <ExpandableArticle article={latestArticle} />
             {/*More expandable articles go here, with their structs set directly*/}
         </>);
