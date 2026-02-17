@@ -25,11 +25,11 @@ if (contactContainer)
             icon="/assets/images/gmail.png"
         />
         <Contact
-            content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane" className="link">YT</a></>}
+            content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></>}
             icon="/assets/images/youtube.png"
         />
         <Contact
-            content={<>Aaqib: <a href="https://keepchatting.itch.io/" className="link">Account</a></>}
+            content={<>Aaqib: <a href="https://keepchatting.itch.io/">Account</a></>}
             icon="/assets/images/itch.png"
         />
     </>);
@@ -41,7 +41,7 @@ if (contactMediaocreContainer)
 {
     ReactDOM.createRoot(contactMediaocreContainer).render(<>
         <Contact
-            content={<>Aaqib: @keepchatting_nooneexplodes<br/>Krys: @ricekryspiez_<br/>Jayden: @im_ruben<br/>Ava: @sekairotted</>}
+            content={<>Aaqib: @keepchatting_nooneexplodes<br/>Krys: @choco_kryspies<br/>Jayden: @maybe_jayden<br/>Ava: @sekairotted</>}
             icon="/assets/images/discord.png"
         />
         <Contact

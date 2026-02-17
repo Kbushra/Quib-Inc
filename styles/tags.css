@@ -10,6 +10,17 @@ p {
   line-height: 1.55;
 }
 
+textarea { resize: none; }
+
+a {
+  color: var(--text-color);
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
 input,
 textarea {
   background: var(--bg-color);

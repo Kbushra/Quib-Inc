@@ -16,24 +16,23 @@
 
         <title>Quib Inc.</title>
         <link rel="icon" type="image/apng" href="favicon.apng">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styles/entrypoint.css">
     </head>
-    <body class="modern-page page-otherorgs-contact">
+    <body>
         <div id="main-container">
-            <div id="main" class="page-shell">
-                <section class="page-intro">
-                    <h1 class="page-title">Contact Mediaocre Games</h1>
-                    <p class="page-subtitle">
-                        Reach the team through social channels or use the direct email form for project and collaboration messages.
-                    </p>
-                    <p class="page-switch-note">
-                        Need to contact Quib Inc. directly? <a href="/info/contact">Use the Quib contact page</a>.
-                    </p>
-                </section>
+            <div id="main" style="align-items: flex-start;">
+                <h1 class="title">Contact Mediaocre Games</h1>
+                <p class="caption">
+                    Reach the team through social channels or use the direct email form for enquiries into our projects.
+                </p>
+                <p class="mini-caption">
+                    Need to contact Quib Inc. directly? <a href="/info/contact" class="link">Use the Quib contact page</a>.
+                </p>
+                <div class="break-line" style="margin: 0"></div>
 
-                <section class="page-section page-contact-layout">
-                    <div id="contacts-mediaocre" class="row-flex contact-grid"></div>
-                    <div class="contact-form-wrap">
+                <section class="panel grid" style="align-items: start;">
+                    <div id="contacts-mediaocre" class="column-flex" style="align-items: flex-start; gap: 1rem"></div>
+                    <div class="panel" style="background: color-mix(in srgb, var(--bg-color) 75%, transparent 25%);">
                         <div id="form" email="undertemtheshitpost@gmail.com"></div>
                     </div>
                 </section>
@@ -44,6 +43,6 @@
 
         <div id="header-container"></div>
 
-        <script src="/scripts/entry-point.js" type="module" defer></script>
+        <script src="/scripts/entrypoint.js" type="module" defer></script>
     </body>
 </html>

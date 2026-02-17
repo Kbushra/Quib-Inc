@@ -4,12 +4,10 @@ import { gameIds } from "../../scripts/game-ids";
 function MusicEmbed({ name, link })
 {
     return (
-        <div className="column-flex">
-            <div className="column-flex linked-panel music-panel">
-                <p className="caption">{name}</p>
-                <div className="column-flex iframe-container-small">
-                    <iframe className="iframe-small" allowFullScreen scrolling="no" src={link}></iframe>
-                </div>
+        <div className="column-flex linked-panel music-panel">
+            <p className="caption">{name}</p>
+            <div className="column-flex iframe-container-small">
+                <iframe className="iframe-small" allowFullScreen scrolling="no" src={link}></iframe>
             </div>
         </div>
     );

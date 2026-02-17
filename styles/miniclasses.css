@@ -28,14 +28,23 @@
   padding-right: 0.9rem;
 }
 
+@media (max-width: 1050px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+}
+
 .title {
   margin: 0;
   font-size: 3.5rem;
+  text-align: left;
 }
 
 .caption {
   font-size: 1.03rem;
   color: var(--text-muted);
+  text-align: left;
 }
 
 .mini-caption {
@@ -77,11 +86,10 @@
   border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color) 55%);
 }
 
-.link {
-  color: var(--text-color);
-  transition: color 0.15s ease;
-}
+.wrap-when-small { flex-wrap: nowrap; }
 
-.link:hover {
-  color: var(--accent-color);
+@media (max-width: 800px) {
+  .wrap-when-small {
+    flex-wrap: wrap;
+  }
 }

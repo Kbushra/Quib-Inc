@@ -16,27 +16,29 @@
 
         <title>Quib Inc.</title>
         <link rel="icon" type="image/apng" href="favicon.apng">
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styles/entrypoint.css">
     </head>
-    <body class="modern-page page-otherorgs-info">
+    <body>
         <div id="main-container">
-            <div id="main" class="page-shell">
-                <section class="page-intro">
-                    <h1 class="page-title">Mediaocre Games</h1>
-                    <p class="page-subtitle">
-                        Quib Inc. collaborates with Mediaocre Games on larger team projects, including original concepts and indie fangames.
-                    </p>
-                </section>
+            <div id="main" style="align-items: flex-start;">
+                <h1 class="title">Mediaocre Games</h1>
+                <p class="caption">
+                    Quib Inc. collaborates with Mediaocre Games on larger team projects, including original concepts and indie fangames.
+                </p>
+                <div class="break-line" style="margin: 0"></div>
 
-                <section class="page-section">
-                    <p class="page-copy">
-                        The team includes Krystal (Krys), Jayden, Ava and Aaqib. Together we focus on game development, art direction and interactive storytelling.
+                <section class="panel">
+                    <p class="caption" style="text-align: left; margin-bottom: 1rem;">
+                        The team includes Krystal, Jayden, Ava and Aaqib. Together we focus on game development, art direction and interactive storytelling.
                     </p>
+                    <div class="row-flex" style="justify-content: flex-start; gap: 2rem; flex-wrap: wrap;">
+                        <img class="content-image" style="max-height: 30rem; max-width: 100%;" src="/assets/images/undertemruinscover.webp" alt="Undertem Ruins OST cover">
+                        <img class="content-image" style="max-height: 30rem; max-width: 100%;" src="/assets/images/undertembattle.webp" alt="Undertem battle preview">
+                    </div>
                 </section>
 
                 <section class="page-section page-media-pair">
-                    <img class="content-img" src="/assets/images/darkness.png" alt="Into the Darkness">
-                    <img class="content-img" src="/assets/images/undertembattle.webp" alt="Undertem battle preview">
+                    
                 </section>
 
                 <div id="footer-container" class="page-footer"></div>
@@ -45,6 +47,6 @@
 
         <div id="header-container"></div>
 
-        <script src="/scripts/entry-point.js" type="module" defer></script>
+        <script src="/scripts/entrypoint.js" type="module" defer></script>
     </body>
 </html>

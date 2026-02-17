@@ -1,9 +1,11 @@
 .music-panel {
     --panel-width: 800;
+    width: 100%;
+    overflow: clip;
 }
 
 .music-panel p {
-    width: calc(var(--pos-media-factor) * var(--panel-width));
+    width: 100%;
     text-align: left;
 }
 
@@ -14,14 +16,6 @@
 @media (max-width: 1050px) {
   .music-panel {
     --panel-width: 1600;
-  }
-}
-
-#game-description-panel { flex-wrap: nowrap; }
-
-@media (max-width: 800px) {
-  #game-description-panel {
-    flex-wrap: wrap;
   }
 }
 

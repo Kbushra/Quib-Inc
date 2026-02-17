@@ -23,7 +23,7 @@ function GameEmbed({ link })
 function GamePage({ title, icon, desc, pageLink, pageIcon = "/assets/images/itch.png", embedLink = "", downloadLink = "", children = <></>, })
 {
     return (<>
-        <div id="game-description-panel" className="row-flex panel" style={{gap: "1rem", justifyContent: "flex-start", alignItems: "flex-start"}}>
+        <div className="row-flex panel wrap-when-small" style={{gap: "1rem", justifyContent: "flex-start", alignItems: "flex-start"}}>
             <img className="content-image" src={icon} style={{width: "min(100%, 30rem)", height: "20rem"}}/>
             <div className="column-flex" style={{alignItems: "flex-start"}}>
                 <div className="row-flex" style={{justifyContent: "flex-start"}}>

@@ -61,11 +61,13 @@
   transition:
     transform 0.18s ease,
     border-color 0.18s ease,
+    color 0.18s ease,
     background-color 0.18s ease;
 }
 
 .linked-pill:hover {
   transform: translateY(-1px);
+  color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
