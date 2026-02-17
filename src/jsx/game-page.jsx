@@ -61,7 +61,7 @@ if (gamePageContainer)
                     icon="/assets/images/polydrawstitle.png"
                     desc=
                     {
-                        <p className="game-hero-description">
+                        <p style={{textAlign: "left"}}>
                             Game made for the Mini Jam 177: Paper.
                             <br />A platformer where you morph through 3 shapes. Takes around
                             15 minutes to finish.
@@ -81,7 +81,7 @@ if (gamePageContainer)
                     icon="/assets/images/chargecycletitle.png"
                     desc=
                     {
-                        <p className="game-hero-description">
+                        <p style={{textAlign: "left"}}>
                             Game made for the Mini Jam 179: Energy.
                             <br />
                             The CPU's having a bit of a meltdown and its your job to repair
@@ -102,7 +102,7 @@ if (gamePageContainer)
                     icon="/assets/images/nestkeepingtitle.png"
                     desc=
                     {
-                        <p className="game-hero-description">
+                        <p style={{textAlign: "left"}}>
                             Game made for the Mini Jam 184: Birds.
                             <br />
                             You're a bird, and you want to do bird things, but those pesky
@@ -125,7 +125,7 @@ if (gamePageContainer)
                     icon="/assets/images/bhwhtitle.png"
                     desc=
                     {
-                        <p className="game-hero-description">
+                        <p style={{textAlign: "left"}}>
                             Game made for Mini Jam 187: Polarity.
                             <br />
                             You're a black hole, linked with a white hole in a parallel
@@ -152,7 +152,7 @@ if (gamePageContainer)
                     icon="/assets/images/polarisingtitle.png"
                     desc=
                     {
-                        <p className="game-hero-description">
+                        <p style={{textAlign: "left"}}>
                             Game inspired by Pizza Tower
                             <br />
                             Propel yourself with magnets to fling through rooms and wind
@@ -173,7 +173,7 @@ if (gamePageContainer)
                     icon="/assets/images/metalforgetitle.png"
                     desc=
                     {
-                        <p className="game-hero-description">
+                        <p style={{textAlign: "left"}}>
                             Game made as a school project.
                             <br />
                             Though metal lusts for destruction, you lust for profit. Massacre
@@ -195,7 +195,7 @@ if (gamePageContainer)
                     icon="/assets/images/darkness.png"
                     desc=
                     {
-                        <p className="game-hero-description">
+                        <p style={{textAlign: "left"}}>
                             Game made for the Micro Jam 046: Night.
                             <br />
                             You can only feel light; The dark is known to cause mirages...
