@@ -26,7 +26,7 @@ textarea {
   background: var(--bg-color);
   color: var(--text-color);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 1rem;
   padding: 0.75rem;
   outline: none;
   transition:
@@ -50,7 +50,7 @@ iframe,
   transform-origin: top center;
 
   background: black;
-  border-radius: 16px;
+  border-radius: 1rem;
   border: 1px solid var(--border-color);
 }
 
@@ -67,7 +67,6 @@ iframe,
   width: calc(var(--pos-media-factor) * var(--width));
   aspect-ratio: 16/9;
 
-  /*overflow: hidden;*/
   border-radius: 1rem;
 }
 
