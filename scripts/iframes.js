@@ -6,9 +6,10 @@ function iframeFocus(ev)
     let div = document.getElementsByClassName("iframe")[ind];
     let frame = document.getElementsByTagName("iframe")[ind];
 
-    if (frame.src != window.getComputedStyle(div).getPropertyValue("--src"))
+    if (!div.clicked)
     {
         frame.src = window.getComputedStyle(div).getPropertyValue("--src");
+        div.clicked = true;
     }
 
     frame.focus();
@@ -40,6 +41,7 @@ export function iframeListeners()
         iframeDivs[i].removeEventListener("click", iframeFocus);
         iframeDivs[i].addEventListener("click", iframeFocus);
         iframeDivs[i].ind = i;
+        iframeDivs[i].clicked = false;
         if (iframeButtons[i])
         {
             iframeButtons[i].removeEventListener("click", iframeFullscreen);
