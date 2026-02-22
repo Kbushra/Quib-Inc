@@ -5,8 +5,8 @@
     "outputDirectory": ".",
     "rewrites":
     [
-        { "source": "/api/email", "destination": "/api/backend-exporter" },
-        { "source": "/game-page", "destination": "/pages/game-page" },
+        { "source": "/api/email/", "destination": "/api/backend-exporter/" },
+        { "source": "/game-page/", "destination": "/pages/game-page/" },
         { "source": "/game-page/:path*", "destination": "/pages/game-page/:path*" },
         { "source": "/info/:path*", "destination": "/pages/info/:path*" },
         { "source": "/otherorgs/:path*", "destination": "/pages/otherorgs/:path*" },
