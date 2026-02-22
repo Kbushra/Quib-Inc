@@ -183,7 +183,7 @@ if (gamePageContainer)
                     }
                     pageLink="https://keepchatting.itch.io/the-metal-forge"
                     downloadLink="/local-games/metalforge/metalforge.zip"
-                    embedLink="/local-games/metalforge/index.html"
+                    embedLink="/local-games/metalforge/"
                 />,
             );
             break;
