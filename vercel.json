@@ -7,11 +7,11 @@
     [
         { "source": "/api/email/", "destination": "/api/backend-exporter/" },
         { "source": "/game-page/", "destination": "/pages/game-page/" },
-        { "source": "/game-page/:path*", "destination": "/pages/game-page/:path*" },
-        { "source": "/info/:path*", "destination": "/pages/info/:path*" },
-        { "source": "/otherorgs/:path*", "destination": "/pages/otherorgs/:path*" },
-        { "source": "/projs/:path*", "destination": "/pages/projs/:path*" },
-        { "source": "/showcase/:path*", "destination": "/pages/showcase/:path*" },
-        { "source": "/local-games/:path*", "destination": "/pages/local-games/:path*" }
+        { "source": "/game-page/:path*/", "destination": "/pages/game-page/:path*/" },
+        { "source": "/info/:path*/", "destination": "/pages/info/:path*/" },
+        { "source": "/otherorgs/:path*/", "destination": "/pages/otherorgs/:path*/" },
+        { "source": "/projs/:path*/", "destination": "/pages/projs/:path*/" },
+        { "source": "/showcase/:path*/", "destination": "/pages/showcase/:path*/" },
+        { "source": "/local-games/:path*/", "destination": "/pages/local-games/:path*/" }
     ]
 }

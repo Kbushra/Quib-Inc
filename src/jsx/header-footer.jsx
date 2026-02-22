@@ -155,7 +155,6 @@ function subdropTransition(ev)
 
     const targ = ev.currentTarget;
     targ.style.pointerEvents = targ.parentElement.open ? "auto" : "none";
-    console.log(`${targ.style.pointerEvents} ${targ.parentElement.open}`);
 }
 
 export function dropdownListeners()
