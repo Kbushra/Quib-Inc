@@ -12,6 +12,7 @@
         { "source": "/otherorgs/:path*/", "destination": "/pages/otherorgs/:path*/" },
         { "source": "/projs/:path*/", "destination": "/pages/projs/:path*/" },
         { "source": "/showcase/:path*/", "destination": "/pages/showcase/:path*/" },
-        { "source": "/local-games/:path*/", "destination": "/pages/local-games/:path*/" }
+        { "source": "/local-games/:path*/", "destination": "/pages/local-games/:path*/" },
+        { "source": "/local-games/:path*", "destination": "/pages/local-games/:path*" }
     ]
 }
