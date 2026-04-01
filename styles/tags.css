@@ -13,12 +13,14 @@ p {
 textarea { resize: none; }
 
 a {
-  color: var(--text-color);
+  --main-color: var(--text-color);
+  --highlight-color: var(--accent-color);
+  color: var(--main-color);
   transition: color 0.15s ease;
 }
 
 a:hover {
-  color: var(--accent-color);
+  color: var(--highlight-color);
 }
 
 input,
