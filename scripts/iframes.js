@@ -12,8 +12,11 @@ function iframeFocus(ev)
         div.clicked = true;
     }
 
-    frame.focus();
-    frame.contentWindow.focus();
+    frame.addEventListener("load", () =>
+    {
+        frame.focus();
+        frame.contentWindow.focus();
+    });
 
     for (let c = div.childNodes.length - 1; c >= 0; c--)
     {

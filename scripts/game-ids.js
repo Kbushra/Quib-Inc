@@ -6,5 +6,6 @@ export const gameIds =
     blackHoleWhiteHole: "bhwh",
     soPolarising: "polarising",
     theMetalForge: "metalforge",
-    intoTheDarkness: "darkness"
+    intoTheDarkness: "darkness",
+    undertemModeSelector: "undertemmodes"
 };

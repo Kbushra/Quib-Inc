@@ -127,5 +127,10 @@ if (contentMediaocreContainer)
             name="Into the Darkness - Isolation (Aaqib)"
             link="https://www.youtube.com/embed/wlpSJbSUSRQ"
         />
+        <LinkedImage
+            name="Undertem Mode Selector"
+            icon="/assets/images/undertemmodes.png"
+            link={`/game-page?game-id=${gameIds.undertemModeSelector}`}
+        />
     </>);
 }

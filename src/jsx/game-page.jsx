@@ -21,14 +21,18 @@ function GameEmbed({ link })
     </>);
 }
 
-function GamePage({ title, icon, desc, pageLink, pageIcon = "/assets/images/itch.png", embedLink = "", downloadLink = "", children = <></>, })
+function GamePage({ title, icon, desc, pageLink = "", pageIcon = "/assets/images/itch.png", embedLink = "", downloadLink = "", children = <></>, })
 {
     return (<>
         <div className="row-flex panel wrap-when-small" style={{gap: "1rem", justifyContent: "flex-start", alignItems: "flex-start"}}>
             <img className="content-image" src={icon} style={{width: "min(100%, 30rem)", height: "20rem"}}/>
             <div className="column-flex" style={{alignItems: "flex-start"}}>
                 <div className="row-flex" style={{justifyContent: "flex-start", gap: "1rem"}}>
-                    <img className="clickable content-image" style={{borderRadius: "1rem", width: "4rem"}} src={pageIcon} onClick={() => (window.location.href = pageLink)} tabIndex="0"/>
+                    {
+                        (pageLink == "") ? <></> :
+                        <img className="clickable content-image" style={{borderRadius: "1rem", width: "4rem"}} src={pageIcon}
+                        onClick={() => (window.location.href = pageLink)} tabIndex="0"/>
+                    }
 
                     {
                         (downloadLink == "") ? <></> :
@@ -69,7 +73,7 @@ if (gamePageContainer)
                     }
                     pageLink="https://keepchatting.itch.io/polydraws"
                     downloadLink="/local-games/polydraws/polydraws.zip"
-                    embedLink="https://html-classic.itch.zone/html/13767402/index.html"
+                    embedLink="/local-games/polydraws/"
                 />,
             );
             break;
@@ -90,7 +94,7 @@ if (gamePageContainer)
                     }
                     pageLink="https://keepchatting.itch.io/charge-cycle"
                     downloadLink="/local-games/chargecycle/chargecycle.zip"
-                    embedLink="https://html-classic.itch.zone/html/13767261/index.html"
+                    embedLink="/local-games/chargecycle/"
                 />,
             );
             break;
@@ -113,7 +117,7 @@ if (gamePageContainer)
                     }
                     pageLink="https://keepchatting.itch.io/nestkeeping"
                     downloadLink="/local-games/nestkeeping/nestkeeping.zip"
-                    embedLink="https://html-classic.itch.zone/html/13686725/index.html"
+                    embedLink="/local-games/nestkeeping/"
                 />,
             );
             break;
@@ -140,7 +144,7 @@ if (gamePageContainer)
                     }
                     pageLink="https://keepchatting.itch.io/black-hole-white-hole"
                     downloadLink="/local-games/bhwh/bhwh.zip"
-                    embedLink="https://html-classic.itch.zone/html/14113049/index.html"
+                    embedLink="/local-games/bhwh/"
                 />,
             );
             break;
@@ -161,7 +165,7 @@ if (gamePageContainer)
                     }
                     pageLink="https://keepchatting.itch.io/so-polarising"
                     downloadLink="/local-games/polarising/polarising.zip"
-                    embedLink="https://html-classic.itch.zone/html/14683992/index.html"
+                    embedLink="/local-games/polarising/"
                 />,
             );
             break;
@@ -203,7 +207,27 @@ if (gamePageContainer)
                     }
                     pageLink="https://kryspigames.itch.io/into-the-darkness"
                     downloadLink="/local-games/darkness/darkness.zip"
-                    embedLink="https://html-classic.itch.zone/html/14903577/index.html"
+                    embedLink="/local-games/darkness/"
+                />,
+            );
+            break;
+        case gameIds.undertemModeSelector:
+            ReactDOM.createRoot(gamePageContainer).render(
+                <GamePage
+                    title="Undertem Mode Selector"
+                    icon="/assets/images/undertemmodes.png"
+                    desc=
+                    {
+                        <p style={{textAlign: "left"}}>
+                            Holds every Undertem April Fools mode currently released!
+                            <br />
+                            Funddertem: A charming clicker game where you fund Tems so that they can finally go to Colleg and Universitat!
+                            Includes various unique characters from different games and AUs!
+                            <br />
+                            More coming next year...
+                        </p>
+                    }
+                    embedLink="/local-games/undertemmodes/"
                 />,
             );
             break;
