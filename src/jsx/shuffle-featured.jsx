@@ -35,12 +35,6 @@ function getShuffledGames()
             image="/assets/images/nestkeepingtitle.png"
         />,
         <FeaturedGame
-            name="Black Hole White Hole"
-            id={gameIds.blackHoleWhiteHole}
-            key={gameIds.blackHoleWhiteHole}
-            image="/assets/images/bhwhtitle.png"
-        />,
-        <FeaturedGame
             name="So Polarising"
             id={gameIds.soPolarising}
             key={gameIds.soPolarising}
@@ -53,10 +47,22 @@ function getShuffledGames()
             image="/assets/images/metalforgetitle.png"
         />,
         <FeaturedGame
+            name="The Three Boxes"
+            id={gameIds.theThreeBoxes}
+            key={gameIds.theThreeBoxes}
+            image="/assets/images/threeboxestitle.png"
+        />,
+        <FeaturedGame
             name="Into the Darkness"
             id={gameIds.intoTheDarkness}
             key={gameIds.intoTheDarkness}
             image="/assets/images/darkness.png"
+        />,
+        <FeaturedGame
+            name="Undertem Mode Selector"
+            id={gameIds.undertemModeSelector}
+            key={gameIds.undertemModeSelector}
+            image="/assets/images/undertemmodes.png"
         />
     ];
 
