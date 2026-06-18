@@ -96,11 +96,6 @@ if (gameContainer)
             link={`/game-page?game-id=${gameIds.nestkeeping}`}
         />
         <LinkedImage
-            name="Black Hole White Hole (Mini Jam 187)"
-            icon="/assets/images/bhwhtitle.png"
-            link={`/game-page?game-id=${gameIds.blackHoleWhiteHole}`}
-        />
-        <LinkedImage
             name="So Polarising! (PROTOTYPE)"
             icon="/assets/images/polarisingtitle.png"
             link={`/game-page?game-id=${gameIds.soPolarising}`}
@@ -109,6 +104,11 @@ if (gameContainer)
             name="The Metal Forge"
             icon="/assets/images/metalforgetitle.png"
             link={`/game-page?game-id=${gameIds.theMetalForge}`}
+        />
+        <LinkedImage
+            name="The Three Boxes"
+            icon="/assets/images/threeboxestitle.png"
+            link={`/game-page?game-id=${gameIds.theThreeBoxes}`}
         />
     </>);
 }

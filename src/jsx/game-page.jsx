@@ -122,33 +122,6 @@ if (gamePageContainer)
             );
             break;
 
-        case gameIds.blackHoleWhiteHole:
-            ReactDOM.createRoot(gamePageContainer).render(
-                <GamePage
-                    title="Black Hole White Hole"
-                    icon="/assets/images/bhwhtitle.png"
-                    desc=
-                    {
-                        <p style={{textAlign: "left"}}>
-                            Game made for Mini Jam 187: Polarity.
-                            <br />
-                            You're a black hole, linked with a white hole in a parallel
-                            dimension.
-                            <br />
-                            With limited energy resource, you have to repair the holes in your
-                            universe.
-                            <br />
-                            Swap between you and your parallel, fix holes and gather
-                            materials, and charge up the center of everything.
-                        </p>
-                    }
-                    pageLink="https://keepchatting.itch.io/black-hole-white-hole"
-                    downloadLink="/local-games/bhwh/bhwh.zip"
-                    embedLink="/local-games/bhwh/"
-                />,
-            );
-            break;
-
         case gameIds.soPolarising:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -188,6 +161,26 @@ if (gamePageContainer)
                     pageLink="https://keepchatting.itch.io/the-metal-forge"
                     downloadLink="/local-games/metalforge/metalforge.zip"
                     embedLink="/local-games/metalforge/"
+                />,
+            );
+            break;
+        
+        case gameIds.theThreeBoxes:
+            ReactDOM.createRoot(gamePageContainer).render(
+                <GamePage
+                    title="The Three Boxes"
+                    icon="/assets/images/threeboxestitle.png"
+                    desc=
+                    {
+                        <p style={{textAlign: "left"}}>
+                            Game made as a school project.
+                            <br />
+                            Navigate through various escape rooms, using three boxes as clues to success. Traverse through aged rooms and find your way to the surface.
+                        </p>
+                    }
+                    pageLink="https://keepchatting.itch.io/the-three-boxes"
+                    downloadLink="/local-games/thethreeboxes/thethreeboxes.zip"
+                    embedLink="/local-games/thethreeboxes/"
                 />,
             );
             break;
