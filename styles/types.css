@@ -70,7 +70,7 @@
   border-color: var(--accent-color);
 }
 
-.linked-panel {
+.linked-panel, .dark-panel {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

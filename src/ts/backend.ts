@@ -10,20 +10,6 @@ app.use(cors());
 app.use(express.text());
 app.use(express.json());
 
-app.use(rateLimit(
-{
-    validate: false,
-    skipFailedRequests: true,
-    keyGenerator: (req: express.Request, res: express.Response) =>
-    {
-        let ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim()
-        ?? req.socket?.remoteAddress
-        ?? "unknown";
-
-        return ip;
-    }
-}));
-
 app.use((req, res, next) =>
 {
     const allowed =
@@ -52,7 +38,7 @@ app.use((req, res, next) =>
 
 //EMAIL REQUESTS//
 const emailRouter = express.Router();
-emailRouter.use(rateLimit({ windowMs: 30 * 1000, limit: 2 }));
+emailRouter.use("/api/email", rateLimit({ windowMs: 30 * 1000, limit: 2 }));
 
 emailRouter.post("/api/email", async (req: express.Request, res: express.Response) =>
 {

@@ -82,6 +82,14 @@
   cursor: pointer;
 }
 
+.pointerless {
+  pointer-events: none;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
+
 .main-focus {
   background-color: color-mix(in srgb, var(--accent-color) 22%, var(--bg-color) 78%);
   border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color) 55%);

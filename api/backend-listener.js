@@ -1,10 +1,10 @@
-import path from "path";
 import express from "express";
 import app from "./backend.js";
 import http from "http";
 app.use((req, res, next) => {
-    if (req.url !== "/") {
-        req.url = `/public${req.url}`;
+    const redirectRegex = /^\/(game-page|info|local-games|otherorgs|projs|showcase)($|\?|\/)/;
+    if (req.url.match(redirectRegex)) {
+        req.url = `/pages${req.url}`;
     }
     next();
 });

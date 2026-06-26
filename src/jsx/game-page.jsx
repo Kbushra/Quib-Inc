@@ -11,13 +11,13 @@ function GameEmbed({ link })
                 style={{ "--src": link }}
                 tabIndex="0"
             ></div>
+            <img
+                className="clickable fullscreen"
+                style={{position: "absolute", bottom: "0", right: "0", paddingBottom: "1rem", paddingRight: "1rem", width: "min(15%, 8rem)"}}
+                src="/assets/images/fullscreen.png"
+                tabIndex="0"
+            />
         </div>
-        <img
-            className="clickable fullscreen content-image"
-            style={{width: "8rem", marginBottom: "1rem"}}
-            src="/assets/images/fullscreen.png"
-            tabIndex="0"
-        />
     </>);
 }
 
@@ -25,19 +25,21 @@ function GamePage({ title, icon, desc, pageLink = "", pageIcon = "/assets/images
 {
     return (<>
         <div className="row-flex panel wrap-when-small" style={{gap: "1rem", justifyContent: "flex-start", alignItems: "flex-start"}}>
-            <img className="content-image" src={icon} style={{width: "min(100%, 30rem)", height: "20rem"}}/>
+            <img className="rounded" src={icon} style={{width: "min(100%, 30rem)", height: "20rem"}}/>
             <div className="column-flex" style={{alignItems: "flex-start"}}>
                 <div className="row-flex" style={{justifyContent: "flex-start", gap: "1rem"}}>
                     {
                         (pageLink == "") ? <></> :
-                        <img className="clickable content-image" style={{borderRadius: "1rem", width: "4rem"}} src={pageIcon}
-                        onClick={() => (window.location.href = pageLink)} tabIndex="0"/>
+                        <a href={pageLink}>
+                            <img className="clickable" style={{width: "4rem"}} draggable={false} src={pageIcon} tabIndex="0"/>
+                        </a>
                     }
 
                     {
                         (downloadLink == "") ? <></> :
-                        <img className="clickable content-image" style={{borderRadius: "1rem", width: "4rem"}} src="/assets/images/download.png"
-                        onClick={() => (window.location.href = downloadLink)} tabIndex="0"/>
+                        <a href={downloadLink}>
+                            <img className="clickable" style={{width: "4rem"}} draggable={false} src="/assets/images/download.png" tabIndex="0"/>
+                        </a>
                     }
                 </div>
 

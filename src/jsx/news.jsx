@@ -73,21 +73,21 @@ if (newsContainer)
                 <p className="medium-width">You heard that right! The Undertem Ruins Demo is finally out!</p>
             </NewsRow>
             <NewsRow>
-                <img src="/assets/images/undertemtitle.png" style={{height: "25rem"}} />
+                <img className="rounded" src="/assets/images/undertemtitle.png" style={{height: "25rem"}} />
             </NewsRow>
             <NewsRow>
-                <p className="medium-width">Explore the Ruins 100 years later as Frisk and Chara wander through decayed halls covered in Tem graffiti.</p>
-                <img src="/assets/images/realdemo1.png" style={{width: "min(100%, 20rem)"}} />
+                <p className="medium-width" style={{textAlign: "right"}}>Explore the Ruins 100 years later as Frisk and Chara wander through decayed halls covered in Tem graffiti.</p>
+                <img className="rounded" src="/assets/images/realdemo1.png" style={{width: "min(100%, 20rem)"}} />
             </NewsRow>
             <NewsRow>
-                <img src="/assets/images/realdemo2.png" style={{width: "min(100%, 20rem)"}} />
-                <p className="medium-width">The Tems patrol relentlessly. No mercy, no allies, just survival.</p>
+                <img className="rounded" src="/assets/images/realdemo2.png" style={{width: "min(100%, 20rem)"}} />
+                <p className="medium-width" style={{textAlign: "left"}}>The Tems patrol relentlessly. No mercy, no allies, just survival.</p>
             </NewsRow>
             <NewsRow>
-                <p className="medium-width">So play the game now! Available at
+                <p className="medium-width" style={{textAlign: "right"}}>So play the game now! Available at
                 <a href="https://keepchatting.itch.io/realundertem" style={{"--main-color": "var(--muted-accent-color)"}}> Itch.io </a>
                 or on <a href="https://gamejolt.com/games/undertem/1059876" style={{"--main-color": "var(--muted-accent-color)"}}>GameJolt</a>.</p>
-                <img src="/assets/images/realdemo3.png" style={{width: "min(100%, 20rem)"}} />
+                <img className="rounded" src="/assets/images/realdemo3.png" style={{width: "min(100%, 20rem)"}} />
             </NewsRow>
         </>)
     };
@@ -145,30 +145,22 @@ if (newsContainer)
                         <p className="large-width">Right, some teasers.</p>
                     </NewsRow>
                     <NewsRow>
-                        <video
-                            className="medium-width content-image"
-                            style={{ aspectRatio: "3/2" }}
-                            controls
-                        >
+                        <video className="medium-width rounded" controls>
                             <source src="/assets/videos/ruins-intro.mp4" type="video/mp4" />
                             Video not supported.
                         </video>
-                        <p className="medium-width">
+                        <p className="medium-width" style={{textAlign: "left"}}>
                             Here is a clip of the Ruins entrance in-game. Everything is subject
                             to change.
                         </p>
                     </NewsRow>
                     <NewsRow>
-                        <p className="medium-width">
+                        <p className="medium-width" style={{textAlign: "right"}}>
                             Here is another clip of wander and pathfinding AI in the game. Note
                             that the sprites are not permanent (the AI also just reuses a
                             different sprite as a placeholder).
                         </p>
-                        <video
-                            className="medium-width content-image"
-                            style={{ aspectRatio: "3/2" }}
-                            controls
-                        >
+                        <video className="medium-width rounded" controls>
                             <source src="/assets/videos/pathfinding.mp4" type="video/mp4" />
                             Video not supported.
                         </video>

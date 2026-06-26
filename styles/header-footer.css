@@ -75,12 +75,15 @@
 #mode-label {
   position: relative;
   left: calc(var(--pos-media-factor) * 8);
+  top: 0.3em;
   font-size: 1.2em;
   color: var(--text-muted);
   white-space: nowrap;
 }
 
 #mode {
+  top: 0.3em;
+  
   position: relative;
   width: 5em;
   height: 2.55em;

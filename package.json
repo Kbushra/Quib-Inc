@@ -6,7 +6,8 @@
   "scripts": {
     "compile-ts": "tsc",
     "compile-jsx": "esbuild ./src/jsx/*.jsx --bundle --minify --sourcemap --format=esm --outdir=./scripts",
-    "compile": "npm run compile-ts && npm run compile-jsx"
+    "compile": "npm run compile-ts && npm run compile-jsx",
+    "listen": "npx tsx ./src/ts/backend-listener.ts"
   },
   "repository": {
     "type": "git",

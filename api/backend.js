@@ -7,16 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.text());
 app.use(express.json());
-app.use(rateLimit({
-    validate: false,
-    skipFailedRequests: true,
-    keyGenerator: (req, res) => {
-        let ip = req.headers["x-forwarded-for"]?.split(",")[0]?.trim()
-            ?? req.socket?.remoteAddress
-            ?? "unknown";
-        return ip;
-    }
-}));
 app.use((req, res, next) => {
     const allowed = [
         "http://localhost:5500",
@@ -40,7 +30,7 @@ app.use((req, res, next) => {
 ////////////////////////////////
 //EMAIL REQUESTS//
 const emailRouter = express.Router();
-emailRouter.use(rateLimit({ windowMs: 30 * 1000, limit: 2 }));
+emailRouter.use("/api/email", rateLimit({ windowMs: 30 * 1000, limit: 2 }));
 emailRouter.post("/api/email", async (req, res) => {
     try {
         const tok = req.body.dest == "aaqibchoudhury3@gmail.com" ? process.env.EMAIL_KEY_AAQIB :

@@ -5,7 +5,7 @@ function FeaturedGame({ name, id, image })
 {
     return (
         <a className="linked-panel" href={`/game-page?game-id=${id}`}>
-            <img src={image} alt={name}/>
+            <img src={image} alt={name} draggable={false}/>
             <span>{name}</span>
         </a>
     );

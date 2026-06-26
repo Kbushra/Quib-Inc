@@ -73,6 +73,20 @@ if (headerContainer)
     ReactDOM.createRoot(headerContainer).render(<Header />);
 }
 
+function FooterIcon({ src, link })
+{
+    return (
+        <a href={link}>
+            <img
+                className="clickable rounded"
+                src={src}
+                draggable={false}
+                tabIndex="0"
+            />
+        </a>
+    );
+}
+
 function Footer() {
     return (<>
         <div className="break-line"></div>
@@ -80,43 +94,21 @@ function Footer() {
             {new Date().getUTCFullYear()} © Quib Inc.
         </p>
         <div id="footer-contents">
-            <img
-                className="clickable content-image"
+            <FooterIcon
                 src="/assets/images/discord.png"
-                onClick={() =>
-                    (window.location.href =
-                        "https://discordapp.com/users/1209583285215436871")
-                }
-                style={{ borderRadius: "16px" }}
-                tabIndex="0"
+                link="https://discordapp.com/users/1209583285215436871"
             />
-            <img
-                className="clickable content-image"
+            <FooterIcon
                 src="/assets/images/gmail.png"
-                onClick={() =>
-                    (window.location.href =
-                        "https://mail.google.com/mail/u/?authuser=aaqibchoudhury3@gmail.com")
-                }
-                style={{ borderRadius: "16px" }}
-                tabIndex="0"
+                link="https://mail.google.com/mail/u/?authuser=aaqibchoudhury3@gmail.com"
             />
-            <img
-                className="clickable content-image"
+            <FooterIcon
                 src="/assets/images/youtube.png"
-                onClick={() =>
-                    (window.location.href = "https://www.youtube.com/@keepmaking-ane")
-                }
-                style={{ borderRadius: "16px" }}
-                tabIndex="0"
+                link="https://www.youtube.com/@keepmaking-ane"
             />
-            <img
-                className="clickable content-image"
+            <FooterIcon
                 src="/assets/images/itch.png"
-                onClick={() =>
-                    (window.location.href = "https://keepchatting.itch.io/")
-                }
-                style={{ borderRadius: "16px" }}
-                tabIndex="0"
+                link="https://keepchatting.itch.io/"
             />
         </div>
     </>);
