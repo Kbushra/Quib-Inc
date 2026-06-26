@@ -32,11 +32,6 @@
 
   border: 1px solid var(--border-color);
   background: var(--card-bg);
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, var(--card-bg) 95%, transparent 5%),
-    color-mix(in srgb, var(--card-bg) 65%, transparent 35%)
-  );
 
   border-radius: 1rem;
   box-shadow:
@@ -78,7 +73,6 @@
   border-radius: 1rem;
   padding: 0.75rem;
   border: 1px solid var(--border-color);
-  background: var(--card-bg);
   background: color-mix(in srgb, var(--bg-color) 70%, transparent 30%);
   text-decoration: none;
   transition:

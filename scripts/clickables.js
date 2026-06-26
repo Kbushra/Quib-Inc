@@ -11,7 +11,7 @@ export function clickableListeners()
     const clickables = document.getElementsByClassName("clickable");
 
     for (let i = 0; i < clickables.length; i++)
-        {
+    {
         clickables[i].removeEventListener("keydown", clickableClick);
         clickables[i].addEventListener("keydown", clickableClick);
     }

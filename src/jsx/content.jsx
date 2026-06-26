@@ -42,7 +42,7 @@ function LinkedImage({ name, icon, link })
     return (
         <a className="column-flex linked-panel clickable" href={link}>
             <p className="caption" style={{width: "100%", textAlign: "left"}}>{name}</p>
-            <img className="linked-image-height" src={icon} alt={name} tabIndex="0" draggable={false}/>
+            <img className="linked-image-height" src={icon} alt={name} draggable={false}/>
         </a>
     );
 }

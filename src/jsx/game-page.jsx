@@ -13,7 +13,7 @@ function GameEmbed({ link })
             ></div>
             <img
                 className="clickable fullscreen"
-                style={{position: "absolute", bottom: "0", right: "0", paddingBottom: "1rem", paddingRight: "1rem", width: "min(15%, 8rem)"}}
+                style={{position: "absolute", bottom: "0", right: "0", padding: "0.5rem", width: "min(15%, 8rem)"}}
                 src="/assets/images/fullscreen.png"
                 tabIndex="0"
             />
@@ -31,14 +31,14 @@ function GamePage({ title, icon, desc, pageLink = "", pageIcon = "/assets/images
                     {
                         (pageLink == "") ? <></> :
                         <a href={pageLink}>
-                            <img className="clickable" style={{width: "4rem"}} draggable={false} src={pageIcon} tabIndex="0"/>
+                            <img style={{width: "4rem"}} draggable={false} src={pageIcon} />
                         </a>
                     }
 
                     {
                         (downloadLink == "") ? <></> :
                         <a href={downloadLink}>
-                            <img className="clickable" style={{width: "4rem"}} draggable={false} src="/assets/images/download.png" tabIndex="0"/>
+                            <img style={{width: "4rem"}} draggable={false} src="/assets/images/download.png" />
                         </a>
                     }
                 </div>
