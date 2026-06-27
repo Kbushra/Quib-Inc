@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
   overflow: visible;
 }
 
@@ -119,54 +119,85 @@ html[data-theme="light"] #mode::before {
   border-color: var(--accent-color);
 }
 
-#menubar {
-  height: 3rem;
-  transition: filter 0.2s cubic-bezier(0.1, 0.9, 1, 1);
-  z-index: 100;
-}
+.dropdown {
+  position: relative;
+  margin: 0;
+  padding: 1em;
+  text-align: center;
+  width: max-content;
+  height: 4em;
+  --targ-height: 4em;
 
-html[data-theme="light"] #menubar {
-  filter: brightness(0);
-}
+  background-color: transparent;
+  border: 1px solid transparent;
 
-#droptext-panel {
-  position: absolute;
-  left: 0;
-  width: calc(var(--real-media-factor) * var(--scale-width));
-  min-height: 50rem;
-  border-radius: 1rem;
-  border: 1px solid var(--border-color);
-  background: rgb(from color-mix(in srgb, var(--card-bg) 50%, var(--bg-color) 50%) r g b / 1);
-  z-index: 0;
-
-  pointer-events: none;
-  top: -5rem;
-  opacity: 0;
-  transition: top 0.2s cubic-bezier(0.1, 0.9, 1, 1), opacity 0.2s cubic-bezier(0.1, 0.9, 1, 1);
-
-  display: flex;
+  display: inline-flex;
+  flex: 0 0 auto;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+
+  overflow-y: clip;
+
+  cursor: default;
+
+  border-radius: 1em;
+  transition:
+    background-color 0.2s cubic-bezier(0.1, 0.9, 1, 1),
+    border-color 0.2s ease,
+    height 0.2s cubic-bezier(0.1, 0.9, 1, 1);
 }
 
-.droptext-category
-{
+.dropdown > .subdrop:first-of-type {
+  padding-top: 0.5em;
+}
+
+.dropdown > p {
+  top: 0;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  font-family: system-ui, sans-serif;
+  font-weight: 400;
 }
 
-@media (orientation: portrait) {
-  #droptext-panel {
-    flex-direction: row;
-  }
-
-  .droptext-category {
-    flex-direction: column;
-  }
+/*If the subdrop in a dropdown has focus, stay focused itself*/
+.dropdown:hover,
+.dropdown:has(:focus) {
+  background-color: var(--bg-color);
+  height: var(--targ-height);
+  border-color: var(--accent-color);
 }
 
-.droptext-page
-{
-  /*stuff*/
+.subdrop {
+  position: relative;
+  top: -1em;
+  margin: 0;
+
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-weight: 200;
+
+  opacity: 0;
+  transition:
+    opacity 0.2s cubic-bezier(0.1, 0.9, 1, 1),
+    top 0.2s cubic-bezier(0.1, 0.9, 1, 1),
+    color 0.1s cubic-bezier(0.1, 0.9, 1, 1);
+
+  pointer-events: none; /*Starts out unclickable, turns clickable after transition*/
+}
+
+/*If the subdrop in a dropdown has focus, keep all dropdowns visible still*/
+.dropdown:hover .subdrop,
+.dropdown:has(:focus) .subdrop {
+  opacity: 1;
+  top: 0;
+}
+
+.subdrop:hover {
+  color: var(--accent-color);
 }
 
 #footer-container { width: 100%; }

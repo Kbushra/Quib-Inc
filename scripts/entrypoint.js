@@ -15,6 +15,7 @@ import "./width-update.js";
 import { clickableListeners } from "./clickables.js";
 import { formListeners } from "./contact.js";
 import { iframeListeners } from "./iframes.js";
+import { dropdownListeners } from "./header-footer.js";
 import { updateWidth } from "./width-update.js";
 
 const observer = new MutationObserver(() =>
@@ -22,6 +23,7 @@ const observer = new MutationObserver(() =>
     clickableListeners();
     formListeners();
     iframeListeners();
+    dropdownListeners();
     updateWidth();
 });
 

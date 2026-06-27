@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Quib Inc." />
+    <meta
+      property="og:description"
+      content="A website to give updates on Quib Inc. and its affiliated Mediaocre Games, providing their content."
+    />
+    <meta
+      property="og:image"
+      content="https://quibinc.dpdns.org/assets/images/mainpage.png"
+    />
+    <meta property="og:url" content="https://quibinc.dpdns.org" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Quib Inc." />
+    <meta
+      name="twitter:description"
+      content="A website to give updates on Quib Inc. and its affiliated Mediaocre Games, providing their content."
+    />
+    <meta
+      name="twitter:image"
+      content="https://quibinc.dpdns.org/assets/images/mainpage.png"
+    />
+
+    <title>Quib Inc.</title>
+    <link rel="icon" type="image/apng" href="favicon.apng" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/entrypoint.css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="main">
+        <section class="panel grid">
+          <div class="column-flex" style="align-items: flex-start; justify-content: center; gap: 1.35rem;">
+            <h1 style="margin: 0; font-size: 5.8rem;">Games, Music, Websites</h1>
+            <p style="text-align: left; font-size: 1.5rem; width: min(42rem, 100%);">
+              Quib Inc. is an organisation managed by Aaqib Choudhury. We build
+              jam games, original soundtracks, and interactive web projects with
+              a focus on creativity and learning.
+            </p>
+            <div class="row-flex" style="gap: 0.9rem; flex-wrap: wrap; justify-content: flex-start; max-width: 100%;">
+              <a class="linked-pill main-focus" href="/projs/games" style="max-width: 100%;">Explore Games</a>
+              <a class="linked-pill" href="/projs/music" style="max-width: 100%;">Listen to Music</a>
+              <a class="linked-pill" href="/projs/websites" style="max-width: 100%;">See Web Projects</a>
+            </div>
+          </div>
+
+          <div class="grid" id="featured-games">
+            <a class="linked-panel" href="/game-page?game-id=polydraws">
+              <img src="/assets/images/polydrawstitle.png" alt="Polydraws" />
+              <span>Polydraws</span>
+            </a>
+          </div>
+        </section>
+        
+        <div style="height: 3em"></div>
+
+        <h1 id="quib-inc-contact-title" class="title">Contact Quib Inc.</h1>
+        <p class="caption">
+            Reach out through social channels or send a direct message using the contact form.
+        </p>
+        <p class="mini-caption">
+            Looking for the Mediaocre Games team instead? <a href="/mediaocre-games/info#mediaocre-games-contact-title" class="link">Use the Mediaocre contact page</a>.
+        </p>
+        <div class="break-line" style="margin: 0"></div>
+
+        <section class="panel grid" style="align-items: start;">
+            <div id="contacts" class="column-flex" style="align-items: flex-start; gap: 1rem"></div>
+            <div class="panel" style="background: color-mix(in srgb, var(--bg-color) 75%, transparent 25%);">
+                <div id="form" email="aaqibchoudhury3@gmail.com"></div>
+            </div>
+        </section>
+
+        <section style="width: 100%; padding: 0.25rem 0.15rem 0.8rem;">
+          <div class="row-flex" style="justify-content: space-between;">
+            <p style="font-size: 1rem; letter-spacing: 0.08rem; color: var(--text-muted);">MOST RECENT NEWSLETTER</p>
+            <a style="font-size: 0.9rem;" href="/info/news">View All Updates</a>
+          </div>
+          <div id="news-container" amount="preview" style="width: 100%"></div>
+        </section>
+
+        <div id="footer-container"></div>
+      </div>
+    </div>
+
+    <div id="header-container"></div>
+
+    <script src="/scripts/entrypoint.js" type="module" defer></script>
+  </body>
+</html>

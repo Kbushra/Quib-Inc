@@ -1,19 +1,21 @@
 import ReactDOM from "react-dom/client";
+import { Children } from "react";
 import { toggleTheme } from "../../scripts/theme-toggle";
-import { useEffect, useState } from "react";
 
-function DroptextPage({ name, link, enabled })
+function DropdownPage({ name, link, index })
 {
     return (
-        <a className="droptext-page" href={link} tabIndex={enabled ? 0 : -1}>{name}</a>
+        <a className="subdrop clickable" href={link} style={{ fontSize: "1.8em" }} tabIndex="0">{name}</a>
     );
 }
 
-function DroptextCategory({ name, children })
+function Dropdown({ name, children })
 {
     return (
-        <div className="droptext-category">
-            <p>{name}</p>
+        <div className="dropdown" tabIndex="0" style={{ "--targ-height": `${5 + 3.5 * Children.count(children)}em` }}>
+            <p style={{ fontSize: "1.8em" }}>
+                {name}
+            </p>
             {children}
         </div>
     );
@@ -21,18 +23,6 @@ function DroptextCategory({ name, children })
 
 function Header()
 {
-    const [isPanelOpen, openPanel] = useState(false);
-
-    useEffect(() =>
-    {
-        const panel = document.getElementById("droptext-panel");
-        if (!panel) { return; }
-
-        panel.style.pointerEvents = isPanelOpen ? "all" : "none";
-        panel.style.opacity = isPanelOpen ? "1" : "0";
-        panel.style.top = isPanelOpen ? "0" : "-5rem";
-    }, [isPanelOpen]);
-
     return (
         <div id="header">
             <div id="header-left">
@@ -52,24 +42,21 @@ function Header()
             </div>
 
             <div id="header-right">
-                <img id="menubar" className="clickable" onClick={() => openPanel(!isPanelOpen)} src="/assets/images/menu.png" tabIndex={0}/>
-                <div id="droptext-panel">
-                    <DroptextCategory name="Mediaocre Games">
-                        <DroptextPage name="Info" link="/otherorgs/info" enabled={isPanelOpen} />
-                        <DroptextPage name="Content" link="/otherorgs/content" enabled={isPanelOpen} />
-                        <DroptextPage name="Contact" link="/otherorgs/contact" enabled={isPanelOpen} />
-                    </DroptextCategory>
-                    <DroptextCategory name="Projects">
-                        <DroptextPage name="Games" link="/projs/games" enabled={isPanelOpen} />
-                        <DroptextPage name="Music" link="/projs/music" enabled={isPanelOpen} />
-                        <DroptextPage name="Websites" link="/projs/websites" enabled={isPanelOpen} />
-                    </DroptextCategory>
-                    <DroptextCategory name="Updates">
-                        <DroptextPage name="Main" link="/" enabled={isPanelOpen} />
-                        <DroptextPage name="Newsletter" link="/info/news" enabled={isPanelOpen} />
-                        <DroptextPage name="Contact" link="/info/contact" enabled={isPanelOpen} />
-                    </DroptextCategory>
-                </div>
+                <Dropdown name="Team Thorn">
+                    <DropdownPage name="Info" link="/team-thorn/info" index={0} />
+                </Dropdown>
+                <Dropdown name="Mediaocre Games">
+                    <DropdownPage name="Info" link="/mediaocre-games/info" index={0} />
+                    <DropdownPage name="Games" link="/mediaocre-games/games" index={1} />
+                    <DropdownPage name="Music" link="/mediaocre-games/music" index={2} />
+                </Dropdown>
+                <Dropdown name="Quib Inc.">
+                    <DropdownPage name="Info" link="/quib-inc/info" index={0} />
+                    <DropdownPage name="Games" link="/quib-inc/games" index={1} />
+                    <DropdownPage name="Music" link="/quib-inc/music" index={2} />
+                    <DropdownPage name="Websites" link="/quib-inc/websites" index={3} />
+                    <DropdownPage name="Newsletter" link="/quib-inc/newsletter" index={4} />
+                </Dropdown>
             </div>
         </div>
     );
@@ -127,4 +114,23 @@ let footerContainer = document.getElementById("footer-container");
 if (footerContainer)
 {
     ReactDOM.createRoot(footerContainer).render(<Footer />);
+}
+
+function subdropTransition(ev)
+{
+    if (ev.propertyName !== "opacity") { return; }
+
+    const targ = ev.currentTarget;
+    targ.style.pointerEvents = parseFloat(getComputedStyle(targ).opacity) > 0.5 ? "auto" : "none";
+    console.log(`${parseFloat(getComputedStyle(targ).opacity)}, ${targ.style.pointerEvents}`);
+}
+
+export function dropdownListeners()
+{
+    let subdrops = document.getElementsByClassName("subdrop");
+    for (let i = 0; i < subdrops.length; i++)
+    {
+        subdrops[i].removeEventListener("transitionend", subdropTransition);
+        subdrops[i].addEventListener("transitionend", subdropTransition);
+    }
 }

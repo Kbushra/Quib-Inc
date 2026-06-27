@@ -6,11 +6,12 @@
     "rewrites":
     [
         { "source": "/api/email/", "destination": "/api/backend-exporter/" },
+        { "source": "/", "destination": "/pages/quib-inc/info/" },
         { "source": "/game-page/", "destination": "/pages/game-page/" },
         { "source": "/game-page/:path*/", "destination": "/pages/game-page/:path*/" },
-        { "source": "/info/:path*/", "destination": "/pages/info/:path*/" },
-        { "source": "/otherorgs/:path*/", "destination": "/pages/otherorgs/:path*/" },
-        { "source": "/projs/:path*/", "destination": "/pages/projs/:path*/" },
+        { "source": "/quib-inc/:path*/", "destination": "/pages/quib-inc/:path*/" },
+        { "source": "/mediaocre-games/:path*/", "destination": "/pages/mediaocre-games/:path*/" },
+        { "source": "/team-thorn/:path*/", "destination": "/pages/team-thorn/:path*/" },
         { "source": "/showcase/:path*/", "destination": "/pages/showcase/:path*/" },
         { "source": "/local-games/:path*/", "destination": "/pages/local-games/:path*/" },
         { "source": "/local-games/:path*", "destination": "/pages/local-games/:path*" }

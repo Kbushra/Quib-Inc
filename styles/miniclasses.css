@@ -42,12 +42,14 @@
 }
 
 .caption {
+  font-family: "Geist", sans-serif;
   font-size: 1.03rem;
   color: var(--text-muted);
   text-align: left;
 }
 
 .mini-caption {
+  font-family: "Geist", sans-serif;
   font-size: 0.9rem;
   color: var(--text-muted);
   text-align: left;

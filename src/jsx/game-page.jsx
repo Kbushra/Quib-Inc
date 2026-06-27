@@ -25,7 +25,7 @@ function GamePage({ title, icon, desc, pageLink = "", pageIcon = "/assets/images
 {
     return (<>
         <div className="row-flex panel wrap-when-small" style={{gap: "1rem", justifyContent: "flex-start", alignItems: "flex-start"}}>
-            <img className="rounded" src={icon} style={{width: "min(100%, 30rem)", height: "20rem"}}/>
+            <img className="rounded" src={icon} style={{width: "min(100%, 30rem)"}}/>
             <div className="column-flex" style={{alignItems: "flex-start"}}>
                 <div className="row-flex" style={{justifyContent: "flex-start", gap: "1rem"}}>
                     {
