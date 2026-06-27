@@ -28,6 +28,8 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "esModuleInterop": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     
 
     // Style Options

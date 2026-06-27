@@ -1,5 +1,5 @@
 import express from "express";
-import app from "./backend.js";
+import app from "./backend.ts";
 import http from "http";
 
 app.use((req : express.Request, res: express.Response, next) => 
