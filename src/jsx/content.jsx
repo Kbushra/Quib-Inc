@@ -113,24 +113,32 @@ if (gameContainer)
     </>);
 }
 
-let contentMediaocreContainer = document.getElementById("content-mediaocre");
+let mediaocreGamesContainer = document.getElementById("mediaocre-games");
 
-if (contentMediaocreContainer)
+if (mediaocreGamesContainer)
 {
-    ReactDOM.createRoot(contentMediaocreContainer).render(<>
+    ReactDOM.createRoot(mediaocreGamesContainer).render(<>
         <LinkedImage
             name="Into the Darkness (Micro Jam 046)"
             icon="/assets/images/darkness.png"
             link={`/game-page?game-id=${gameIds.intoTheDarkness}`}
         />
-        <MusicEmbed
-            name="Into the Darkness - Isolation (Aaqib)"
-            link="https://www.youtube.com/embed/wlpSJbSUSRQ"
-        />
         <LinkedImage
             name="Undertem Mode Selector"
             icon="/assets/images/undertemmodes.png"
             link={`/game-page?game-id=${gameIds.undertemModeSelector}`}
+        />
+    </>);
+}
+
+let mediaocreMusicContainer = document.getElementById("mediaocre-music");
+
+if (mediaocreMusicContainer)
+{
+    ReactDOM.createRoot(mediaocreMusicContainer).render(<>
+        <MusicEmbed
+            name="Into the Darkness - Isolation (Aaqib)"
+            link="https://www.youtube.com/embed/wlpSJbSUSRQ"
         />
     </>);
 }

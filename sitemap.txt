@@ -1,9 +1,9 @@
 https://quibinc.dpdns.org/
-https://quibinc.dpdns.org/info/contact/
-https://quibinc.dpdns.org/info/news/
-https://quibinc.dpdns.org/otherorgs/contact/
-https://quibinc.dpdns.org/otherorgs/content/
-https://quibinc.dpdns.org/otherorgs/info/
-https://quibinc.dpdns.org/projs/games/
-https://quibinc.dpdns.org/projs/music/
-https://quibinc.dpdns.org/projs/websites/
+https://quibinc.dpdns.org/quib-inc/games/
+https://quibinc.dpdns.org/quib-inc/music/
+https://quibinc.dpdns.org/quib-inc/websites/
+https://quibinc.dpdns.org/quib-inc/newsletter/
+https://quibinc.dpdns.org/mediaocre-games/info/
+https://quibinc.dpdns.org/mediaocre-games/games/
+https://quibinc.dpdns.org/mediaocre-games/music/
+https://quibinc.dpdns.org/team-thorn/info/
