@@ -122,7 +122,6 @@ function subdropTransition(ev)
 
     const targ = ev.currentTarget;
     targ.style.pointerEvents = parseFloat(getComputedStyle(targ).opacity) > 0.5 ? "auto" : "none";
-    console.log(`${parseFloat(getComputedStyle(targ).opacity)}, ${targ.style.pointerEvents}`);
 }
 
 export function dropdownListeners()

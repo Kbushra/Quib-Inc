@@ -1,10 +1,11 @@
 :root {
   /*Set by elements.jsx, allows for screen size support and unchanged layout on zoom*/
-  --fast-scale-media-factor: 1px;
-  --scale-media-factor: 1px;
-  --pos-media-factor: 1px;
-  --real-media-factor: 1px;
   --scale-width: 1905;
+  --fast-scale-media-factor: calc(100vw / var(--scale-width));
+  --scale-media-factor: calc(100vw / var(--scale-width));
+  --pos-media-factor: calc(100vw / var(--scale-width));
+  --real-media-factor: calc(100vw / var(--scale-width));
+  
   font-size: calc(var(--scale-media-factor) * 16);
 
   /*Dark mode variables*/

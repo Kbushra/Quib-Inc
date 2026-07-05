@@ -57,16 +57,11 @@ if (websiteContainer)
             icon="/assets/images/newhomestudios.png"
             link="https://newhomestudios.neocities.org/"
         />
-        <LinkedImage
-            name="Testimonial Slider"
-            icon="/assets/images/testimonial.png"
-            link="/showcase/testimonial"
-        />
-        <LinkedImage
-            name="Progress Bar"
-            icon="/assets/images/progressbar.png"
-            link="/showcase/progress"
-        />
+        {/*<LinkedImage
+            name="User Manager"
+            icon="/assets/images/user-manager.png"
+            link="https://quib-inc-user-manager.vercel.app/"
+        />*/}
         <LinkedImage
             name="Screensaver (Website game)"
             icon="/assets/images/screensaver.png"

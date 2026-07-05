@@ -1,21 +1,61 @@
 import ReactDOM from "react-dom/client";
 import { gameIds } from "../../scripts/game-ids";
+import { useRef } from "react";
 
 function GameEmbed({ link })
 {
+    /*function iframeFocus(iframe)
+    {
+        iframe.focus();
+        iframe.contentWindow.focus();
+    }*/
+
+    function iframeLoad(ev)
+    {
+        const div = ev.currentTarget.parentElement.querySelector(".iframe");
+        const iframe = ev.currentTarget.parentElement.querySelector("iframe");
+        if (!div) { return; }
+
+        iframe.src = link;
+        iframe.addEventListener("load", () =>
+        {
+            const canvas = iframe.contentWindow.document.querySelector("canvas");
+            const canvasAspectRatio = parseInt(getComputedStyle(canvas).width) / parseInt(getComputedStyle(canvas).height);
+            const iframeWidth = parseInt(getComputedStyle(iframe).width);
+            const iframeHeight = parseInt(getComputedStyle(iframe).height);
+            const iframeAspectRatio = iframeWidth / iframeHeight;
+            canvas.style.width = canvasAspectRatio >= iframeAspectRatio ? `${iframeWidth}px` : "auto";
+            canvas.style.height = iframeAspectRatio >= canvasAspectRatio ? `${iframeHeight}px` : "auto";
+            iframe.click();
+        });
+
+        div.remove();
+    }
+
+    function iframeFullscreen(ev)
+    {
+        const button = ev.currentTarget;
+        const iframe = button.parentElement.querySelector("iframe");
+
+        iframeLoad(ev);
+        iframe.contentWindow.document.querySelector("canvas").requestFullscreen();
+        iframe.click();
+    }
+
     return (<>
         <div className="column-flex iframe-container" style={{marginTop: "2rem", marginBottom: "1rem"}}>
             <iframe className="iframe-hoverable" allow="autoplay" scrolling="no" allowFullScreen></iframe>
             <div
                 className="iframe clickable"
-                style={{ "--src": link }}
                 tabIndex="0"
+                onClick={iframeLoad}
             ></div>
             <img
                 className="clickable fullscreen"
                 style={{position: "absolute", bottom: "0", right: "0", padding: "0.5rem", width: "min(15%, 8rem)"}}
                 src="/assets/images/fullscreen.png"
                 tabIndex="0"
+                onClick={iframeFullscreen}
             />
         </div>
     </>);

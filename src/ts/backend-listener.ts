@@ -6,7 +6,7 @@ app.use((req : express.Request, res: express.Response, next) =>
 {
     const redirectRegex = /^\/(game-page|quib-inc|mediaocre-games|team-thorn|local-games|showcase)($|\?|\/)/;
     if (req.url.match(redirectRegex)) { req.url = `/pages${req.url}`; }
-    if (req.url == "/") { req.url = `/pages/quib-inc/info/`; }
+    else if (req.url == "/") { req.url = `/pages/quib-inc/info/`; }
 
     next();
 });
