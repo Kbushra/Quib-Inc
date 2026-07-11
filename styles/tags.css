@@ -17,6 +17,7 @@ a {
   --highlight-color: var(--accent-color);
   color: var(--main-color);
   transition: color 0.15s ease;
+  text-decoration: none;
 }
 
 a:hover {
