@@ -65,30 +65,53 @@ if (newsContainer)
 {
     let latestArticle =
     {
-        name: "April 1st Update",
-        tagline: "Undertem Ruins Demo!",
+        name: "July/August 2026 Update",
+        tagline: "Floweytale Venture",
         content:
         (<>
             <NewsRow>
-                <p className="medium-width">You heard that right! The Undertem Ruins Demo is finally out!</p>
+                <p>Recently, I've joined a new project called Floweytale.<br/>Guess who's that about.</p>
             </NewsRow>
             <NewsRow>
-                <img className="rounded" src="/assets/images/undertemtitle.png" style={{height: "25rem"}} />
+                <p className="large-width">
+                    It's an extremely ambitious project that aims to have multiple sections
+                    just for the demo alone. The full game will span multiple playthroughs and
+                    slowly give you more access to routes that you can play through as Flowey.
+                </p>
             </NewsRow>
             <NewsRow>
-                <p className="medium-width" style={{textAlign: "right"}}>Explore the Ruins 100 years later as Frisk and Chara wander through decayed halls covered in Tem graffiti.</p>
-                <img className="rounded" src="/assets/images/realdemo1.png" style={{width: "min(100%, 20rem)"}} />
+                <p className="large-width">
+                    It features a variety of new mechanics to differentiate it from just an RPG,
+                    and working on the team has been a blast, given their kindness and the amount of progress
+                    that was so quickly done throughout just a few months.
+                </p>
             </NewsRow>
             <NewsRow>
-                <img className="rounded" src="/assets/images/realdemo2.png" style={{width: "min(100%, 20rem)"}} />
-                <p className="medium-width" style={{textAlign: "left"}}>The Tems patrol relentlessly. No mercy, no allies, just survival.</p>
+                <p className="large-width">
+                    We'll soon be sending out a teaser, but if you want to see
+                    their <a style={{"--main-color": "var(--text-muted)"}} href="https://gamejolt.com/games/Determination/922941">Gamejolt</a> or their most
+                    recent <a style={{"--main-color": "var(--text-muted)"}} href="https://www.reddit.com/r/Undertale/comments/1uablum/introducing_the_new_era_of_floweytale/?share_id=1Y7DXpfpuQmNIHdD75P--&utm_medium=ios_app&utm_name=ioscss&utm_source=share&utm_term=1">Reddit post</a>,
+                    you can do so here.
+                    We've been having a lot of fun messing around on a certain cutscene...
+                </p>
             </NewsRow>
             <NewsRow>
-                <p className="medium-width" style={{textAlign: "right"}}>So play the game now! Available at
-                <a href="https://keepchatting.itch.io/realundertem" style={{"--main-color": "var(--muted-accent-color)"}}> Itch.io </a>
-                or on <a href="https://gamejolt.com/games/undertem/1059876" style={{"--main-color": "var(--muted-accent-color)"}}>GameJolt</a>.</p>
-                <img className="rounded" src="/assets/images/realdemo3.png" style={{width: "min(100%, 20rem)"}} />
+                <p className="large-width">
+                    On an unrelated note, not much development has happened on Undertem as we've been aiming to start writing our entire game doc
+                    for once, but Krys is developing a tool that will hopefully speed up development in some way.
+                </p>
             </NewsRow>
+            <NewsRow>
+                <p className="medium-width" style={{textAlign: "right"}}>
+                    Furthermore, I've started working on a new multiplayer game to test my skills with Gamemaker's networking functions
+                    and hopefully make a fun party game.
+                </p>
+                <video className="medium-width rounded" controls>
+                    <source src="/assets/videos/dropem.mp4" type="video/mp4" />
+                    Video not supported.
+                </video>
+            </NewsRow>
+            <NewsRow><p>Wow this has literally only one teaser.</p></NewsRow>
         </>)
     };
 
@@ -96,6 +119,33 @@ if (newsContainer)
     {
         ReactDOM.createRoot(newsContainer).render(<>
             <ExpandableArticle article={latestArticle} />
+            <ExpandableArticle article={{
+                name: "April 1st 2026 Update",
+                tagline: "Undertem Ruins Demo!",
+                content:
+                (<>
+                    <NewsRow>
+                        <p className="medium-width">You heard that right! The Undertem Ruins Demo is finally out!</p>
+                    </NewsRow>
+                    <NewsRow>
+                        <img className="rounded" src="/assets/images/undertemtitle.png" style={{height: "25rem"}} />
+                    </NewsRow>
+                    <NewsRow>
+                        <p className="medium-width" style={{textAlign: "right"}}>Explore the Ruins 100 years later as Frisk and Chara wander through decayed halls covered in Tem graffiti.</p>
+                        <img className="rounded" src="/assets/images/realdemo1.png" style={{width: "min(100%, 20rem)"}} />
+                    </NewsRow>
+                    <NewsRow>
+                        <img className="rounded" src="/assets/images/realdemo2.png" style={{width: "min(100%, 20rem)"}} />
+                        <p className="medium-width" style={{textAlign: "left"}}>The Tems patrol relentlessly. No mercy, no allies, just survival.</p>
+                    </NewsRow>
+                    <NewsRow>
+                        <p className="medium-width" style={{textAlign: "right"}}>So play the game now! Available at
+                        <a href="https://keepchatting.itch.io/realundertem" style={{"--main-color": "var(--muted-accent-color)"}}> Itch.io </a>
+                        or on <a href="https://gamejolt.com/games/undertem/1059876" style={{"--main-color": "var(--muted-accent-color)"}}>GameJolt</a>.</p>
+                        <img className="rounded" src="/assets/images/realdemo3.png" style={{width: "min(100%, 20rem)"}} />
+                    </NewsRow>
+                </>)
+            }} />
             <ExpandableArticle article={{
                 name: "Jan/Feb 2026 Update",
                 tagline: "Undertem progress and So Polarising redo",
