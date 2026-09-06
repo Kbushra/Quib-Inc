@@ -105,6 +105,11 @@ if (gameContainer)
             icon="/assets/images/threeboxestitle.png"
             link={`/game-page?game-id=${gameIds.theThreeBoxes}`}
         />
+        <LinkedImage
+            name="Drop Em"
+            icon="/assets/images/dropem.png"
+            link={`/game-page?game-id=${gameIds.dropEm}`}
+        />
     </>);
 }
 

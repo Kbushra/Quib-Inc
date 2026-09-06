@@ -7,5 +7,6 @@ export const gameIds =
     theMetalForge: "metalforge",
     theThreeBoxes: "thethreeboxes",
     intoTheDarkness: "darkness",
-    undertemModeSelector: "undertemmodes"
+    undertemModeSelector: "undertemmodes",
+    dropEm: "dropem"
 };

@@ -118,8 +118,7 @@ if (gamePageContainer)
                     embedLink="/local-games/polydraws/"
                 />,
             );
-            break;
-
+        break;
         case gameIds.chargeCycle:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -139,8 +138,7 @@ if (gamePageContainer)
                     embedLink="/local-games/chargecycle/"
                 />,
             );
-            break;
-
+        break;
         case gameIds.nestkeeping:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -162,8 +160,7 @@ if (gamePageContainer)
                     embedLink="/local-games/nestkeeping/"
                 />,
             );
-            break;
-
+        break;
         case gameIds.soPolarising:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -183,8 +180,7 @@ if (gamePageContainer)
                     embedLink="/local-games/polarising/"
                 />,
             );
-            break;
-
+        break;
         case gameIds.theMetalForge:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -205,8 +201,7 @@ if (gamePageContainer)
                     embedLink="/local-games/metalforge/"
                 />,
             );
-            break;
-        
+        break;
         case gameIds.theThreeBoxes:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -225,8 +220,7 @@ if (gamePageContainer)
                     embedLink="/local-games/thethreeboxes/"
                 />,
             );
-            break;
-
+        break;
         case gameIds.intoTheDarkness:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -245,7 +239,7 @@ if (gamePageContainer)
                     embedLink="/local-games/darkness/"
                 />,
             );
-            break;
+        break;
         case gameIds.undertemModeSelector:
             ReactDOM.createRoot(gamePageContainer).render(
                 <GamePage
@@ -265,6 +259,25 @@ if (gamePageContainer)
                     embedLink="/local-games/undertemmodes/"
                 />,
             );
-            break;
+        break;
+        case gameIds.dropEm:
+            ReactDOM.createRoot(gamePageContainer).render(
+                <GamePage
+                    title="Drop Em"
+                    icon="/assets/images/dropem.png"
+                    desc=
+                    {
+                        <p style={{textAlign: "left"}}>
+                            An online party game where you try to push your friends into the rising lava!<br/>
+                            Use your vast moveset as well as powerups to weave around your friends and be the first to the top.<br/>
+                            (PROTOTYPE - Not many things are implemented yet)
+                        </p>
+                    }
+                    pageLink="https://keepchatting.itch.io/drop-em"
+                    downloadLink="/local-games/dropem/dropem.zip"
+                    embedLink="/local-games/dropem/"
+                />,
+            );
+        break;
     }
 }
