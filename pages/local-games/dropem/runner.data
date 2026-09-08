@@ -1,4 +1,7 @@
-[LLVM-OPERAGX]
+//document.onvisibilitychange = () => { window.gml_Script_gmcallback_visibility_change(null, null, document.hidden); };[LLVM-OPERAGX]
 EMSDKDir="C:\emsdk/emsdk.bat"
 [OperaGX]
 ProjectGuid=""
+[ext_visibility_change]
+[GX_Cut]
+[GX_Recommence]
