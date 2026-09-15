@@ -25,7 +25,7 @@ if (contactContainer)
             icon="/assets/images/gmail.png"
         />
         <Contact
-            content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a></>}
+            content={<>Quib Inc: <a href="https://www.youtube.com/@keepmaking-ane">YT</a><br/>Dylan: <a href="https://www.youtube.com/@LynadShawl">YT</a></>}
             icon="/assets/images/youtube.png"
         />
         <Contact
