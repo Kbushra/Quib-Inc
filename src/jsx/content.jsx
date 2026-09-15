@@ -34,6 +34,10 @@ if (musicContainer)
             name="Black Hole White Hole - Void, Polarity (Aaqib)"
             link="https://www.youtube.com/embed/hoYnwby-qZ4"
         />
+        <MusicEmbed
+            name="The Metal Forge - Bit Mental (Dylan)"
+            link="https://www.youtube.com/embed/5IAEQNjjDwI"
+        />
     </>);
 }
 
