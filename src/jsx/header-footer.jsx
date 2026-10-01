@@ -95,7 +95,7 @@ function Footer() {
             />
             <FooterIcon
                 src="/assets/images/gmail.png"
-                link="https://mail.google.com/mail/u/?authuser=aaqibchoudhury3@gmail.com"
+                link="https://mail.google.com/mail/?fs=1&to=aaqibchoudhury3@gmail.com&su=SUBJECT&body=BODY&tf=cm"
             />
             <FooterIcon
                 src="/assets/images/youtube.png"
