@@ -53,6 +53,18 @@ function getShuffledGames()
             image="/assets/images/threeboxestitle.png"
         />,
         <FeaturedGame
+            name="Drop Em"
+            id={gameIds.dropEm}
+            key={gameIds.dropEm}
+            image="/assets/images/dropem.png"
+        />,
+        <FeaturedGame
+            name="Sweet Echos"
+            id={gameIds.sweetEchos}
+            key={gameIds.sweetEchos}
+            image="/assets/images/sweetechos.png"
+        />,
+        <FeaturedGame
             name="Into the Darkness"
             id={gameIds.intoTheDarkness}
             key={gameIds.intoTheDarkness}

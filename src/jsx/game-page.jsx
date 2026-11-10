@@ -279,5 +279,24 @@ if (gamePageContainer)
                 />,
             );
         break;
+        case gameIds.sweetEchos:
+            ReactDOM.createRoot(gamePageContainer).render(
+                <GamePage
+                    title="Sweet Echos"
+                    icon="/assets/images/sweetechos.png"
+                    desc=
+                    {
+                        <p style={{textAlign: "left"}}>
+                            A game made for the NHS Private Autumn Jam 2026, following the theme of Scare and limitation of Cutting.<br/>
+                            You play as a cute poltergeist scaring (and possibly murdering) people in the physical realm for their echos,
+                            which can be traded for items in the spiritual realm that other eager ghosts may want.
+                        </p>
+                    }
+                    pageLink="https://keepchatting.itch.io/sweet-echos"
+                    downloadLink="/local-games/sweetechos/sweetechos.zip"
+                    embedLink="/local-games/sweetechos/"
+                />,
+            );
+        break;
     }
 }

@@ -38,6 +38,14 @@ if (musicContainer)
             name="The Metal Forge - Bit Mental (Dylan)"
             link="https://www.youtube.com/embed/5IAEQNjjDwI"
         />
+        <MusicEmbed
+            name="Sweet Echos - Land of the Spirits (YupamLT)"
+            link="https://www.youtube.com/embed/vA6jFMNnsRQ"
+        />
+        <MusicEmbed
+            name="Sweet Echos - Polterheist (YupamLT)"
+            link="https://www.youtube.com/embed/pJ6i4EYCpko"
+        />
     </>);
 }
 
@@ -113,6 +121,11 @@ if (gameContainer)
             name="Drop Em"
             icon="/assets/images/dropem.png"
             link={`/game-page?game-id=${gameIds.dropEm}`}
+        />
+        <LinkedImage
+            name="Sweet Echos"
+            icon="/assets/images/sweetechos.png"
+            link={`/game-page?game-id=${gameIds.sweetEchos}`}
         />
     </>);
 }

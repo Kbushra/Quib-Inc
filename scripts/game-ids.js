@@ -8,5 +8,6 @@ export const gameIds =
     theThreeBoxes: "thethreeboxes",
     intoTheDarkness: "darkness",
     undertemModeSelector: "undertemmodes",
-    dropEm: "dropem"
+    dropEm: "dropem",
+    sweetEchos: "sweetechos"
 };
