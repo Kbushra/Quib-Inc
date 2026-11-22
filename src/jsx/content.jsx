@@ -70,6 +70,11 @@ if (websiteContainer)
             link="https://newhomestudios.neocities.org/"
         />
         <LinkedImage
+            name="Floweytale"
+            icon="/assets/images/floweytale-website.png"
+            link="https://floweytale.org/"
+        />
+        <LinkedImage
             name="User Manager"
             icon="/assets/images/user-manager.png"
             link="https://quib-inc-user-manager.vercel.app/"
@@ -156,6 +161,10 @@ if (mediaocreMusicContainer)
         <MusicEmbed
             name="Into the Darkness - Isolation (Aaqib)"
             link="https://www.youtube.com/embed/wlpSJbSUSRQ"
+        />
+        <MusicEmbed
+            name="Undertem - Ruins [WIP] (Krys)"
+            link="https://www.youtube.com/watch?v=4a7et55J8xk"
         />
     </>);
 }
