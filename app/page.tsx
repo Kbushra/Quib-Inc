@@ -1,11 +1,11 @@
 import Link from "next/link";
 import GameCard from "@/components/game-card";
+import FeaturedGames from "@/components/featured-games";
 import MusicCard from "@/components/music-card";
 import SectionHeading from "@/components/section-heading";
 import { PixelScene, PixelSpark } from "@/components/pixel-decor";
 import { devlog, games, tracks } from "@/lib/site";
 
-const featured = games.filter((game) => game.featured);
 const moreGames = games.filter((game) => !game.featured).slice(0, 4);
 
 export default function HomePage() {
@@ -45,27 +45,7 @@ export default function HomePage() {
           </div>
 
           <div className="enter" style={{ animationDelay: "120ms" }}>
-            <div className="grid grid-cols-2 gap-4 sm:gap-5">
-              {featured.slice(0, 4).map((game) => (
-                <Link
-                  key={game.slug}
-                  href={`/games/${game.slug}`}
-                  className="group block border-2 border-ink bg-paper shadow-pixel transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-pixel-lg active:translate-y-0"
-                >
-                  <div className="flex items-center justify-between gap-2 border-b-2 border-ink px-2 py-2">
-                    <span className="truncate font-display text-xs leading-none sm:text-sm">{game.name}</span>
-                    <PixelSpark className="h-3 w-3 shrink-0" />
-                  </div>
-                  <div className="aspect-[16/9] overflow-hidden bg-line">
-                    <img
-                      src={game.cover}
-                      alt={`${game.name} game art`}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <FeaturedGames games={games} />
           </div>
         </div>
       </section>
