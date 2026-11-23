@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* One system: colour, type, elevation and motion all come from here. */
+@theme {
+  --color-canvas: #f7f2e8;
+  --color-paper: #fffaf0;
+  --color-ink: #26201a;
+  --color-muted: #6a5f50;
+  --color-line: #e2d7c3;
+  --color-accent: #f2662a;
+  --color-accent-ink: #b84310;
+  --color-accent-soft: #ffd9bd;
+  --color-mint: #2e8b6a;
+  --color-sky: #5aa9e6;
+  --color-sun: #f3b73d;
+  --color-night: #221d19;
+
+  --font-display: var(--font-pixelify), "Pixelify Sans", monospace;
+  --font-body: var(--font-dm), "DM Sans", sans-serif;
+
+  --shadow-pixel: 4px 4px 0 0 var(--color-ink);
+  --shadow-pixel-lg: 7px 7px 0 0 var(--color-ink);
+  --shadow-pixel-accent: 4px 4px 0 0 var(--color-accent);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    line-height: 1.65;
+  }
+
+  a {
+    text-underline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@utility pixel-frame {
+  border: 2px solid var(--color-ink);
+  box-shadow: var(--shadow-pixel);
+  background: var(--color-paper);
+}
+
+@utility crisp {
+  image-rendering: pixelated;
+}
+
+@utility pixel-divider {
+  height: 2px;
+  background: var(--color-line);
+  border: 0;
+}
+
+@keyframes pixel-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility enter {
+  animation: pixel-rise 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes pixel-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@utility bob {
+  animation: pixel-bob 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
