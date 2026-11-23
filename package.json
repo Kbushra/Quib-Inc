@@ -1,51 +1,23 @@
 {
-  "name": "quib-inc.-portfolio",
+  "name": "quib-inc",
   "version": "1.0.0",
-  "description": "",
-  "main": "api/backend.js",
+  "private": true,
   "scripts": {
-    "compile-ts": "tsc",
-    "compile-jsx": "esbuild ./src/jsx/*.jsx --bundle --minify --sourcemap --format=esm --outdir=./scripts",
-    "compile": "npm run compile-ts && npm run compile-jsx",
-    "listen": "npx nodemon ./src/ts/backend-listener.ts"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kbushra/Quib-Inc..git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "types": "./api/backend.d.ts",
-  "bugs": {
-    "url": "https://github.com/Kbushra/Quib-Inc./issues"
-  },
-  "homepage": "https://github.com/Kbushra/Quib-Inc.#readme",
   "dependencies": {
-    "@supabase/supabase-js": "^2.76.1",
-    "cors": "^2.8.6",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "express-rate-limit": "^8.1.0",
-    "path": "^0.12.7",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "serverless-http": "^4.0.0",
-    "url": "^0.11.4"
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.28.6",
-    "@babel/core": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
-    "@babel/preset-react": "^7.28.5",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
-    "@types/react-dom": "^19.2.3",
-    "esbuild": "^0.27.2",
-    "nodemon": "^3.1.14",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1"
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2"
   }
 }
