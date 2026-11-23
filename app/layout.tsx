@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     siteName: "Quib Inc.",
     title: "Quib Inc.",
     description: "A website to give updates on Quib Inc. and its affiliated Mediaocre Games, providing their content.",
-    images: ["/assets/images/mainpage.png"],
+    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Quib Inc.",
     description: "A website to give updates on Quib Inc. and its affiliated Mediaocre Games, providing their content.",
-    images: ["/assets/images/mainpage.png"],
+    images: ["/og-image.png"],
   },
   icons: { icon: "/favicon.apng" },
 };

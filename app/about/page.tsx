@@ -18,7 +18,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="border-2 border-ink bg-paper shadow-pixel">
-          <img src="/assets/images/mainpage.png" alt="A wall of Quib Inc. game art" className="w-full" />
+          <img src="/og-image.png" alt="Quib Inc. homepage" className="w-full" />
         </div>
       </div>
 
